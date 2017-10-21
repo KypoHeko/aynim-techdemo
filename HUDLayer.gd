@@ -3,9 +3,9 @@ extends CanvasLayer
 const MOTION_SPEED = 300
 
 func _ready():
+	Input.action_release("move_down")
 	Input.action_release("move_up")
 	Input.action_release("move_left")
-	Input.action_release("move_down")
 	Input.action_release("move_right")
 
 func _on_Pause_pressed():
@@ -97,3 +97,4 @@ func _on_Load_pressed():
 			
 			#if attribute == "pos":
 				#node.set_pos(Vector2(data[node_path]['pos']['x'], data[node_path]['pos']['y']))
+

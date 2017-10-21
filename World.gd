@@ -25,19 +25,21 @@ func _on_Area2D_3_body_exit(body):
 func _on_ToCityMap_body_enter( body ):
 	if (body.get_name() == "Player"):
 		get_tree().change_scene("res://CityMap.tscn")
-		print(global.entry_point)
 
 func _on_ToFirstScene_body_enter( body ):
 	if (body.get_name() == "Player"):
 		get_tree().change_scene("res://FirstScene.tscn")
+		global.entry_point = 1
 		print(global.entry_point)
 
 func _on_ToSecondScene_body_enter( body ):
 	if (body.get_name() == "Player"):
 		get_tree().change_scene("res://SecondScene.tscn")
+		global.entry_point = 2
 		print(global.entry_point)
 
 func _on_ToThirdScene_body_enter( body ):
 	if (body.get_name() == "Player"):
 		get_tree().change_scene("res://ThirdScene.tscn")
+		global.entry_point = 3
 		print(global.entry_point)
