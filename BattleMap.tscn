@@ -3,8 +3,9 @@
 [ext_resource path="res://BattleMap.gd" type="Script" id=1]
 [ext_resource path="res://HUDLayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://AUS.png" type="Texture" id=4]
+[ext_resource path="res://img/AUS.png" type="Texture" id=4]
 [ext_resource path="res://markerfelt.fnt" type="BitmapFont" id=5]
+
 
 [sub_resource type="CircleShape2D" id=1]
 

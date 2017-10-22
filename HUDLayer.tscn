@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://HUDLayer.gd" type="Script" id=1]
-[ext_resource path="res://hudredbar.png" type="Texture" id=2]
-[ext_resource path="res://hudbluebar.png" type="Texture" id=3]
-[ext_resource path="res://hudgreenbar.png" type="Texture" id=4]
+[ext_resource path="res://img/hudredbar.png" type="Texture" id=2]
+[ext_resource path="res://img/hudbluebar.png" type="Texture" id=3]
+[ext_resource path="res://img/hudgreenbar.png" type="Texture" id=4]
 [ext_resource path="res://joystick/AU.png" type="Texture" id=5]
 [ext_resource path="res://joystick/AU2.png" type="Texture" id=6]
 [ext_resource path="res://joystick/AR.png" type="Texture" id=7]
@@ -22,15 +22,27 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 script/script = ExtResource( 1 )
 
-[node name="TextureProgress" type="TextureProgress" parent="."]
+[node name="Panel 3" type="Panel" parent="."]
+
+visibility/self_opacity = 0.2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 140.0
+margin/top = 0.0
+margin/right = 470.0
+margin/bottom = 100.0
+
+[node name="TextureProgress" type="TextureProgress" parent="Panel 3"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 150.0
+margin/left = 10.0
 margin/top = 5.0
-margin/right = 703.0
+margin/right = 560.0
 margin/bottom = 37.0
 range/min = 0.0
 range/max = 100.0
@@ -45,15 +57,15 @@ texture/progress = ExtResource( 2 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
-[node name="TextureProgress1" type="TextureProgress" parent="."]
+[node name="TextureProgress1" type="TextureProgress" parent="Panel 3"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 150.0
+margin/left = 10.0
 margin/top = 35.0
-margin/right = 703.0
+margin/right = 560.0
 margin/bottom = 67.0
 range/min = 0.0
 range/max = 100.0
@@ -68,15 +80,15 @@ texture/progress = ExtResource( 3 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
-[node name="TextureProgress2" type="TextureProgress" parent="."]
+[node name="TextureProgress2" type="TextureProgress" parent="Panel 3"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 150.0
+margin/left = 10.0
 margin/top = 65.0
-margin/right = 703.0
+margin/right = 560.0
 margin/bottom = 97.0
 range/min = 0.0
 range/max = 100.0
