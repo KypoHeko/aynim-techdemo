@@ -5,7 +5,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gem1.png" type="Texture" id=4]
 [ext_resource path="res://bazaar.png" type="Texture" id=5]
-[ext_resource path="res://SecondScene.png" type="Texture" id=6]
+[ext_resource path="res://img/SecondScene.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
