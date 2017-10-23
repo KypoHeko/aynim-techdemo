@@ -5,7 +5,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gem1.png" type="Texture" id=4]
 [ext_resource path="res://bazaar.png" type="Texture" id=5]
-[ext_resource path="res://ThirdScene.png" type="Texture" id=6]
+[ext_resource path="res://img/ThirdScene.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -232,6 +232,7 @@ _update_shape_index = 0
 
 [node name="Gem4" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 1046.03, 629.829 )
 input/pickable = false
 shapes/0/shape = SubResource( 6 )

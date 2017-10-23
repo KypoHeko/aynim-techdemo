@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://CityMap.gd" type="Script" id=1]
-[ext_resource path="res://CityMap.png" type="Texture" id=2]
+[ext_resource path="res://img/CityMap.png" type="Texture" id=2]
 [ext_resource path="res://img/to1s.png" type="Texture" id=3]
 [ext_resource path="res://img/to1sp.png" type="Texture" id=4]
 [ext_resource path="res://img/to2s.png" type="Texture" id=5]
