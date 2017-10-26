@@ -97,4 +97,3 @@ func _on_Load_pressed():
 			
 			#if attribute == "pos":
 				#node.set_pos(Vector2(data[node_path]['pos']['x'], data[node_path]['pos']['y']))
-
