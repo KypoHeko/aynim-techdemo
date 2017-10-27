@@ -71,3 +71,14 @@ func _on_ToSecondScene_body_enter( body ):
 func _on_ToThirdScene_body_enter( body ):
 	if (body.get_name() == "Player"):
 		get_tree().change_scene("res://ThirdScene.tscn")
+
+
+
+var bazaar_open = false
+func _on_ButtonTrade_pressed():
+	if bazaar_open == false:
+		get_node("HUDLayer/TabContainer").show()
+		bazaar_open = not bazaar_open 
+	else:
+		get_node("HUDLayer/TabContainer").hide()
+		bazaar_open = not bazaar_open 
