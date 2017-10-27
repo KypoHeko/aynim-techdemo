@@ -1,12 +1,24 @@
 extends CanvasLayer
 
 const MOTION_SPEED = 300
+var timer = 0.0
 
 func _ready():
 	Input.action_release("move_down")
 	Input.action_release("move_up")
 	Input.action_release("move_left")
 	Input.action_release("move_right")
+
+func _process(delta):
+	timer += delta*20
+	get_node("BarPanel/TextureProgress3").set_value(timer)
+	
+	for node in get_tree().get_nodes_in_group('persistent'):
+		print(node.get_node("RadialBar").set_value(timer))
+	
+	if timer > 100:
+		timer = 0.0
+		set_process(false)
 
 func _on_Pause_pressed():
 	get_tree().set_pause(true)
@@ -15,6 +27,20 @@ func _on_Pause_pressed():
 func _on_Unpause_pressed():
 	get_tree().set_pause(false)
 	print("Unpause")
+
+var tt = false
+func _on_Inventory_pressed():
+	if tt == false:
+		get_node("Inventory").show()
+		tt = not tt
+	else:
+		get_node("Inventory").hide()
+		tt = not tt
+
+func _on_RunButton_pressed():
+	set_process(true)
+
+
 
 var t = false
 func _on_Menu_pressed():
@@ -44,6 +70,7 @@ func _on_OK_pressed():
 	get_node("Panel 2").hide()
 
 
+
 func _on_ButtonUp_button_down():
 	Input.action_press("move_up")
 func _on_ButtonUp_button_up():
@@ -63,7 +90,8 @@ func _on_ButtonLeft_button_down():
 	Input.action_press("move_left")
 func _on_ButtonLeft_button_up():
 	Input.action_release("move_left")
-	
+
+
 
 const SAVE_PATH = "res://saves/save.json"
 func _on_Save_pressed():

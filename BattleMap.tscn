@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://BattleMap.gd" type="Script" id=1]
 [ext_resource path="res://HUDLayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://img/foe_pink.png" type="Texture" id=4]
 [ext_resource path="res://fonts/markerfelt.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://img/19.jpg" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -161,6 +162,7 @@ _update_shape_index = 0
 
 [node name="KinematicBody2D3" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 1086.94, 167.326 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -233,6 +235,12 @@ text = "Begins"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 480.314, 292.723 )
+z/z = -1
+texture = ExtResource( 6 )
 
 [connection signal="body_enter" from="KinematicBody2D/Area2D" to="." method="_on_Area2D_body_enter"]
 
