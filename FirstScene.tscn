@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://sounds/noiseofbazaar1.ogg" type="AudioStream" id=2]
@@ -8,7 +8,13 @@
 [ext_resource path="res://gem1.png" type="Texture" id=6]
 [ext_resource path="res://bazaar.png" type="Texture" id=7]
 [ext_resource path="res://fonts/arial.fnt" type="BitmapFont" id=8]
-[ext_resource path="res://img/FirstScene.png" type="Texture" id=9]
+[ext_resource path="res://scripts/NPC.gd" type="Script" id=9]
+[ext_resource path="res://img/FirstScene.png" type="Texture" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -35,22 +41,17 @@ radius = 10.0
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="CircleShape2D" id=7]
-
-custom_solver_bias = 0.0
-radius = 10.0
-
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 114.418, 10 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 133.026 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 70.3577 )
@@ -87,7 +88,7 @@ z/z = 1
 editor/display_folded = true
 transform/pos = Vector2( 167, 122 )
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 3, 0, 0, 3, 0, 25 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -102,7 +103,7 @@ texture = ExtResource( 6 )
 
 transform/pos = Vector2( 0, 25 )
 transform/scale = Vector2( 3, 3 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
@@ -128,7 +129,7 @@ flat = false
 transform/pos = Vector2( 0, 25 )
 transform/scale = Vector2( 2, 2 )
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 3, 0, 0, 3, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -157,21 +158,21 @@ max_lines_visible = -1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gem1/Area2D_1"]
 
 transform/scale = Vector2( 3, 3 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Gem2" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 869.806, 231.579 )
 input/pickable = false
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 3, 0, 0, 3, 0, 25 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
+script/script = ExtResource( 9 )
 
 [node name="Sprite1" type="Sprite" parent="Gem2"]
 
@@ -181,7 +182,7 @@ texture = ExtResource( 6 )
 
 transform/pos = Vector2( 0, 25 )
 transform/scale = Vector2( 3, 3 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
@@ -190,7 +191,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 407.756, 487.535 )
 input/pickable = false
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 3, 0, 0, 3, 0, 25 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -205,7 +206,7 @@ texture = ExtResource( 6 )
 
 transform/pos = Vector2( 0, 25 )
 transform/scale = Vector2( 3, 3 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
@@ -231,7 +232,7 @@ flat = false
 transform/pos = Vector2( 0, 25 )
 transform/scale = Vector2( 2, 2 )
 input/pickable = true
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 3, 0, 0, 3, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -260,7 +261,7 @@ max_lines_visible = -1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gem3/Area2D_3"]
 
 transform/scale = Vector2( 3, 3 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 0
 
@@ -269,7 +270,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 1046.03, 629.829 )
 input/pickable = false
-shapes/0/shape = SubResource( 7 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 3, 0, 0, 3, 0, 25 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -284,7 +285,7 @@ texture = ExtResource( 6 )
 
 transform/pos = Vector2( 0, 25 )
 transform/scale = Vector2( 3, 3 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
 
@@ -293,14 +294,14 @@ _update_shape_index = 0
 visibility/opacity = 0.5
 transform/pos = Vector2( 801.261, 199.975 )
 z/z = -1
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="ToCityMap" type="Area2D" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 775.107, -98.4263 )
 input/pickable = true
-shapes/0/shape = SubResource( 8 )
+shapes/0/shape = SubResource( 7 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -310,7 +311,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToCityMap"]
 
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 trigger = false
 _update_shape_index = 0
 
@@ -319,7 +320,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( -45.1121, 375.25 )
 input/pickable = true
-shapes/0/shape = SubResource( 9 )
+shapes/0/shape = SubResource( 8 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -329,7 +330,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToSecondScene"]
 
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 trigger = false
 _update_shape_index = 0
 
@@ -338,7 +339,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 1613.78, 360.897 )
 input/pickable = true
-shapes/0/shape = SubResource( 10 )
+shapes/0/shape = SubResource( 9 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1.65976, -5.0105, 9.79507 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -350,7 +351,7 @@ angular_damp = 1.0
 
 transform/pos = Vector2( -5.0105, 9.79507 )
 transform/scale = Vector2( 1, 1.65976 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 trigger = false
 _update_shape_index = 0
 
