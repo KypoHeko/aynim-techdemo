@@ -43,6 +43,7 @@ func _on_Area2D_1_body_exit(body):
 	if (body.get_name() == "Player"):
 		get_node("Gem1/Area2D_1/Trade").hide()
 		get_node("Gem1/Button1").hide()
+		get_node("HUDLayer/TabContainer").hide()
 
 func _on_Area2D_3_body_enter(body):
 	if (body.get_name() == "Player"):
@@ -53,6 +54,7 @@ func _on_Area2D_3_body_exit(body):
 	if (body.get_name() == "Player"):
 		get_node("Gem3/Area2D_3/Trade").hide()
 		get_node("Gem3/Button3").hide()
+		get_node("HUDLayer/TabContainer").hide()
 
 
 
@@ -74,11 +76,5 @@ func _on_ToThirdScene_body_enter( body ):
 
 
 
-var bazaar_open = false
 func _on_ButtonTrade_pressed():
-	if bazaar_open == false:
-		get_node("HUDLayer/TabContainer").show()
-		bazaar_open = not bazaar_open 
-	else:
-		get_node("HUDLayer/TabContainer").hide()
-		bazaar_open = not bazaar_open 
+	get_node("HUDLayer/TabContainer").show()

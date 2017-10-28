@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://CityMap.gd" type="Script" id=1]
-[ext_resource path="res://img/CityMap.png" type="Texture" id=2]
+[ext_resource path="res://img/CityMap.jpg" type="Texture" id=2]
 [ext_resource path="res://img/to1s.png" type="Texture" id=3]
 [ext_resource path="res://img/to1sp.png" type="Texture" id=4]
 [ext_resource path="res://img/to2s.png" type="Texture" id=5]
@@ -16,7 +16,7 @@ script/script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 514.824, 300.627 )
+transform/pos = Vector2( 640, 360 )
 texture = ExtResource( 2 )
 
 [node name="Button" type="TextureButton" parent="Sprite"]
@@ -25,10 +25,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -46.0
-margin/top = -185.0
-margin/right = 14.0
-margin/bottom = -125.0
+margin/left = -117.0
+margin/top = -91.0
+margin/right = -57.0
+margin/bottom = -31.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -43,10 +43,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -273.0
-margin/top = 128.0
-margin/right = -213.0
-margin/bottom = 188.0
+margin/left = -371.0
+margin/top = 30.0
+margin/right = -311.0
+margin/bottom = 90.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -61,10 +61,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 185.0
-margin/top = 127.0
-margin/right = 245.0
-margin/bottom = 187.0
+margin/left = 153.0
+margin/top = 53.0
+margin/right = 213.0
+margin/bottom = 113.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -79,10 +79,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -481.0
-margin/top = -269.0
-margin/right = -441.0
-margin/bottom = -229.0
+margin/left = -471.0
+margin/top = -102.0
+margin/right = -431.0
+margin/bottom = -62.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
