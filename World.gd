@@ -60,19 +60,23 @@ func _on_Area2D_3_body_exit(body):
 
 func _on_ToCityMap_body_enter( body ):
 	if (body.get_name() == "Player"):
-		get_tree().change_scene("res://CityMap.tscn")
+		#get_tree().change_scene("res://CityMap.tscn")
+		Transition.fade_to("res://CityMap.tscn")
 
 func _on_ToFirstScene_body_enter( body ):
 	if (body.get_name() == "Player"):
-		get_tree().change_scene("res://FirstScene.tscn")
+		#get_tree().change_scene("res://FirstScene.tscn")
+		Transition.fade_to("res://FirstScene.tscn")
 
 func _on_ToSecondScene_body_enter( body ):
 	if (body.get_name() == "Player"):
-		get_tree().change_scene("res://SecondScene.tscn")
+		#get_tree().change_scene("res://SecondScene.tscn")
+		Transition.fade_to("res://SecondScene.tscn")
 
 func _on_ToThirdScene_body_enter( body ):
 	if (body.get_name() == "Player"):
-		get_tree().change_scene("res://ThirdScene.tscn")
+		#get_tree().change_scene("res://ThirdScene.tscn")
+		Transition.fade_to("res://ThirdScene.tscn")
 
 
 

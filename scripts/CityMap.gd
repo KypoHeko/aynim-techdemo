@@ -5,13 +5,13 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://FirstScene.tscn")
+	Transition.fade_to("res://FirstScene.tscn")
 
 func _on_Button1_pressed():
-	get_tree().change_scene("res://SecondScene.tscn")
+	Transition.fade_to("res://SecondScene.tscn")
 
 func _on_Button2_pressed():
-	get_tree().change_scene("res://ThirdScene.tscn")
+	Transition.fade_to("res://ThirdScene.tscn")
 
 func _on_Button3_pressed():
-	get_tree().change_scene("res://WorldMap.tscn")
+	Transition.fade_to("res://WorldMap.tscn")
