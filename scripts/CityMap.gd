@@ -15,3 +15,4 @@ func _on_Button2_pressed():
 
 func _on_Button3_pressed():
 	Transition.fade_to("res://WorldMap.tscn")
+	MusicInCity.stop()

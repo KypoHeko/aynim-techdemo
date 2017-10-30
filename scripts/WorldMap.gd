@@ -3,6 +3,7 @@ extends Node2D
 
 func _on_TextureButton_pressed():
 	Transition.fade_to("res://CityMap.tscn")
+	MusicInCity.play()
 
 
 func _on_TextureButton_2_pressed():
