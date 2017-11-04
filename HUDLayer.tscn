@@ -1,20 +1,23 @@
-[gd_scene load_steps=16 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://scripts/HUDLayer.gd" type="Script" id=1]
-[ext_resource path="res://joystick/AU.png" type="Texture" id=2]
-[ext_resource path="res://joystick/AU2.png" type="Texture" id=3]
-[ext_resource path="res://joystick/AR.png" type="Texture" id=4]
-[ext_resource path="res://joystick/AR2.png" type="Texture" id=5]
-[ext_resource path="res://joystick/AD.png" type="Texture" id=6]
-[ext_resource path="res://joystick/AD2.png" type="Texture" id=7]
-[ext_resource path="res://joystick/AL.png" type="Texture" id=8]
-[ext_resource path="res://joystick/AL2.png" type="Texture" id=9]
-[ext_resource path="res://img/hudredbar.png" type="Texture" id=10]
-[ext_resource path="res://img/hudbluebar.png" type="Texture" id=11]
-[ext_resource path="res://img/hudgreenbar.png" type="Texture" id=12]
-[ext_resource path="res://img/hudgreybar.png" type="Texture" id=13]
-[ext_resource path="res://img/hudyellowbar.png" type="Texture" id=14]
-[ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=15]
+[ext_resource path="res://img/hudredbar.png" type="Texture" id=2]
+[ext_resource path="res://img/hudbluebar.png" type="Texture" id=3]
+[ext_resource path="res://img/hudgreenbar.png" type="Texture" id=4]
+[ext_resource path="res://img/hudgreybar.png" type="Texture" id=5]
+[ext_resource path="res://img/hudyellowbar.png" type="Texture" id=6]
+[ext_resource path="res://img/FirstSceneMini.png" type="Texture" id=7]
+[ext_resource path="res://img/head.png" type="Texture" id=8]
+[ext_resource path="res://joystick/AU.png" type="Texture" id=9]
+[ext_resource path="res://joystick/AU2.png" type="Texture" id=10]
+[ext_resource path="res://joystick/AR.png" type="Texture" id=11]
+[ext_resource path="res://joystick/AR2.png" type="Texture" id=12]
+[ext_resource path="res://joystick/AD.png" type="Texture" id=13]
+[ext_resource path="res://joystick/AD2.png" type="Texture" id=14]
+[ext_resource path="res://joystick/AL.png" type="Texture" id=15]
+[ext_resource path="res://joystick/AL2.png" type="Texture" id=16]
+[ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=17]
+[ext_resource path="res://img/CityMap.png" type="Texture" id=18]
 
 [node name="HUDLayer" type="CanvasLayer"]
 
@@ -24,6 +27,266 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 script/script = ExtResource( 1 )
+
+[node name="MainMenuPanel" type="Panel" parent="."]
+
+editor/display_folded = true
+visibility/self_opacity = 0.3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 100.0
+margin/bottom = 190.0
+
+[node name="Menu" type="Button" parent="MainMenuPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 60.0
+margin/bottom = 30.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Menu"
+flat = false
+
+[node name="Pause" type="Button" parent="MainMenuPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 40.0
+margin/right = 60.0
+margin/bottom = 60.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Pause"
+flat = false
+
+[node name="Unpause" type="Button" parent="MainMenuPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 70.0
+margin/right = 78.0
+margin/bottom = 90.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Unpause"
+flat = false
+
+[node name="RunButton" type="Button" parent="MainMenuPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 100.0
+margin/right = 89.0
+margin/bottom = 120.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "RunButton"
+flat = false
+
+[node name="InventoryButton" type="Button" parent="MainMenuPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 130.0
+margin/right = 83.0
+margin/bottom = 150.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Inventory"
+flat = false
+
+[node name="Map" type="Button" parent="MainMenuPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 11.0
+margin/top = 160.0
+margin/right = 50.0
+margin/bottom = 180.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Map"
+flat = false
+
+[node name="BarPanel" type="Panel" parent="."]
+
+editor/display_folded = true
+visibility/self_opacity = 0.3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 110.0
+margin/top = 0.0
+margin/right = 440.0
+margin/bottom = 150.0
+
+[node name="TextureProgress" type="TextureProgress" parent="BarPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 5.0
+margin/right = 560.0
+margin/bottom = 37.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 2 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="TextureProgress1" type="TextureProgress" parent="BarPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 35.0
+margin/right = 560.0
+margin/bottom = 67.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 20.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 3 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="TextureProgress2" type="TextureProgress" parent="BarPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 65.0
+margin/right = 560.0
+margin/bottom = 97.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 60.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 4 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="TextureProgress4" type="TextureProgress" parent="BarPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 105.0
+margin/right = 320.0
+margin/bottom = 137.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 0.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="TextureProgress3" type="TextureProgress" parent="BarPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 105.0
+margin/right = 320.0
+margin/bottom = 139.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 1.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 6 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="MinimapPanel" type="Panel" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+visibility/self_opacity = 0.3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 167.0
+margin/top = 74.0
+margin/right = 1167.0
+margin/bottom = 674.0
+
+[node name="Sprite" type="Sprite" parent="MinimapPanel"]
+
+transform/pos = Vector2( 500, 300 )
+texture = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="MinimapPanel/Sprite"]
+
+texture = ExtResource( 8 )
 
 [node name="JoystickPanel" type="Panel" parent="."]
 
@@ -54,8 +317,8 @@ margin/bottom = 28.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -72,8 +335,8 @@ margin/bottom = 95.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 4 )
-textures/pressed = ExtResource( 5 )
+textures/normal = ExtResource( 11 )
+textures/pressed = ExtResource( 12 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -90,8 +353,8 @@ margin/bottom = 138.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 6 )
-textures/pressed = ExtResource( 7 )
+textures/normal = ExtResource( 13 )
+textures/pressed = ExtResource( 14 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -108,278 +371,41 @@ margin/bottom = 95.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
+textures/normal = ExtResource( 15 )
+textures/pressed = ExtResource( 16 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
-[node name="BarPanel" type="Panel" parent="."]
-
-editor/display_folded = true
-visibility/self_opacity = 0.2
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 0.0
-margin/right = 430.0
-margin/bottom = 150.0
-
-[node name="TextureProgress" type="TextureProgress" parent="BarPanel"]
+[node name="Save" type="Button" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 5.0
-margin/right = 560.0
-margin/bottom = 37.0
-range/min = 0.0
-range/max = 100.0
-range/step = 1.0
-range/page = 0.0
-range/value = 100.0
-range/exp_edit = false
-range/rounded = false
-texture/under = null
-texture/over = null
-texture/progress = ExtResource( 10 )
-radial_fill/fill_degrees = 360.0
-radial_fill/center_offset = Vector2( 0, 0 )
-
-[node name="TextureProgress1" type="TextureProgress" parent="BarPanel"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 35.0
-margin/right = 560.0
-margin/bottom = 67.0
-range/min = 0.0
-range/max = 100.0
-range/step = 1.0
-range/page = 0.0
-range/value = 20.0
-range/exp_edit = false
-range/rounded = false
-texture/under = null
-texture/over = null
-texture/progress = ExtResource( 11 )
-radial_fill/fill_degrees = 360.0
-radial_fill/center_offset = Vector2( 0, 0 )
-
-[node name="TextureProgress2" type="TextureProgress" parent="BarPanel"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 65.0
-margin/right = 560.0
-margin/bottom = 97.0
-range/min = 0.0
-range/max = 100.0
-range/step = 1.0
-range/page = 0.0
-range/value = 60.0
-range/exp_edit = false
-range/rounded = false
-texture/under = null
-texture/over = null
-texture/progress = ExtResource( 12 )
-radial_fill/fill_degrees = 360.0
-radial_fill/center_offset = Vector2( 0, 0 )
-
-[node name="TextureProgress4" type="TextureProgress" parent="BarPanel"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 105.0
-margin/right = 320.0
-margin/bottom = 137.0
-range/min = 0.0
-range/max = 100.0
-range/step = 1.0
-range/page = 0.0
-range/value = 0.0
-range/exp_edit = false
-range/rounded = false
-texture/under = null
-texture/over = null
-texture/progress = ExtResource( 13 )
-radial_fill/fill_degrees = 360.0
-radial_fill/center_offset = Vector2( 0, 0 )
-
-[node name="TextureProgress3" type="TextureProgress" parent="BarPanel"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 105.0
-margin/right = 320.0
-margin/bottom = 139.0
-range/min = 0.0
-range/max = 100.0
-range/step = 1.0
-range/page = 0.0
-range/value = 1.0
-range/exp_edit = false
-range/rounded = false
-texture/under = null
-texture/over = null
-texture/progress = ExtResource( 14 )
-radial_fill/fill_degrees = 360.0
-radial_fill/center_offset = Vector2( 0, 0 )
-
-[node name="MainMenuPanel" type="Panel" parent="."]
-
-editor/display_folded = true
-visibility/self_opacity = 0.3
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 90.0
-margin/bottom = 150.0
-
-[node name="Pause" type="Button" parent="MainMenuPanel"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 11.0
-margin/top = 9.0
-margin/right = 61.0
-margin/bottom = 29.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Pause"
-flat = false
-
-[node name="Unpause" type="Button" parent="MainMenuPanel"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 11.0
-margin/top = 37.0
-margin/right = 79.0
-margin/bottom = 57.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Unpause"
-flat = false
-
-[node name="Menu" type="Button" parent="MainMenuPanel"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 11.0
-margin/top = 65.0
-margin/right = 61.0
-margin/bottom = 85.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Menu"
-flat = false
-
-[node name="Save" type="Button" parent="MainMenuPanel"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 11.0
-margin/top = 93.0
-margin/right = 52.0
-margin/bottom = 113.0
+margin/left = 30.0
+margin/top = 199.0
+margin/right = 71.0
+margin/bottom = 219.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Save"
 flat = false
 
-[node name="Load" type="Button" parent="MainMenuPanel"]
+[node name="Load" type="Button" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 11.0
-margin/top = 121.0
-margin/right = 53.0
-margin/bottom = 141.0
+margin/left = 29.0
+margin/top = 229.0
+margin/right = 71.0
+margin/bottom = 249.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Load"
-flat = false
-
-[node name="RunButton" type="Button" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 160.0
-margin/right = 89.0
-margin/bottom = 180.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "RunButton"
-flat = false
-
-[node name="InventoryButton" type="Button" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 190.0
-margin/right = 83.0
-margin/bottom = 210.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Inventory"
-flat = false
-
-[node name="Map" type="Button" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 220.0
-margin/right = 49.0
-margin/bottom = 240.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Map"
 flat = false
 
 [node name="Panel" type="Panel" parent="."]
@@ -515,7 +541,7 @@ shortcut = null
 text = "OK"
 flat = false
 
-[node name="Inventory" parent="." instance=ExtResource( 15 )]
+[node name="Inventory" parent="." instance=ExtResource( 17 )]
 
 visibility/visible = false
 margin/left = 280.0
@@ -523,8 +549,9 @@ margin/top = 116.0
 margin/right = 1020.0
 margin/bottom = 556.0
 
-[node name="MinimapPanel" type="Panel" parent="."]
+[node name="MinimapCorner" type="Panel" parent="."]
 
+editor/display_folded = true
 visibility/self_opacity = 0.3
 anchor/right = 1
 focus/ignore_mouse = false
@@ -536,16 +563,30 @@ margin/top = 20.0
 margin/right = 20.0
 margin/bottom = 220.0
 
+[node name="TextureFrame" type="TextureFrame" parent="MinimapCorner"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 190.0
+margin/bottom = 190.0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 2
+
 [node name="Timer" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 440.0
-margin/top = 10.0
-margin/right = 485.0
-margin/bottom = 24.0
+margin/left = 110.0
+margin/top = 160.0
+margin/right = 155.0
+margin/bottom = 174.0
 text = "Timer: "
 percent_visible = 1.0
 lines_skipped = 0
@@ -557,10 +598,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 480.0
-margin/top = 10.0
-margin/right = 520.0
-margin/bottom = 24.0
+margin/left = 150.0
+margin/top = 160.0
+margin/right = 190.0
+margin/bottom = 174.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -571,6 +612,18 @@ process_mode = 1
 wait_time = 5.0
 one_shot = true
 autostart = false
+
+[connection signal="pressed" from="MainMenuPanel/Menu" to="." method="_on_Menu_pressed"]
+
+[connection signal="pressed" from="MainMenuPanel/Pause" to="." method="_on_Pause_pressed"]
+
+[connection signal="pressed" from="MainMenuPanel/Unpause" to="." method="_on_Unpause_pressed"]
+
+[connection signal="pressed" from="MainMenuPanel/RunButton" to="." method="_on_RunButton_pressed"]
+
+[connection signal="pressed" from="MainMenuPanel/InventoryButton" to="." method="_on_Inventory_pressed"]
+
+[connection signal="pressed" from="MainMenuPanel/Map" to="." method="_on_Map_pressed"]
 
 [connection signal="button_down" from="JoystickPanel/ButtonUp" to="." method="_on_ButtonUp_button_down"]
 
@@ -590,19 +643,9 @@ autostart = false
 
 [connection signal="button_up" from="JoystickPanel/ButtonLeft" to="." method="_on_ButtonLeft_button_up"]
 
-[connection signal="pressed" from="MainMenuPanel/Pause" to="." method="_on_Pause_pressed"]
+[connection signal="pressed" from="Save" to="." method="_on_Save_pressed"]
 
-[connection signal="pressed" from="MainMenuPanel/Unpause" to="." method="_on_Unpause_pressed"]
-
-[connection signal="pressed" from="MainMenuPanel/Menu" to="." method="_on_Menu_pressed"]
-
-[connection signal="pressed" from="MainMenuPanel/Save" to="." method="_on_Save_pressed"]
-
-[connection signal="pressed" from="MainMenuPanel/Load" to="." method="_on_Load_pressed"]
-
-[connection signal="pressed" from="RunButton" to="." method="_on_RunButton_pressed"]
-
-[connection signal="pressed" from="InventoryButton" to="." method="_on_Inventory_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_Load_pressed"]
 
 [connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 

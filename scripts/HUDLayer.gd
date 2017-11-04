@@ -8,6 +8,37 @@ func _ready():
 	Input.action_release("move_left")
 	Input.action_release("move_right")
 
+func _on_ButtonUp_button_down():
+	Input.action_press("move_up")
+func _on_ButtonUp_button_up():
+	Input.action_release("move_up")
+
+func _on_ButtonRight_button_down():
+	Input.action_press("move_right")
+func _on_ButtonRight_button_up():
+	Input.action_release("move_right")
+
+func _on_ButtonDown_button_down():
+	Input.action_press("move_down")
+func _on_ButtonDown_button_up():
+	Input.action_release("move_down")
+
+func _on_ButtonLeft_button_down():
+	Input.action_press("move_left")
+func _on_ButtonLeft_button_up():
+	Input.action_release("move_left")
+
+
+
+var t = false
+func _on_Menu_pressed():
+	if t == false:
+		get_node("Panel").show()
+		t = not t
+	else:
+		get_node("Panel").hide()
+		t = not t
+
 func _on_Pause_pressed():
 	get_tree().set_pause(true)
 	print("Pause")
@@ -15,6 +46,15 @@ func _on_Pause_pressed():
 func _on_Unpause_pressed():
 	get_tree().set_pause(false)
 	print("Unpause")
+
+var timer = 0.0
+var timer2 = 0.0
+var border = 0
+func _on_RunButton_pressed():
+	border += 20
+	get_node("BarPanel/TextureProgress4").set_value(border)
+	get_node("Timer 2").start()
+	set_process(true)
 
 var tt = false
 func _on_Inventory_pressed():
@@ -25,16 +65,16 @@ func _on_Inventory_pressed():
 		get_node("Inventory").hide()
 		tt = not tt
 
+var ttt = false
+func _on_Map_pressed():
+	if tt == false:
+		get_node("MinimapPanel").show()
+		tt = not tt
+	else:
+		get_node("MinimapPanel").hide()
+		tt = not tt
 
 
-var timer = 0.0
-var timer2 = 0.0
-var border = 0
-func _on_RunButton_pressed():
-	border += 20
-	get_node("BarPanel/TextureProgress4").set_value(border)
-	get_node("Timer 2").start()
-	set_process(true)
 
 func _process(delta):
 	timer += delta*20
@@ -61,16 +101,6 @@ func _process(delta):
 
 
 
-var t = false
-func _on_Menu_pressed():
-	if t == false:
-		get_node("Panel").show()
-		t = not t
-	else:
-		get_node("Panel").hide()
-		t = not t
-
-
 func _on_Resume_pressed():
 	get_node("Panel").hide()
 	t = false
@@ -87,28 +117,6 @@ func _on_Exit_pressed():
 
 func _on_OK_pressed():
 	get_node("Panel 2").hide()
-
-
-
-func _on_ButtonUp_button_down():
-	Input.action_press("move_up")
-func _on_ButtonUp_button_up():
-	Input.action_release("move_up")
-
-func _on_ButtonRight_button_down():
-	Input.action_press("move_right")
-func _on_ButtonRight_button_up():
-	Input.action_release("move_right")
-
-func _on_ButtonDown_button_down():
-	Input.action_press("move_down")
-func _on_ButtonDown_button_up():
-	Input.action_release("move_down")
-
-func _on_ButtonLeft_button_down():
-	Input.action_press("move_left")
-func _on_ButtonLeft_button_up():
-	Input.action_release("move_left")
 
 
 

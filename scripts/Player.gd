@@ -35,7 +35,6 @@ func _fixed_process(delta):
 #		slide_attempts -= 1
 
 	if (is_colliding()):
-		#print(get_collision_normal(), " ", get_collider_velocity())
 		get_collider().move(get_collision_normal() * (-1))
 
 

@@ -81,7 +81,7 @@ visibility/visible = false
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 640, 271.958 )
+transform/pos = Vector2( 640, 360 )
 z/z = 1
 
 [node name="Gem1" type="KinematicBody2D" parent="."]
