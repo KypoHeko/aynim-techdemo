@@ -4,6 +4,7 @@ const MOTION_SPEED = 300
 
 func _ready():
 	set_fixed_process(true)
+	set_process(true)
 
 func _fixed_process(delta):
 	#print(get_pos().x, " ", get_pos().y, " ", get_parent().get_name())
@@ -26,11 +27,18 @@ func _fixed_process(delta):
 	motion = motion.normalized()*MOTION_SPEED*delta
 	motion = move(motion)
 
-	var slide_attempts = 4
-	while(is_colliding() and slide_attempts > 0):
-		motion = get_collision_normal().slide(motion)
-		motion = move(motion)
-		slide_attempts -= 1
+# sliding moving
+#	var slide_attempts = 4
+#	while(is_colliding() and slide_attempts > 0):
+#		motion = get_collision_normal().slide(motion)
+#		motion = move(motion)
+#		slide_attempts -= 1
+
+	if (is_colliding()):
+		#print(get_collision_normal(), " ", get_collider_velocity())
+		get_collider().move(get_collision_normal() * (-1))
+
+
 
 func save():
 	var save_dict = {

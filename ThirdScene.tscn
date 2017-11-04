@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=1]
 
-[ext_resource path="res://World.gd" type="Script" id=1]
+[ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://sounds/noiseofbazaar2.ogg" type="AudioStream" id=2]
 [ext_resource path="res://HUDLayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://gem1.png" type="Texture" id=6]
 [ext_resource path="res://bazaar.png" type="Texture" id=7]
 [ext_resource path="res://img/ThirdScene.png" type="Texture" id=8]
+
 
 [sub_resource type="CircleShape2D" id=1]
 

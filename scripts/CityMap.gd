@@ -3,7 +3,6 @@ extends Node2D
 func _ready():
 	global.entry_point = 0
 
-
 func _on_Button_pressed():
 	Transition.fade_to("res://FirstScene.tscn")
 
@@ -15,4 +14,3 @@ func _on_Button2_pressed():
 
 func _on_Button3_pressed():
 	Transition.fade_to("res://WorldMap.tscn")
-	MusicInCity.stop()

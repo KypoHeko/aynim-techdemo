@@ -3,6 +3,8 @@ extends Node2D
 var pos_of_player = Vector2()
 
 func _ready():
+	set_process(true)
+	
 	print(global.entry_point, " ", get_name())
 	
 	if get_name() == "FirstScene":
@@ -65,17 +67,14 @@ func _on_ToCityMap_body_enter( body ):
 
 func _on_ToFirstScene_body_enter( body ):
 	if (body.get_name() == "Player"):
-		#get_tree().change_scene("res://FirstScene.tscn")
 		Transition.fade_to("res://FirstScene.tscn")
 
 func _on_ToSecondScene_body_enter( body ):
 	if (body.get_name() == "Player"):
-		#get_tree().change_scene("res://SecondScene.tscn")
 		Transition.fade_to("res://SecondScene.tscn")
 
 func _on_ToThirdScene_body_enter( body ):
 	if (body.get_name() == "Player"):
-		#get_tree().change_scene("res://ThirdScene.tscn")
 		Transition.fade_to("res://ThirdScene.tscn")
 
 

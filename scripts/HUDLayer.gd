@@ -1,24 +1,12 @@
 extends CanvasLayer
 
 const MOTION_SPEED = 300
-var timer = 0.0
 
 func _ready():
 	Input.action_release("move_down")
 	Input.action_release("move_up")
 	Input.action_release("move_left")
 	Input.action_release("move_right")
-
-func _process(delta):
-	timer += delta*20
-	get_node("BarPanel/TextureProgress3").set_value(timer)
-	
-	for node in get_tree().get_nodes_in_group('persistent'):
-		print(node.get_node("RadialBar").set_value(timer))
-	
-	if timer > 100:
-		timer = 0.0
-		set_process(false)
 
 func _on_Pause_pressed():
 	get_tree().set_pause(true)
@@ -37,8 +25,39 @@ func _on_Inventory_pressed():
 		get_node("Inventory").hide()
 		tt = not tt
 
+
+
+var timer = 0.0
+var timer2 = 0.0
+var border = 0
 func _on_RunButton_pressed():
+	border += 20
+	get_node("BarPanel/TextureProgress4").set_value(border)
+	get_node("Timer 2").start()
 	set_process(true)
+
+func _process(delta):
+	timer += delta*20
+	timer2 += delta*50
+	get_node("BarPanel/TextureProgress3").set_value(timer)
+	get_node("TimerValue").set_text(str(get_node("Timer 2").get_time_left()))
+	
+	for node in get_tree().get_nodes_in_group('persistent'):
+		node.get_node("RadialBar").set_value(timer2)
+	
+	if timer > border:
+		if timer > 100:
+			timer = 0.0
+			border = 0
+			get_node("BarPanel/TextureProgress3").set_value(timer)
+			get_node("BarPanel/TextureProgress4").set_value(timer)
+		set_process(false)
+	
+	if timer2 > 100:
+		timer2 = 0.0
+		for node in get_tree().get_nodes_in_group('persistent'):
+			node.get_node("RadialBar").set_value(timer2)
+		set_process(false)
 
 
 
@@ -125,3 +144,4 @@ func _on_Load_pressed():
 			
 			#if attribute == "pos":
 				#node.set_pos(Vector2(data[node_path]['pos']['x'], data[node_path]['pos']['y']))
+
