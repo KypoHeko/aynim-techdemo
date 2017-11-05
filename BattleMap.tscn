@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/BattleMap.gd" type="Script" id=1]
 [ext_resource path="res://HUDLayer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://fonts/markerfelt.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://fonts/Nanami.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://img/foe_pink.png" type="Texture" id=5]
 [ext_resource path="res://img/19.jpg" type="Texture" id=6]
@@ -13,17 +13,17 @@
 custom_solver_bias = 0.0
 radius = 10.0
 
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
 [sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="CircleShape2D" id=4]
-
-custom_solver_bias = 0.0
-radius = 10.0
-
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 
 resource/name = "BattleBegin"
 length = 2.0
@@ -148,7 +148,7 @@ texture = ExtResource( 5 )
 
 transform/pos = Vector2( 0, 15 )
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 20, 0, 0, 20, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -159,7 +159,7 @@ angular_damp = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Area2D"]
 
 transform/scale = Vector2( 20, 20 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
@@ -168,7 +168,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 438.04, 25.8471 )
 input/pickable = false
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 2, 0, 0, 2, 0, 45 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -179,7 +179,7 @@ collision/margin = 0.08
 
 transform/pos = Vector2( 0, 45 )
 transform/scale = Vector2( 2, 2 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
@@ -190,7 +190,7 @@ texture = ExtResource( 5 )
 [node name="Area2D1" type="Area2D" parent="KinematicBody2D1"]
 
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 20, 0, 0, 20, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -201,7 +201,7 @@ angular_damp = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D1/Area2D1"]
 
 transform/scale = Vector2( 20, 20 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
@@ -233,7 +233,7 @@ texture = ExtResource( 5 )
 
 transform/pos = Vector2( 0, 10 )
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 20, 0, 0, 20, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -244,7 +244,7 @@ angular_damp = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D2/Area2D2"]
 
 transform/scale = Vector2( 20, 20 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
@@ -275,7 +275,7 @@ texture = ExtResource( 5 )
 [node name="Area2D3" type="Area2D" parent="KinematicBody2D3"]
 
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 20, 0, 0, 20, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -286,7 +286,7 @@ angular_damp = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D3/Area2D3"]
 
 transform/scale = Vector2( 20, 20 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
@@ -313,7 +313,7 @@ process/pause_mode = 2
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/BattleBegin = SubResource( 5 )
+anims/BattleBegin = SubResource( 4 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

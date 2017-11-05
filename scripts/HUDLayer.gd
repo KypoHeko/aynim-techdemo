@@ -34,10 +34,10 @@ var t = false
 func _on_Menu_pressed():
 	if t == false:
 		get_node("Panel").show()
-		t = not t
+		t = !t
 	else:
 		get_node("Panel").hide()
-		t = not t
+		t = !t
 
 func _on_Pause_pressed():
 	get_tree().set_pause(true)
@@ -60,19 +60,19 @@ var tt = false
 func _on_Inventory_pressed():
 	if tt == false:
 		get_node("Inventory").show()
-		tt = not tt
+		tt = !tt
 	else:
 		get_node("Inventory").hide()
-		tt = not tt
+		tt = !tt
 
 var ttt = false
 func _on_Map_pressed():
 	if tt == false:
 		get_node("MinimapPanel").show()
-		tt = not tt
+		tt = !tt
 	else:
 		get_node("MinimapPanel").hide()
-		tt = not tt
+		tt = !tt
 
 
 
@@ -110,7 +110,7 @@ func _on_Options_pressed():
 
 func _on_Exit_to_main_menu_pressed():
 	print("To main menu")
-	get_tree().change_scene("res://MainMenu.tscn")
+	Transition.fade_to("res://MainMenu.tscn")
 
 func _on_Exit_pressed():
 	get_tree().quit()
@@ -120,36 +120,8 @@ func _on_OK_pressed():
 
 
 
-const SAVE_PATH = "res://saves/save.json"
 func _on_Save_pressed():
-	var save_dict = {}
-	var nodes_to_save = get_tree().get_nodes_in_group('persistent')
-	for node in nodes_to_save:
-		save_dict[node.get_path()] = node.save()
-	
-	var save_file = File.new()
-	save_file.open(SAVE_PATH, File.WRITE)
-	save_file.store_line(save_dict.to_json())
-	save_file.close()
+	global.savegame()
 
 func _on_Load_pressed():
-	var save_file = File.new()
-	if not save_file.file_exists(SAVE_PATH):
-		return
-	
-	save_file.open(SAVE_PATH, File.READ)
-	var data = {}
-	data.parse_json(save_file.get_as_text())
-	
-	for node_path in data.keys():
-		var node = get_node(node_path)
-		
-		for attribute in data[node_path]:
-			if attribute == "scene":
-				var loaded_scene = "res://" + data[node_path]['scene'] + ".tscn"
-				get_tree().change_scene(loaded_scene)
-				print(loaded_scene)
-			
-			#if attribute == "pos":
-				#node.set_pos(Vector2(data[node_path]['pos']['x'], data[node_path]['pos']['y']))
-
+	global.loadgame()

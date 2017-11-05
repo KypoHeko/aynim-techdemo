@@ -5,7 +5,7 @@ var pos_of_player = Vector2()
 func _ready():
 	set_process(true)
 	
-	print(global.entry_point, " ", get_name())
+	#print(global.entry_point, " ", get_name())
 	
 	if get_name() == "FirstScene":
 		if global.entry_point == 0:
@@ -31,7 +31,6 @@ func _ready():
 		global.entry_point = 3
 	
 	for node in get_tree().get_nodes_in_group('persistent'):
-		print(node.get_pos())
 		node.set_pos(pos_of_player)
 
 
