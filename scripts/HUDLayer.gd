@@ -47,6 +47,8 @@ func _on_Unpause_pressed():
 	get_tree().set_pause(false)
 	print("Unpause")
 
+
+
 var timer = 0.0
 var timer2 = 0.0
 var border = 0
@@ -85,6 +87,9 @@ func _process(delta):
 	for node in get_tree().get_nodes_in_group('persistent'):
 		node.get_node("RadialBar").set_value(timer2)
 	
+	if border > 100:
+		border = 100
+	
 	if timer > border:
 		if timer > 100:
 			timer = 0.0
@@ -98,6 +103,8 @@ func _process(delta):
 		for node in get_tree().get_nodes_in_group('persistent'):
 			node.get_node("RadialBar").set_value(timer2)
 		set_process(false)
+	
+	get_node("BarPanel/TextureProgress3/YBarValue1").set_text(str(round(timer)) + "/" + str(border))
 
 
 
