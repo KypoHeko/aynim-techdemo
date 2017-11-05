@@ -5,8 +5,6 @@ var pos_of_player = Vector2()
 func _ready():
 	set_process(true)
 	
-	#print(global.entry_point, " ", get_name())
-	
 	if get_name() == "FirstScene":
 		if global.entry_point == 0:
 			pos_of_player = Vector2(770, 0)

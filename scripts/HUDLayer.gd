@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-const MOTION_SPEED = 300
-
 func _ready():
 	Input.action_release("move_down")
 	Input.action_release("move_up")
@@ -10,6 +8,9 @@ func _ready():
 
 func _on_ButtonUp_button_down():
 	Input.action_press("move_up")
+	var icon = get_node("MinimapPanel/Minimap/PlayerIcon")
+	var iconpos = icon.get_pos()
+	icon.set_pos(iconpos + Vector2(0, -1))
 func _on_ButtonUp_button_up():
 	Input.action_release("move_up")
 
