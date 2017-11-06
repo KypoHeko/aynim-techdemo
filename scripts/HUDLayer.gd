@@ -130,3 +130,6 @@ func _on_Save_pressed():
 
 func _on_Load_pressed():
 	global.loadgame()
+
+func _on_InventoryButton_pressed():
+	pass # replace with function body
