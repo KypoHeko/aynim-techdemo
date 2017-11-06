@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=22 format=1]
 
 [ext_resource path="res://scripts/HUDLayer.gd" type="Script" id=1]
 [ext_resource path="res://img/hudredbar.png" type="Texture" id=2]
@@ -17,14 +17,20 @@
 [ext_resource path="res://joystick/AD2.png" type="Texture" id=15]
 [ext_resource path="res://joystick/AL.png" type="Texture" id=16]
 [ext_resource path="res://joystick/AL2.png" type="Texture" id=17]
-[ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=18]
+[ext_resource path="res://img/miniFS.png" type="Texture" id=18]
+[ext_resource path="res://img/minimapmask.png" type="Texture" id=19]
+[ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=20]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+shader/shading_mode = 2
 
 [node name="HUDLayer" type="CanvasLayer" groups=[
 "hud",
 ]]
 
 process/pause_mode = 2
-layer = 1
+layer = 0
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
@@ -370,8 +376,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="MinimapPanel" type="Panel" parent="."]
+[node name="MapPanel" type="Panel" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 visibility/self_opacity = 0.3
 focus/ignore_mouse = false
@@ -383,12 +390,12 @@ margin/top = 74.0
 margin/right = 1167.0
 margin/bottom = 674.0
 
-[node name="Minimap" type="Sprite" parent="MinimapPanel"]
+[node name="Map" type="Sprite" parent="MapPanel"]
 
 transform/pos = Vector2( 500, 300 )
 texture = ExtResource( 8 )
 
-[node name="PlayerIcon" type="Sprite" parent="MinimapPanel/Minimap"]
+[node name="PlayerIcon" type="Sprite" parent="MapPanel/Map"]
 
 texture = ExtResource( 9 )
 
@@ -480,8 +487,9 @@ textures/pressed = ExtResource( 17 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
-[node name="Panel 3" type="Panel" parent="."]
+[node name="MinimapPanel" type="Panel" parent="."]
 
+editor/display_folded = true
 visibility/self_opacity = 0.3
 anchor/right = 1
 focus/ignore_mouse = false
@@ -492,6 +500,44 @@ margin/left = 1050.0
 margin/top = 10.0
 margin/right = 10.0
 margin/bottom = 230.0
+
+[node name="TextureFrame" type="TextureFrame" parent="MinimapPanel"]
+
+material/material = SubResource( 1 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -226.0
+margin/top = -25.0
+margin/right = 254.0
+margin/bottom = 245.0
+texture = ExtResource( 18 )
+stretch_mode = 0
+
+[node name="Light2D" type="Light2D" parent="MinimapPanel"]
+
+transform/pos = Vector2( 110, 110 )
+z/z = 1
+enabled = true
+editor_only = false
+texture = ExtResource( 19 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 2
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
 
 [node name="Panel" type="Panel" parent="."]
 
@@ -626,7 +672,7 @@ shortcut = null
 text = "OK"
 flat = false
 
-[node name="Inventory" parent="." instance=ExtResource( 18 )]
+[node name="Inventory" parent="." instance=ExtResource( 20 )]
 
 visibility/visible = false
 margin/left = 280.0
@@ -671,47 +717,5 @@ process_mode = 1
 wait_time = 5.0
 one_shot = true
 autostart = false
-
-[connection signal="pressed" from="MainMenuPanel/Menu" to="." method="_on_Menu_pressed"]
-
-[connection signal="pressed" from="MainMenuPanel/Pause" to="." method="_on_Pause_pressed"]
-
-[connection signal="pressed" from="MainMenuPanel/Unpause" to="." method="_on_Unpause_pressed"]
-
-[connection signal="pressed" from="MainMenuPanel/RunButton" to="." method="_on_RunButton_pressed"]
-
-[connection signal="pressed" from="MainMenuPanel/InventoryButton" to="." method="_on_Inventory_pressed"]
-
-[connection signal="pressed" from="MainMenuPanel/Map" to="." method="_on_Map_pressed"]
-
-[connection signal="pressed" from="MainMenuPanel/Save" to="." method="_on_Save_pressed"]
-
-[connection signal="pressed" from="MainMenuPanel/Load" to="." method="_on_Load_pressed"]
-
-[connection signal="button_down" from="JoystickPanel/ButtonUp" to="." method="_on_ButtonUp_button_down"]
-
-[connection signal="button_up" from="JoystickPanel/ButtonUp" to="." method="_on_ButtonUp_button_up"]
-
-[connection signal="button_down" from="JoystickPanel/ButtonRight" to="." method="_on_ButtonRight_button_down"]
-
-[connection signal="button_up" from="JoystickPanel/ButtonRight" to="." method="_on_ButtonRight_button_up"]
-
-[connection signal="button_down" from="JoystickPanel/ButtonDown" to="." method="_on_ButtonDown_button_down"]
-
-[connection signal="button_up" from="JoystickPanel/ButtonDown" to="." method="_on_ButtonDown_button_up"]
-
-[connection signal="button_down" from="JoystickPanel/ButtonLeft" to="." method="_on_ButtonLeft_button_down"]
-
-[connection signal="button_up" from="JoystickPanel/ButtonLeft" to="." method="_on_ButtonLeft_button_up"]
-
-[connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
-
-[connection signal="pressed" from="Panel/VBoxContainer/Options" to="." method="_on_Options_pressed"]
-
-[connection signal="pressed" from="Panel/VBoxContainer/Exit to main menu" to="." method="_on_Exit_to_main_menu_pressed"]
-
-[connection signal="pressed" from="Panel/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
-
-[connection signal="pressed" from="Panel 2/OK" to="." method="_on_OK_pressed"]
 
 

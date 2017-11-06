@@ -8,9 +8,6 @@ func _ready():
 
 func _on_ButtonUp_button_down():
 	Input.action_press("move_up")
-	var icon = get_node("MinimapPanel/Minimap/PlayerIcon")
-	var iconpos = icon.get_pos()
-	icon.set_pos(iconpos + Vector2(0, -1))
 func _on_ButtonUp_button_up():
 	Input.action_release("move_up")
 
@@ -71,10 +68,10 @@ func _on_Inventory_pressed():
 var ttt = false
 func _on_Map_pressed():
 	if tt == false:
-		get_node("MinimapPanel").show()
+		get_node("MapPanel").show()
 		tt = !tt
 	else:
-		get_node("MinimapPanel").hide()
+		get_node("MapPanel").hide()
 		tt = !tt
 
 
