@@ -7,8 +7,8 @@
 [ext_resource path="res://img/icons/to2s.png" type="Texture" id=5]
 [ext_resource path="res://img/icons/to3s.png" type="Texture" id=6]
 [ext_resource path="res://img/icons/to3sp.png" type="Texture" id=7]
-[ext_resource path="res://bazaar.png" type="Texture" id=8]
-[ext_resource path="res://bazaarb.png" type="Texture" id=9]
+[ext_resource path="res://img/bazaar.png" type="Texture" id=8]
+[ext_resource path="res://img/bazaarb.png" type="Texture" id=9]
 
 [node name="Node2D" type="Node2D"]
 

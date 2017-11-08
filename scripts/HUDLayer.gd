@@ -85,18 +85,16 @@ func _process(delta):
 	for node in get_tree().get_nodes_in_group('persistent'):
 		node.get_node("RadialBar").set_value(timer2)
 	
-	if border > 100:
-		border = 100
-	
-	if timer > border:
-		if timer > 100:
-			timer = 0.0
-			border = 0
-			get_node("BarPanel/TextureProgress3").set_value(timer)
-			get_node("BarPanel/TextureProgress4").set_value(timer)
+	if timer >= border:
 		set_process(false)
 	
-	if timer2 > 100:
+	if timer >= 100:
+		timer = 0.0
+		border -= 100
+		get_node("BarPanel/TextureProgress3").set_value(timer)
+		get_node("BarPanel/TextureProgress4").set_value(border)
+	
+	if timer2 >= 100:
 		timer2 = 0.0
 		for node in get_tree().get_nodes_in_group('persistent'):
 			node.get_node("RadialBar").set_value(timer2)
@@ -130,6 +128,3 @@ func _on_Save_pressed():
 
 func _on_Load_pressed():
 	global.loadgame()
-
-func _on_InventoryButton_pressed():
-	pass # replace with function body

@@ -28,10 +28,10 @@ func _fixed_process(delta):
 		get_collider().move(get_collision_normal() * (-1))
 	
 	var icon = get_tree().get_nodes_in_group("hud")[0].get_node("MapPanel/Map/PlayerIcon")
-	icon.set_pos(get_pos()/5)
+	icon.set_pos(get_pos() / 5)
 	
 	var minimap = get_tree().get_nodes_in_group("hud")[0].get_node("MinimapPanel/TextureFrame")
-	minimap.set_pos(get_pos()/10)
+	minimap.set_pos(get_pos() * (-1) / 10)
 	
 #	var slide_attempts = 4
 #	while(is_colliding() and slide_attempts > 0):
