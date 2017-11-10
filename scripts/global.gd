@@ -4,10 +4,10 @@ var entry_point = 0
 const SAVE_PATH = "res://saves/save.json"
 
 func BattleStart():
-	pass
+	print("BattleStart!")
 
 func BattleEnd():
-	pass
+	print("BattleEnd!")
 
 func savegame():
 	var save_file = File.new()

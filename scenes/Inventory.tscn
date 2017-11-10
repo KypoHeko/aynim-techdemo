@@ -58,7 +58,7 @@ margin/top = 10.0
 margin/right = 130.0
 margin/bottom = 36.0
 custom_fonts/font = ExtResource( 1 )
-text = "Level:"
+text = "Battle level:"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
@@ -87,9 +87,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 10.0
-margin/top = 40.0
+margin/top = 45.0
 margin/right = 130.0
-margin/bottom = 66.0
+margin/bottom = 71.0
 custom_fonts/font = ExtResource( 1 )
 text = "Strengh:"
 align = 2
@@ -104,9 +104,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 140.0
-margin/top = 40.0
+margin/top = 45.0
 margin/right = 200.0
-margin/bottom = 66.0
+margin/bottom = 71.0
 custom_fonts/font = ExtResource( 1 )
 text = "10"
 percent_visible = 1.0
@@ -120,9 +120,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 10.0
-margin/top = 70.0
+margin/top = 75.0
 margin/right = 130.0
-margin/bottom = 96.0
+margin/bottom = 101.0
 custom_fonts/font = ExtResource( 1 )
 text = "Agility:"
 align = 2
@@ -137,9 +137,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 140.0
-margin/top = 70.0
+margin/top = 75.0
 margin/right = 200.0
-margin/bottom = 96.0
+margin/bottom = 101.0
 custom_fonts/font = ExtResource( 1 )
 text = "10"
 percent_visible = 1.0
@@ -153,9 +153,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 10.0
-margin/top = 100.0
+margin/top = 105.0
 margin/right = 130.0
-margin/bottom = 126.0
+margin/bottom = 131.0
 custom_fonts/font = ExtResource( 1 )
 text = "Endurance:"
 align = 2
@@ -170,9 +170,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 140.0
-margin/top = 100.0
+margin/top = 105.0
 margin/right = 200.0
-margin/bottom = 126.0
+margin/bottom = 131.0
 custom_fonts/font = ExtResource( 1 )
 text = "10"
 percent_visible = 1.0
@@ -186,9 +186,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 10.0
-margin/top = 130.0
+margin/top = 135.0
 margin/right = 130.0
-margin/bottom = 156.0
+margin/bottom = 161.0
 custom_fonts/font = ExtResource( 1 )
 text = "Luck:"
 align = 2
@@ -203,9 +203,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 140.0
-margin/top = 130.0
+margin/top = 135.0
 margin/right = 200.0
-margin/bottom = 156.0
+margin/bottom = 161.0
 custom_fonts/font = ExtResource( 1 )
 text = "10"
 percent_visible = 1.0
@@ -245,7 +245,7 @@ margin/top = 11.0
 margin/right = 14.0
 margin/bottom = 13.0
 
-[node name="Potions" type="Tabs" parent="."]
+[node name="Things" type="Tabs" parent="."]
 
 visibility/visible = false
 anchor/right = 1
@@ -259,7 +259,7 @@ margin/top = 32.0
 margin/right = 4.0
 margin/bottom = 4.0
 
-[node name="ItemList" type="ItemList" parent="Potions"]
+[node name="ItemList" type="ItemList" parent="Things"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -272,7 +272,7 @@ margin/top = 31.0
 margin/right = 119.0
 margin/bottom = 44.0
 
-[node name="Button1" type="Button" parent="Potions"]
+[node name="Button1" type="Button" parent="Things"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -288,7 +288,7 @@ shortcut = null
 text = "Use"
 flat = false
 
-[node name="Button2" type="Button" parent="Potions"]
+[node name="Button2" type="Button" parent="Things"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true

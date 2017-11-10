@@ -1,8 +1,13 @@
 extends KinematicBody2D
 
+var new_hit = 0
+var timer
 const MOTION_SPEED = 300
 
 func _ready():
+	randomize()
+	#timer = get_node("Damage/Timer")
+	timer = get_node("Weapon/Timer")
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -11,7 +16,23 @@ func _fixed_process(delta):
 	var move_down = Input.is_action_pressed("move_down")
 	var move_left = Input.is_action_pressed("move_left")
 	var move_right = Input.is_action_pressed("move_right")
-
+	
+	if Input.is_action_pressed("ui_select"):
+		if (timer.get_time_left() == 0):
+			get_node("Weapon").show()
+			get_node("Weapon/Anim").play("suburi")
+			timer.start()
+	if (timer.get_time_left() <= 0.1):
+		get_node("Weapon").hide()
+		
+		"""if (timer.get_time_left() <= 0.7):
+			if (timer.get_time_left() == 0):
+				new_hit = 0
+			timer.start()
+			new_hit += rand_range(1, 100)
+			get_node("Damage").set_text(str(round(new_hit)))
+			get_node("Damage/Anim").play("hit")"""
+	
 	if move_up:
 		motion += Vector2(0, -1)
 	if move_down:
