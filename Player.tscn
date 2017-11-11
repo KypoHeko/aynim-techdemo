@@ -146,4 +146,6 @@ autostart = false
 
 [node name="Weapon" parent="." instance=ExtResource( 5 )]
 
+visibility/visible = false
+
 

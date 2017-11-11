@@ -20,6 +20,7 @@ func _on_Area2D_2_area_enter( area ):
 		get_node("KinematicBody2D/Label").set_text(str(hp))
 		get_node("KinematicBody2D/Label/Anim").play("hit")
 	if hp <= 0:
+		global.add_stat(1)
 		get_node("KinematicBody2D").queue_free()
 
 
@@ -27,3 +28,4 @@ func _on_Area2D_2_area_enter( area ):
 func _on_ToWorldMap_body_enter( body ):
 	if (body.get_name() == "Player"):
 		Transition.fade_to("res://WorldMap.tscn")
+

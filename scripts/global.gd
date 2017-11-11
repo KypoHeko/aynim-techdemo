@@ -1,7 +1,19 @@
 extends Node
 
 var entry_point = 0
+var battle_level = 1
+var exp_points = 1
+var fib_a = 1
+var fib_b = 2
 const SAVE_PATH = "res://saves/save.json"
+
+func add_stat(i):
+	exp_points += i
+	while (exp_points >= fib_b):
+		battle_level += 1
+		fib_b += fib_a
+		fib_a = fib_b - fib_a
+		print(exp_points, " ", fib_a, " ", fib_b)
 
 func BattleStart():
 	print("BattleStart!")
