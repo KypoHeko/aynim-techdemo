@@ -113,7 +113,7 @@ func _on_Options_pressed():
 
 func _on_Exit_to_main_menu_pressed():
 	print("To main menu")
-	Transition.fade_to("res://MainMenu.tscn")
+	Transition.fade_to("res://scenes/MainMenu.tscn")
 
 func _on_Exit_pressed():
 	get_tree().quit()

@@ -1,10 +1,14 @@
 extends Node
 
 var entry_point = 0
+
 var battle_level = 1
 var exp_points = 1
 var fib_a = 1
 var fib_b = 2
+
+var colitems = 0
+
 const SAVE_PATH = "res://saves/save.json"
 
 func add_stat(i):
@@ -13,13 +17,22 @@ func add_stat(i):
 		battle_level += 1
 		fib_b += fib_a
 		fib_a = fib_b - fib_a
-		print(exp_points, " ", fib_a, " ", fib_b)
+		#print(exp_points, " ", fib_a, " ", fib_b)
 
 func BattleStart():
+	var icon = get_tree().get_nodes_in_group("hud")[0]
+	icon.get_node("JoystickPanel").hide()
+	icon.get_node("JoystickPanel1").show()
+	icon.get_node("BarPanel").show()
 	print("BattleStart!")
 
 func BattleEnd():
+	var icon = get_tree().get_nodes_in_group("hud")[0]
+	icon.get_node("JoystickPanel").show()
+	icon.get_node("JoystickPanel1").hide()
+	icon.get_node("BarPanel").hide()
 	print("BattleEnd!")
+
 
 func savegame():
 	var save_file = File.new()
@@ -42,7 +55,7 @@ func loadgame():
 	for i in data.keys():
 		if i == "scene":
 			global.entry_point = 0
-			var loaded_scene = "res://" + data[i] + ".tscn"
+			var loaded_scene = "res://scenes/" + data[i] + ".tscn"
 			Transition.fade_to(loaded_scene)
 		
 		var tmr = Timer.new()

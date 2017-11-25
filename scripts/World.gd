@@ -36,24 +36,29 @@ func _ready():
 func _on_ToCityMap_body_enter( body ):
 	if (body.get_name() == "Player"):
 		#get_tree().change_scene("res://CityMap.tscn")
-		Transition.fade_to("res://CityMap.tscn")
+		Transition.fade_to("res://scenes/CityMap.tscn")
 
 func _on_ToFirstScene_body_enter( body ):
 	if (body.get_name() == "Player"):
-		Transition.fade_to("res://FirstScene.tscn")
+		Transition.fade_to("res://scenes/FirstScene.tscn")
 
 func _on_ToSecondScene_body_enter( body ):
 	if (body.get_name() == "Player"):
-		Transition.fade_to("res://SecondScene.tscn")
+		Transition.fade_to("res://scenes/SecondScene.tscn")
 
 func _on_ToThirdScene_body_enter( body ):
 	if (body.get_name() == "Player"):
-		Transition.fade_to("res://ThirdScene.tscn")
+		Transition.fade_to("res://scenes/ThirdScene.tscn")
 
 
 
 func _on_Green_body_enter( body ):
-	pass
+	if (body.get_name() == "Player"):
+		global.colitems += 1
+		print(get_name())
+		get_node("Green1").queue_free()
 
 func _on_Blue_body_enter( body ):
-	pass
+	if (body.get_name() == "Player"):
+		global.colitems += 1
+		get_node("Blue1").queue_free()

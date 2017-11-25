@@ -22,6 +22,7 @@ func _fixed_process(delta):
 			get_node("Weapon").show()
 			get_node("Weapon/Anim").play("suburi")
 			timer.start()
+	
 	if (timer.get_time_left() <= 0.1):
 		get_node("Weapon").hide()
 		

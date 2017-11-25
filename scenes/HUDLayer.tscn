@@ -180,6 +180,7 @@ flat = false
 [node name="BarPanel" type="Panel" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 visibility/self_opacity = 0.3
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -487,6 +488,95 @@ textures/pressed = ExtResource( 17 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
+[node name="JoystickPanel1" type="Panel" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+visibility/self_opacity = 0.3
+anchor/top = 1
+anchor/bottom = 1
+rect/scale = Vector2( 1.5, 1.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 50.0
+margin/top = 260.0
+margin/right = 190.0
+margin/bottom = 120.0
+
+[node name="ButtonUp" type="TextureButton" parent="JoystickPanel1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 45.0
+margin/top = 0.0
+margin/right = 100.0
+margin/bottom = 28.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 10 )
+textures/pressed = ExtResource( 11 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="ButtonRight" type="TextureButton" parent="JoystickPanel1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 115.0
+margin/top = 40.0
+margin/right = 143.0
+margin/bottom = 95.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 12 )
+textures/pressed = ExtResource( 13 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="ButtonDown" type="TextureButton" parent="JoystickPanel1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 45.0
+margin/top = 110.0
+margin/right = 100.0
+margin/bottom = 138.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 14 )
+textures/pressed = ExtResource( 15 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="ButtonLeft" type="TextureButton" parent="JoystickPanel1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 40.0
+margin/right = 28.0
+margin/bottom = 95.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 16 )
+textures/pressed = ExtResource( 17 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
 [node name="MinimapPanel" type="Panel" parent="."]
 
 editor/display_folded = true
@@ -686,10 +776,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 110.0
-margin/top = 160.0
-margin/right = 175.0
-margin/bottom = 186.0
+margin/left = 6.0
+margin/top = 255.0
+margin/right = 71.0
+margin/bottom = 281.0
 custom_fonts/font = ExtResource( 3 )
 text = "Timer: "
 percent_visible = 1.0
@@ -702,10 +792,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 169.0
-margin/top = 160.0
-margin/right = 209.0
-margin/bottom = 186.0
+margin/left = 65.0
+margin/top = 255.0
+margin/right = 105.0
+margin/bottom = 281.0
 custom_fonts/font = ExtResource( 3 )
 percent_visible = 1.0
 lines_skipped = 0

@@ -1,14 +1,13 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://sounds/noiseofbazaar2.ogg" type="AudioStream" id=2]
-[ext_resource path="res://HUDLayer.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://img/ThirdScene.png" type="Texture" id=5]
+[ext_resource path="res://img/ThirdScene.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/HUDLayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Merchant.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scripts/test.gd" type="Script" id=7]
-[ext_resource path="res://img/Green.png" type="Texture" id=8]
-[ext_resource path="res://img/Blue.png" type="Texture" id=9]
+[ext_resource path="res://img/Green.png" type="Texture" id=7]
+[ext_resource path="res://img/Blue.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -40,16 +39,16 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="HUDLayer" parent="." instance=ExtResource( 3 )]
-
-[node name="Player" parent="." instance=ExtResource( 4 )]
-
 [node name="Sprite" type="Sprite" parent="."]
 
 visibility/opacity = 0.75
 transform/pos = Vector2( 568.637, 316.967 )
 z/z = -1
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+
+[node name="HUDLayer" parent="." instance=ExtResource( 5 )]
 
 [node name="ToSecondScene" type="Area2D" parent="."]
 
@@ -120,11 +119,10 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="Green1"]
 
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="Collision" type="CollisionShape2D" parent="Green1"]
 
@@ -148,7 +146,7 @@ angular_damp = 1.0
 
 [node name="Sprite" type="Sprite" parent="Green2"]
 
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="Collision" type="CollisionShape2D" parent="Green2"]
 
@@ -172,7 +170,7 @@ angular_damp = 1.0
 
 [node name="Sprite" type="Sprite" parent="Green3"]
 
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="Collision" type="CollisionShape2D" parent="Green3"]
 
@@ -196,7 +194,7 @@ angular_damp = 1.0
 
 [node name="Sprite" type="Sprite" parent="Blue1"]
 
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="Collision" type="CollisionShape2D" parent="Blue1"]
 
@@ -220,7 +218,7 @@ angular_damp = 1.0
 
 [node name="Sprite" type="Sprite" parent="Blue2"]
 
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="Collision" type="CollisionShape2D" parent="Blue2"]
 
