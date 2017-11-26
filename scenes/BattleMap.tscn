@@ -136,6 +136,8 @@ texture = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
+transform/pos = Vector2( 632.576, 323.77 )
+
 [node name="HUDLayer" parent="." instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -210,7 +212,6 @@ visibility/visible = false
 transform/pos = Vector2( 388.894, 569.775 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 20
 playing = true
 
 [node name="ToWorldMap" type="Area2D" parent="."]

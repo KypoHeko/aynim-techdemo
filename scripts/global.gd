@@ -9,7 +9,7 @@ var fib_b = 2
 
 var colitems = 0
 
-var cloud2 = "res://saves/cloudtext.json"
+const CLOUD_TEXT = "res://saves/cloudtext.json"
 const SAVE_PATH = "res://saves/save.json"
 
 func add_stat(i):
@@ -21,17 +21,17 @@ func add_stat(i):
 		#print(exp_points, " ", fib_a, " ", fib_b)
 
 func BattleStart():
-	var icon = get_tree().get_nodes_in_group("hud")[0]
-	icon.get_node("JoystickPanel").hide()
-	icon.get_node("JoystickPanel1").show()
-	icon.get_node("BarPanel").show()
+	var HUD = get_tree().get_nodes_in_group("hud")[0]
+	HUD.get_node("JoystickPanel").hide()
+	HUD.get_node("JoystickPanel1").show()
+	HUD.get_node("BarPanel").show()
 	print("BattleStart!")
 
 func BattleEnd():
-	var icon = get_tree().get_nodes_in_group("hud")[0]
-	icon.get_node("JoystickPanel").show()
-	icon.get_node("JoystickPanel1").hide()
-	icon.get_node("BarPanel").hide()
+	var HUD = get_tree().get_nodes_in_group("hud")[0]
+	HUD.get_node("JoystickPanel").show()
+	HUD.get_node("JoystickPanel1").hide()
+	HUD.get_node("BarPanel").hide()
 	print("BattleEnd!")
 
 
@@ -74,13 +74,23 @@ func loadgame():
 
 func loadtext(txt):
 	var save_file = File.new()
-	if !save_file.file_exists(cloud2):
+	if !save_file.file_exists(CLOUD_TEXT):
 		return
 	
 	var data = {}
-	save_file.open(cloud2, File.READ)
+	save_file.open(CLOUD_TEXT, File.READ)
 	data.parse_json(save_file.get_as_text())
 	
 	for i in data.keys():
 		if i == txt:
 			return data[i]
+
+var dialog_bool = false
+var dialog_count = 0
+func dialog():
+	var HUD = get_tree().get_nodes_in_group("hud")[0]
+	HUD.get_node("CloudText").hide()
+	HUD.get_node("CloudText/ctOK").hide()
+	HUD.get_node("CloudText/ctNo").hide()
+	dialog_bool != dialog_bool
+	dialog_count = 0

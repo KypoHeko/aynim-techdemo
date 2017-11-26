@@ -18,7 +18,6 @@ func _fixed_process(delta):
 	var move_right = Input.is_action_pressed("move_right")
 	
 	if Input.is_action_pressed("ui_select"):
-		print(get_node("Weapon").get_rot())
 		if (timer.get_time_left() == 0):
 			get_node("Weapon").show()
 			if (get_node("Weapon").get_rot() > 3):

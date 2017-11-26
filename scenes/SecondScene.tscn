@@ -44,8 +44,6 @@ texture = ExtResource( 3 )
 
 [node name="HUDLayer" parent="." instance=ExtResource( 5 )]
 
-editor/display_folded = true
-
 [node name="TabContainer" parent="HUDLayer" instance=ExtResource( 6 )]
 
 visibility/visible = false

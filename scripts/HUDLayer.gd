@@ -129,31 +129,45 @@ func _on_Load_pressed():
 
 
 
-var t4 = false
 func _on_Text_pressed():
-	if t4 == false:
+	if global.dialog_bool == false:
 		get_node("CloudText").show()
-		t4 = !t4
+		global.dialog_bool = !global.dialog_bool
 	else:
 		get_node("CloudText").hide()
-		t4 = !t4
+		global.dialog_bool = !global.dialog_bool
+
+
 
 var text
-var count = 0
 func _on_ChangeText_pressed():
 	text = global.loadtext("text1")
 	get_node("CloudText/Text").set_text(text[count])
 	count += 1
+	if (count == (text.size() - 1)):
+		get_node("CloudText/ctOK").show()
+		get_node("CloudText/ctNo").show()
 	if (count > (text.size() - 1)):
 		count = 0
-		get_node("CloudText").hide()
-		t4 = !t4
+		global.dialog()
 
 func _on_ChangeText1_pressed():
 	text = global.loadtext("text2")
 	get_node("CloudText/Text").set_text(text[count])
 	count += 1
+	if (count == (text.size() - 1)):
+		get_node("CloudText/ctOK").show()
+		get_node("CloudText/ctNo").show()
 	if (count > (text.size() - 1)):
 		count = 0
-		get_node("CloudText").hide()
-		t4 = !t4
+		global.dialog()
+
+func _on_ctOK_pressed():
+	print("You say OK!")
+	global.dialog()
+	count = 0
+
+func _on_ctNo_pressed():
+	print("You say no. :(")
+	global.dialog()
+	count = 0

@@ -14,6 +14,7 @@ func _on_Area2D_body_exit( body ):
 	get_tree().set_pause(false)
 	global.BattleEnd()
 
+
 func _on_Area2D_2_area_enter( area ):
 	timer = get_node("KinematicBody2D/Damage/Timer")
 	
@@ -32,8 +33,6 @@ func _on_Area2D_2_area_enter( area ):
 		get_node("KinematicBody2D").queue_free()
 
 
-
 func _on_ToWorldMap_body_enter( body ):
 	if (body.get_name() == "Player"):
 		Transition.fade_to("res://scenes/WorldMap.tscn")
-

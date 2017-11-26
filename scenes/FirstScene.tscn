@@ -48,7 +48,11 @@ stream/buffering_ms = 500
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
+transform/pos = Vector2( 768.745, 381.358 )
+
 [node name="HUDLayer" parent="." instance=ExtResource( 5 )]
+
+editor/display_folded = true
 
 [node name="TabContainer" parent="HUDLayer" instance=ExtResource( 6 )]
 
