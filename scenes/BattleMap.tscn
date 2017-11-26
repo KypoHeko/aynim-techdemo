@@ -210,7 +210,7 @@ visibility/visible = false
 transform/pos = Vector2( 388.894, 569.775 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 44
+frame = 20
 playing = true
 
 [node name="ToWorldMap" type="Area2D" parent="."]

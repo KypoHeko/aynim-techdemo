@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=1]
+[gd_scene load_steps=23 format=1]
 
 [ext_resource path="res://scripts/HUDLayer.gd" type="Script" id=1]
 [ext_resource path="res://img/hudredbar.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://img/miniFS.png" type="Texture" id=18]
 [ext_resource path="res://img/minimapmask.png" type="Texture" id=19]
 [ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=20]
+[ext_resource path="res://img/Blue.png" type="Texture" id=21]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -47,7 +48,7 @@ size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 100.0
-margin/bottom = 250.0
+margin/bottom = 280.0
 
 [node name="Menu" type="Button" parent="MainMenuPanel"]
 
@@ -175,6 +176,22 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Load"
+flat = false
+
+[node name="Text" type="Button" parent="MainMenuPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 250.0
+margin/right = 49.0
+margin/bottom = 270.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Text"
 flat = false
 
 [node name="BarPanel" type="Panel" parent="."]
@@ -776,10 +793,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 6.0
-margin/top = 255.0
-margin/right = 71.0
-margin/bottom = 281.0
+margin/left = 10.0
+margin/top = 290.0
+margin/right = 75.0
+margin/bottom = 316.0
 custom_fonts/font = ExtResource( 3 )
 text = "Timer: "
 percent_visible = 1.0
@@ -792,10 +809,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 65.0
-margin/top = 255.0
-margin/right = 105.0
-margin/bottom = 281.0
+margin/left = 70.0
+margin/top = 290.0
+margin/right = 110.0
+margin/bottom = 316.0
 custom_fonts/font = ExtResource( 3 )
 percent_visible = 1.0
 lines_skipped = 0
@@ -807,6 +824,72 @@ process_mode = 1
 wait_time = 5.0
 one_shot = true
 autostart = false
+
+[node name="CloudText" type="Patch9Frame" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 140.0
+margin/top = 550.0
+margin/right = 1140.0
+margin/bottom = 650.0
+texture = ExtResource( 21 )
+patch_margin/left = 20
+patch_margin/top = 20
+patch_margin/right = 20
+patch_margin/bottom = 20
+
+[node name="Text" type="Label" parent="CloudText"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 15.0
+margin/top = 15.0
+margin/right = 985.0
+margin/bottom = 85.0
+custom_fonts/font = ExtResource( 3 )
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ChangeText" type="Button" parent="CloudText"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 110.0
+margin/right = 89.0
+margin/bottom = 130.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ChangeText"
+flat = false
+
+[node name="ChangeText1" type="Button" parent="CloudText"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 100.0
+margin/top = 110.0
+margin/right = 193.0
+margin/bottom = 130.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ChangeText1"
+flat = false
 
 [connection signal="pressed" from="MainMenuPanel/Menu" to="." method="_on_Menu_pressed"]
 
@@ -823,6 +906,8 @@ autostart = false
 [connection signal="pressed" from="MainMenuPanel/Save" to="." method="_on_Save_pressed"]
 
 [connection signal="pressed" from="MainMenuPanel/Load" to="." method="_on_Load_pressed"]
+
+[connection signal="pressed" from="MainMenuPanel/Text" to="." method="_on_Text_pressed"]
 
 [connection signal="button_down" from="JoystickPanel/ButtonUp" to="." method="_on_ButtonUp_button_down"]
 
@@ -849,5 +934,9 @@ autostart = false
 [connection signal="pressed" from="Panel/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 
 [connection signal="pressed" from="Panel 2/OK" to="." method="_on_OK_pressed"]
+
+[connection signal="pressed" from="CloudText/ChangeText" to="." method="_on_ChangeText_pressed"]
+
+[connection signal="pressed" from="CloudText/ChangeText1" to="." method="_on_ChangeText1_pressed"]
 
 

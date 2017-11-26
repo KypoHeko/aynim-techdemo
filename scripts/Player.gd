@@ -18,9 +18,13 @@ func _fixed_process(delta):
 	var move_right = Input.is_action_pressed("move_right")
 	
 	if Input.is_action_pressed("ui_select"):
+		print(get_node("Weapon").get_rot())
 		if (timer.get_time_left() == 0):
 			get_node("Weapon").show()
-			get_node("Weapon/Anim").play("suburi")
+			if (get_node("Weapon").get_rot() > 3):
+				get_node("Weapon/Anim").play("suburileft")
+			else: 
+				get_node("Weapon/Anim").play("suburiright")
 			timer.start()
 	
 	if (timer.get_time_left() <= 0.1):
@@ -40,8 +44,12 @@ func _fixed_process(delta):
 		motion += Vector2(0, 1)
 	if move_left:
 		motion += Vector2(-1, 0)
+		get_node("Sprite").set_flip_h(false)
+		get_node("Weapon").set_rot(3.14)
 	if move_right:
 		motion += Vector2(1, 0)
+		get_node("Sprite").set_flip_h(true)
+		get_node("Weapon").set_rot(0)
 	
 	motion = motion.normalized()*MOTION_SPEED*delta
 	motion = move(motion)

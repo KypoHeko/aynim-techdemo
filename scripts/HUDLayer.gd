@@ -65,14 +65,14 @@ func _on_Inventory_pressed():
 		get_node("Inventory").hide()
 		tt = !tt
 
-var ttt = false
+var t3 = false
 func _on_Map_pressed():
-	if tt == false:
+	if t3 == false:
 		get_node("MapPanel").show()
-		tt = !tt
+		t3 = !t3
 	else:
 		get_node("MapPanel").hide()
-		tt = !tt
+		t3 = !t3
 
 
 
@@ -121,10 +121,39 @@ func _on_Exit_pressed():
 func _on_OK_pressed():
 	get_node("Panel 2").hide()
 
-
-
 func _on_Save_pressed():
 	global.savegame()
 
 func _on_Load_pressed():
 	global.loadgame()
+
+
+
+var t4 = false
+func _on_Text_pressed():
+	if t4 == false:
+		get_node("CloudText").show()
+		t4 = !t4
+	else:
+		get_node("CloudText").hide()
+		t4 = !t4
+
+var text
+var count = 0
+func _on_ChangeText_pressed():
+	text = global.loadtext("text1")
+	get_node("CloudText/Text").set_text(text[count])
+	count += 1
+	if (count > (text.size() - 1)):
+		count = 0
+		get_node("CloudText").hide()
+		t4 = !t4
+
+func _on_ChangeText1_pressed():
+	text = global.loadtext("text2")
+	get_node("CloudText/Text").set_text(text[count])
+	count += 1
+	if (count > (text.size() - 1)):
+		count = 0
+		get_node("CloudText").hide()
+		t4 = !t4

@@ -42,7 +42,6 @@ tracks/1/keys = {
 "persistent",
 ]]
 
-transform/pos = Vector2( 601, 301 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 2, 0, 0, 2, 0, 40 )

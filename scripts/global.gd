@@ -9,6 +9,7 @@ var fib_b = 2
 
 var colitems = 0
 
+var cloud2 = "res://saves/cloudtext.json"
 const SAVE_PATH = "res://saves/save.json"
 
 func add_stat(i):
@@ -69,3 +70,17 @@ func loadgame():
 			var savenodes = get_tree().get_nodes_in_group('persistent')
 			var loaded_pos = Vector2(data[i]['x'], data[i]['y'])
 			savenodes[0].set_pos(loaded_pos)
+
+
+func loadtext(txt):
+	var save_file = File.new()
+	if !save_file.file_exists(cloud2):
+		return
+	
+	var data = {}
+	save_file.open(cloud2, File.READ)
+	data.parse_json(save_file.get_as_text())
+	
+	for i in data.keys():
+		if i == txt:
+			return data[i]
