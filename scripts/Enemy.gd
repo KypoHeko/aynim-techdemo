@@ -4,12 +4,6 @@ var new_hit = 0
 var hp = 100
 var timer
 
-func _ready():
-	set_fixed_process(true)
-
-func _fixed_process(delta):
-	pass
-
 func _on_Area2D_area_enter( area ):
 	timer = get_node("Damage/Timer")
 	
@@ -18,12 +12,11 @@ func _on_Area2D_area_enter( area ):
 			if (timer.get_time_left() == 0):
 				new_hit = 0
 			timer.start()
-			new_hit = rand_range(1, 20)
+			new_hit = rand_range(2, 40)
 			hp -= new_hit
 			get_node("Damage").set_text(str(round(new_hit)))
 			get_node("Damage/Anim").play("hit")
 	
-	print(hp)
 	get_node("HP").set_value(hp)
 	if hp <= 0:
 		global.add_stat(1)
@@ -32,7 +25,7 @@ func _on_Area2D_area_enter( area ):
 
 func _on_Area2D1_body_enter( body ):
 	if (body.get_name() == "Player"):
-		get_tree().set_pause(true)
+		#get_tree().set_pause(true)
 		get_node("HP").show()
 		global.BattleStart()
 

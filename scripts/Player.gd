@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var new_hit = 0
 var timer
-const MOTION_SPEED = 300
+const MOTION_SPEED = 250
 
 func _ready():
 	randomize()
@@ -16,6 +16,7 @@ func _fixed_process(delta):
 	var move_down = Input.is_action_pressed("move_down")
 	var move_left = Input.is_action_pressed("move_left")
 	var move_right = Input.is_action_pressed("move_right")
+	var player = get_node("AnimatedSprite")
 	
 	if Input.is_action_pressed("ui_select"):
 		if (timer.get_time_left() == 0):
@@ -39,16 +40,31 @@ func _fixed_process(delta):
 	
 	if move_up:
 		motion += Vector2(0, -1)
+		player.play("MoveUp")
 	if move_down:
 		motion += Vector2(0, 1)
+		player.play("MoveDown")
 	if move_left:
 		motion += Vector2(-1, 0)
-		get_node("Sprite").set_flip_h(false)
+		player.set_flip_h(false)
 		get_node("Weapon").set_rot(3.14)
+		if move_down:
+			player.play("MoveLeftDown")
+		elif move_up:
+			player.play("MoveLeftUp")
+		else:
+			player.play("MoveLeft")
 	if move_right:
 		motion += Vector2(1, 0)
-		get_node("Sprite").set_flip_h(true)
+		player.set_flip_h(true)
 		get_node("Weapon").set_rot(0)
+		if move_down:
+			player.play("MoveRightDown")
+		elif move_up:
+			player.play("MoveRightUp")
+		else:
+			player.play("MoveRight")
+	
 	
 	motion = motion.normalized()*MOTION_SPEED*delta
 	motion = move(motion)

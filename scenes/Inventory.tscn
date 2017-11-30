@@ -40,15 +40,14 @@ texture = ExtResource( 3 )
 
 [node name="Panel" type="Panel" parent="Status"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 250.0
 margin/top = 30.0
-margin/right = 450.0
-margin/bottom = 230.0
+margin/right = 470.0
+margin/bottom = 280.0
 
 [node name="Level" type="Label" parent="Status/Panel"]
 
@@ -248,8 +247,42 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Money" type="Label" parent="Status/Panel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 215.0
+margin/right = 130.0
+margin/bottom = 241.0
+custom_fonts/font = ExtResource( 2 )
+text = "Money:"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="MoneyVal" type="Label" parent="Status/Panel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 140.0
+margin/top = 215.0
+margin/right = 200.0
+margin/bottom = 241.0
+custom_fonts/font = ExtResource( 2 )
+text = "200"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Equip" type="Tabs" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
@@ -283,6 +316,7 @@ margin/bottom = 13.0
 
 [node name="Things" type="Tabs" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
@@ -374,6 +408,7 @@ flat = false
 
 [node name="Skills" type="Tabs" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1

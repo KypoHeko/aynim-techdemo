@@ -1,0 +1,10 @@
+{
+    "item1":{"name":"Item1", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Axe_01.png"},
+    "item2":{"name":"Item2", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Axe_02.png"},
+    "item3":{"name":"Item3", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Axe_03.png"},
+    "item4":{"name":"Item4", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Gauntlets_03.png"},
+    "item5":{"name":"Item5", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Gauntlets_09.png"},
+    "item6":{"name":"Item6", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Sword_01.png"},
+    "item7":{"name":"Item7", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Sword_04.png"},
+    "item8":{"name":"Item8", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Sword_05.png"},
+}

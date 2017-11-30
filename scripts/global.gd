@@ -2,12 +2,12 @@ extends Node
 
 var entry_point = 0
 
+var money = 250
+var colitems = 0
 var battle_level = 1
 var exp_points = 1
 var fib_a = 1
 var fib_b = 2
-
-var colitems = 0
 
 const CLOUD_TEXT = "res://saves/cloudtext.json"
 const SAVE_PATH = "res://saves/save.json"
@@ -21,6 +21,7 @@ func add_stat(i):
 		#print(exp_points, " ", fib_a, " ", fib_b)
 
 func BattleStart():
+	input_release()
 	var HUD = get_tree().get_nodes_in_group("hud")[0]
 	HUD.get_node("JoystickPanel").hide()
 	HUD.get_node("JoystickPanel1").show()
@@ -28,11 +29,19 @@ func BattleStart():
 	print("BattleStart!")
 
 func BattleEnd():
+	input_release()
 	var HUD = get_tree().get_nodes_in_group("hud")[0]
 	HUD.get_node("JoystickPanel").show()
 	HUD.get_node("JoystickPanel1").hide()
 	HUD.get_node("BarPanel").hide()
 	print("BattleEnd!")
+
+func input_release():
+	Input.action_release("move_down")
+	Input.action_release("move_up")
+	Input.action_release("move_left")
+	Input.action_release("move_right")
+
 
 
 func savegame():
@@ -85,12 +94,10 @@ func loadtext(txt):
 		if i == txt:
 			return data[i]
 
-var dialog_bool = false
-var dialog_count = 0
 func dialog():
 	var HUD = get_tree().get_nodes_in_group("hud")[0]
 	HUD.get_node("CloudText").hide()
 	HUD.get_node("CloudText/ctOK").hide()
 	HUD.get_node("CloudText/ctNo").hide()
-	dialog_bool != dialog_bool
-	dialog_count = 0
+	HUD.t4 != HUD.t4
+	HUD.count = 0

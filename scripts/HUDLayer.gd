@@ -1,10 +1,7 @@
 extends CanvasLayer
 
 func _ready():
-	Input.action_release("move_down")
-	Input.action_release("move_up")
-	Input.action_release("move_left")
-	Input.action_release("move_right")
+	global.input_release()
 
 func _on_ButtonUp_button_down():
 	Input.action_press("move_up")
@@ -25,6 +22,11 @@ func _on_ButtonLeft_button_down():
 	Input.action_press("move_left")
 func _on_ButtonLeft_button_up():
 	Input.action_release("move_left")
+
+func _on_Attack_button_down():
+	Input.action_press("ui_select")
+func _on_Attack_button_up():
+	Input.action_release("ui_select")
 
 
 
@@ -128,18 +130,18 @@ func _on_Load_pressed():
 	global.loadgame()
 
 
-
+var t4 = false
 func _on_Text_pressed():
-	if global.dialog_bool == false:
+	if t4 == false:
 		get_node("CloudText").show()
-		global.dialog_bool = !global.dialog_bool
+		t4 = !t4
 	else:
 		get_node("CloudText").hide()
-		global.dialog_bool = !global.dialog_bool
-
+		t4 = !t4
 
 
 var text
+var count = 0
 func _on_ChangeText_pressed():
 	text = global.loadtext("text1")
 	get_node("CloudText/Text").set_text(text[count])
@@ -148,7 +150,6 @@ func _on_ChangeText_pressed():
 		get_node("CloudText/ctOK").show()
 		get_node("CloudText/ctNo").show()
 	if (count > (text.size() - 1)):
-		count = 0
 		global.dialog()
 
 func _on_ChangeText1_pressed():
@@ -159,15 +160,16 @@ func _on_ChangeText1_pressed():
 		get_node("CloudText/ctOK").show()
 		get_node("CloudText/ctNo").show()
 	if (count > (text.size() - 1)):
-		count = 0
 		global.dialog()
 
 func _on_ctOK_pressed():
 	print("You say OK!")
 	global.dialog()
-	count = 0
 
 func _on_ctNo_pressed():
 	print("You say no. :(")
 	global.dialog()
-	count = 0
+
+
+func _on_GiveEXP_pressed():
+	global.add_stat(1000)
