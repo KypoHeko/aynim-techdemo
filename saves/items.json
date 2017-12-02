@@ -1,10 +1,10 @@
 {
-    "item1":{"name":"Item1", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Axe_01.png"},
-    "item2":{"name":"Item2", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Axe_02.png"},
-    "item3":{"name":"Item3", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Axe_03.png"},
-    "item4":{"name":"Item4", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Gauntlets_03.png"},
-    "item5":{"name":"Item5", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Gauntlets_09.png"},
-    "item6":{"name":"Item6", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Sword_01.png"},
-    "item7":{"name":"Item7", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Sword_04.png"},
-    "item8":{"name":"Item8", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Sword_05.png"},
+    "item1":{"id":"1", "name":"Axe1", "cost":"150", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Axe_01.png"},
+    "item2":{"id":"2", "name":"Axe2", "cost":"350",  "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Axe_02.png"},
+    "item3":{"id":"3", "name":"Axe3", "cost":"350",  "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Axe_03.png"},
+    "item4":{"id":"4", "name":"Gauntlet4", "cost":"150",  "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Gauntlets_03.png"},
+    "item5":{"id":"5", "name":"Gauntlet5", "cost":"250",  "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Gauntlets_09.png"},
+    "item6":{"id":"6", "name":"Sword6", "cost":"150",  "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Sword_01.png"},
+    "item7":{"id":"7", "name":"Sword7", "cost":"250",  "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Sword_04.png"},
+    "item8":{"id":"8", "name":"Sword8", "cost":"350",  "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Sword_05.png"},
 }

@@ -38,6 +38,7 @@ func _fixed_process(delta):
 			get_node("Damage").set_text(str(round(new_hit)))
 			get_node("Damage/Anim").play("hit")"""
 	
+	#animation
 	if move_up:
 		motion += Vector2(0, -1)
 		player.play("MoveUp")
@@ -64,6 +65,7 @@ func _fixed_process(delta):
 			player.play("MoveRightUp")
 		else:
 			player.play("MoveRight")
+	
 	
 	
 	motion = motion.normalized()*MOTION_SPEED*delta

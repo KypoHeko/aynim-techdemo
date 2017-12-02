@@ -12,6 +12,14 @@ var fib_b = 2
 const CLOUD_TEXT = "res://saves/cloudtext.json"
 const SAVE_PATH = "res://saves/save.json"
 
+func input_release():
+	Input.action_release("move_down")
+	Input.action_release("move_up")
+	Input.action_release("move_left")
+	Input.action_release("move_right")
+
+
+
 func add_stat(i):
 	exp_points += i
 	while (exp_points >= fib_b):
@@ -35,12 +43,6 @@ func BattleEnd():
 	HUD.get_node("JoystickPanel1").hide()
 	HUD.get_node("BarPanel").hide()
 	print("BattleEnd!")
-
-func input_release():
-	Input.action_release("move_down")
-	Input.action_release("move_up")
-	Input.action_release("move_left")
-	Input.action_release("move_right")
 
 
 

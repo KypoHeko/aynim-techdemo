@@ -1,6 +1,14 @@
 extends TabContainer
 
+var itemlist
+
 func _ready():
+	itemlist = get_node("Equip/ItemList")
+	itemlist.set_max_columns(7)
+	itemlist.set_fixed_icon_size(Vector2(64,64))
+	itemlist.add_icon_item(load("res://img/icons/gem1.png"))
+	itemlist.add_icon_item(load("res://img/icons/gem3.png"))
+	itemlist.add_icon_item(load("res://img/icons/icon.png"))
 	set_process(true)
 
 func _process(delta):

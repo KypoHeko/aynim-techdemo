@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+onready var player = get_tree().get_nodes_in_group('persistent')[0].get_node("AnimatedSprite")
+
 func _ready():
 	global.input_release()
 
@@ -7,21 +9,29 @@ func _on_ButtonUp_button_down():
 	Input.action_press("move_up")
 func _on_ButtonUp_button_up():
 	Input.action_release("move_up")
+	player.play("STAY")
+	player.set_frame(4)
 
 func _on_ButtonRight_button_down():
 	Input.action_press("move_right")
 func _on_ButtonRight_button_up():
 	Input.action_release("move_right")
+	player.play("STAY")
+	player.set_frame(2)
 
 func _on_ButtonDown_button_down():
 	Input.action_press("move_down")
 func _on_ButtonDown_button_up():
 	Input.action_release("move_down")
+	player.play("STAY")
+	player.set_frame(0)
 
 func _on_ButtonLeft_button_down():
 	Input.action_press("move_left")
 func _on_ButtonLeft_button_up():
 	Input.action_release("move_left")
+	player.play("STAY")
+	player.set_frame(2)
 
 func _on_Attack_button_down():
 	Input.action_press("ui_select")
