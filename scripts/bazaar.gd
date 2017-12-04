@@ -54,7 +54,6 @@ func loaditems(index, string):
 		get_node(string + "/Description").set_text(data[temp]["description"])
 
 
-
 func _on_Exit_pressed():
 	hide()
 
@@ -63,6 +62,5 @@ func _on_Buy_pressed():
 	global.add_new_item(merch[buy_item])
 
 func _on_Sell_pressed():
-	pass # replace with function body
-
-
+	global.delete_item(global.player_inv[sell_item])
+	sellitemlist.remove_item(sell_item)

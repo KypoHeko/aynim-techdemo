@@ -24,6 +24,10 @@ func loaditems(index):
 	
 	itemlist.add_icon_item(load(data["id" + str(index)]["icon"]))
 
+func deleteitem(index):
+	print(index)
+	itemlist.remove_item(index)
+
 
 func _process(delta):
 	get_node("Status/Panel/LevelVal").set_text(str(global.battle_level))

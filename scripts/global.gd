@@ -9,7 +9,7 @@ var exp_points = 1
 var fib_a = 1
 var fib_b = 2
 
-var player_inv = [9,10]
+var player_inv = [9,9,9,10]
 
 const CLOUD_TEXT = "res://saves/cloudtext.json"
 const SAVE_PATH = "res://saves/save.json"
@@ -110,4 +110,11 @@ func dialog():
 func add_new_item(index):
 	player_inv.append(index)
 	get_tree().get_nodes_in_group('inv')[0].loaditems(index)
-	print(index)
+
+func delete_item(index):
+	get_tree().get_nodes_in_group('inv')[0].deleteitem(player_inv.find(index))
+	player_inv.erase(index)
+	#print(index)
+	#print(player_inv)
+	#print(player_inv.find(index))
+	
