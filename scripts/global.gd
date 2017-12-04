@@ -9,6 +9,8 @@ var exp_points = 1
 var fib_a = 1
 var fib_b = 2
 
+var player_inv = [9,10]
+
 const CLOUD_TEXT = "res://saves/cloudtext.json"
 const SAVE_PATH = "res://saves/save.json"
 
@@ -26,7 +28,6 @@ func add_stat(i):
 		battle_level += 1
 		fib_b += fib_a
 		fib_a = fib_b - fib_a
-		#print(exp_points, " ", fib_a, " ", fib_b)
 
 func BattleStart():
 	input_release()
@@ -96,6 +97,7 @@ func loadtext(txt):
 		if i == txt:
 			return data[i]
 
+
 func dialog():
 	var HUD = get_tree().get_nodes_in_group("hud")[0]
 	HUD.get_node("CloudText").hide()
@@ -103,3 +105,9 @@ func dialog():
 	HUD.get_node("CloudText/ctNo").hide()
 	HUD.t4 != HUD.t4
 	HUD.count = 0
+
+
+func add_new_item(index):
+	player_inv.append(index)
+	get_tree().get_nodes_in_group('inv')[0].loaditems(index)
+	print(index)
