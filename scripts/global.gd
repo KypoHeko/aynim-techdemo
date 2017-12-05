@@ -14,6 +14,7 @@ var player_inv = [9,9,9,10]
 const CLOUD_TEXT = "res://saves/cloudtext.json"
 const SAVE_PATH = "res://saves/save.json"
 
+#сброс передвижения при загрузке новой сцены
 func input_release():
 	Input.action_release("move_down")
 	Input.action_release("move_up")
@@ -21,7 +22,7 @@ func input_release():
 	Input.action_release("move_right")
 
 
-
+#добавляем опыт и повышаем опыт, наблюдается в инвентаре
 func add_stat(i):
 	exp_points += i
 	while (exp_points >= fib_b):
@@ -29,6 +30,7 @@ func add_stat(i):
 		fib_b += fib_a
 		fib_a = fib_b - fib_a
 
+#функция для начала битвы
 func BattleStart():
 	input_release()
 	var HUD = get_tree().get_nodes_in_group("hud")[0]
@@ -37,6 +39,7 @@ func BattleStart():
 	HUD.get_node("BarPanel").show()
 	print("BattleStart!")
 
+#функция для конца битвы
 func BattleEnd():
 	input_release()
 	var HUD = get_tree().get_nodes_in_group("hud")[0]
@@ -47,6 +50,7 @@ func BattleEnd():
 
 
 
+#сохраняем игру
 func savegame():
 	var save_file = File.new()
 	save_file.open(SAVE_PATH, File.WRITE)
@@ -56,6 +60,7 @@ func savegame():
 		save_file.store_line(save_dict.to_json())
 	save_file.close()
 
+#загружаем игру
 func loadgame():
 	var save_file = File.new()
 	if !save_file.file_exists(SAVE_PATH):
@@ -84,6 +89,7 @@ func loadgame():
 			savenodes[0].set_pos(loaded_pos)
 
 
+#загружаем текст в облако
 func loadtext(txt):
 	var save_file = File.new()
 	if !save_file.file_exists(CLOUD_TEXT):
@@ -98,23 +104,28 @@ func loadtext(txt):
 			return data[i]
 
 
-func dialog():
+#скрывание облака после завершения диалога
+func dialog(sol, quest):
 	var HUD = get_tree().get_nodes_in_group("hud")[0]
 	HUD.get_node("CloudText").hide()
 	HUD.get_node("CloudText/ctOK").hide()
 	HUD.get_node("CloudText/ctNo").hide()
 	HUD.t4 != HUD.t4
 	HUD.count = 0
+	
+	if sol == "OK":
+		var inv = get_tree().get_nodes_in_group("inv")[0]
+		inv.get_node("Quests/ListOfQuests").newline()
+		inv.get_node("Quests/ListOfQuests").add_text(quest + " is active!")
 
 
+#добавляем предмет в инвентарь
 func add_new_item(index):
 	player_inv.append(index)
 	get_tree().get_nodes_in_group('inv')[0].loaditems(index)
 
+#удаляем предмет из инвентаря
 func delete_item(index):
 	get_tree().get_nodes_in_group('inv')[0].deleteitem(player_inv.find(index))
 	player_inv.erase(index)
-	#print(index)
-	#print(player_inv)
-	#print(player_inv.find(index))
 	

@@ -25,7 +25,6 @@ func loaditems(index):
 	itemlist.add_icon_item(load(data["id" + str(index)]["icon"]))
 
 func deleteitem(index):
-	print(index)
 	itemlist.remove_item(index)
 
 

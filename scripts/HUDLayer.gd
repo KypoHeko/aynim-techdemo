@@ -1,10 +1,12 @@
 extends CanvasLayer
 
+#подгружаем сцену с персонажем для передвижения по кнопкам
 onready var player = get_tree().get_nodes_in_group('persistent')[0].get_node("AnimatedSprite")
 
 func _ready():
 	global.input_release()
 
+#передвижение, анимация и остановка (вверх)
 func _on_ButtonUp_button_down():
 	Input.action_press("move_up")
 func _on_ButtonUp_button_up():
@@ -12,6 +14,7 @@ func _on_ButtonUp_button_up():
 	player.play("STAY")
 	player.set_frame(4)
 
+#передвижение, анимация и остановка (вправо)
 func _on_ButtonRight_button_down():
 	Input.action_press("move_right")
 func _on_ButtonRight_button_up():
@@ -19,6 +22,7 @@ func _on_ButtonRight_button_up():
 	player.play("STAY")
 	player.set_frame(2)
 
+#передвижение, анимация и остановка (вниз)
 func _on_ButtonDown_button_down():
 	Input.action_press("move_down")
 func _on_ButtonDown_button_up():
@@ -26,6 +30,7 @@ func _on_ButtonDown_button_up():
 	player.play("STAY")
 	player.set_frame(0)
 
+#передвижение, анимация и остановка (влево)
 func _on_ButtonLeft_button_down():
 	Input.action_press("move_left")
 func _on_ButtonLeft_button_up():
@@ -33,6 +38,7 @@ func _on_ButtonLeft_button_up():
 	player.play("STAY")
 	player.set_frame(2)
 
+#анимация атаки
 func _on_Attack_button_down():
 	Input.action_press("ui_select")
 func _on_Attack_button_up():
@@ -151,8 +157,10 @@ func _on_Text_pressed():
 
 
 var text
+var quest
 var count = 0
 func _on_ChangeText_pressed():
+	quest = "Text1"
 	text = global.loadtext("text1")
 	get_node("CloudText/Text").set_text(text[count])
 	count += 1
@@ -163,6 +171,7 @@ func _on_ChangeText_pressed():
 		global.dialog()
 
 func _on_ChangeText1_pressed():
+	quest = "Text2"
 	text = global.loadtext("text2")
 	get_node("CloudText/Text").set_text(text[count])
 	count += 1
@@ -172,14 +181,16 @@ func _on_ChangeText1_pressed():
 	if (count > (text.size() - 1)):
 		global.dialog()
 
+#закрыть облако при нажатии ОК
 func _on_ctOK_pressed():
 	print("You say OK!")
-	global.dialog()
+	global.dialog("OK", quest)
 
+#закрыть облако при нажатии No
 func _on_ctNo_pressed():
 	print("You say no. :(")
-	global.dialog()
+	global.dialog("NO", "")
 
-
+#дать опыт
 func _on_GiveEXP_pressed():
 	global.add_stat(1000)

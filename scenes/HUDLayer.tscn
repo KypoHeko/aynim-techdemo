@@ -930,7 +930,6 @@ flat = false
 
 [node name="ctOK" type="TextureButton" parent="CloudText"]
 
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -966,7 +965,6 @@ max_lines_visible = -1
 
 [node name="ctNo" type="TextureButton" parent="CloudText"]
 
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
