@@ -94,6 +94,9 @@ func save():
 			x = get_pos().x,
 			y = get_pos().y
 		},
-		scene = get_parent().get_name()
+		scene = get_parent().get_name(),
+		quests = global.player_quests,
+		inventory = global.player_inv,
+		money = global.money,
 	}
 	return save_dict

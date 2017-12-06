@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://img/first_scene.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://fonts/Nanami.fnt" type="BitmapFont" id=7]
 [ext_resource path="res://scenes/Merchant.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/NPC.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -121,6 +122,10 @@ transform/pos = Vector2( 446.174, 559.225 )
 [node name="Merchant4" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1220.95, 604.445 )
+
+[node name="NPC" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 760.605, 917.908 )
 
 [node name="ToCityMap" type="Area2D" parent="."]
 

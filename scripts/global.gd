@@ -10,6 +10,7 @@ var fib_a = 1
 var fib_b = 2
 
 var player_inv = [9,9,9,10]
+var player_quests = []
 
 const CLOUD_TEXT = "res://saves/cloudtext.json"
 const SAVE_PATH = "res://saves/save.json"
@@ -71,22 +72,34 @@ func loadgame():
 	data.parse_json(save_file.get_as_text())
 	
 	for i in data.keys():
+		#загрузка сцены
 		if i == "scene":
 			global.entry_point = 0
 			var loaded_scene = "res://scenes/" + data[i] + ".tscn"
 			Transition.fade_to(loaded_scene)
 		
+		#костыли для загрузки положения
 		var tmr = Timer.new()
 		tmr.set_wait_time(1.05)
 		tmr.set_one_shot(true)
 		self.add_child(tmr)
 		
+		#загрузка положения на сцене
 		if i == "pos":
 			tmr.start()
 			yield(tmr, "timeout")
 			var savenodes = get_tree().get_nodes_in_group('persistent')
 			var loaded_pos = Vector2(data[i]['x'], data[i]['y'])
 			savenodes[0].set_pos(loaded_pos)
+		
+		if i == "money":
+			global.money = data[i]
+			
+		if i == "inventory":
+			global.player_inv = data[i]
+		
+		if i == "quests":
+			global.player_quests = data[i]
 
 
 #загружаем текст в облако
@@ -117,6 +130,7 @@ func dialog(sol, quest):
 		var inv = get_tree().get_nodes_in_group("inv")[0]
 		inv.get_node("Quests/ListOfQuests").newline()
 		inv.get_node("Quests/ListOfQuests").add_text(quest + " is active!")
+		player_quests.append(str(quest))
 
 
 #добавляем предмет в инвентарь

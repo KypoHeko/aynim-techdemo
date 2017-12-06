@@ -157,7 +157,7 @@ func _on_Text_pressed():
 
 
 var text
-var quest
+var quest = "firstquest"
 var count = 0
 func _on_ChangeText_pressed():
 	quest = "Text1"
@@ -168,7 +168,7 @@ func _on_ChangeText_pressed():
 		get_node("CloudText/ctOK").show()
 		get_node("CloudText/ctNo").show()
 	if (count > (text.size() - 1)):
-		global.dialog()
+		global.dialog("", "")
 
 func _on_ChangeText1_pressed():
 	quest = "Text2"
@@ -179,7 +179,7 @@ func _on_ChangeText1_pressed():
 		get_node("CloudText/ctOK").show()
 		get_node("CloudText/ctNo").show()
 	if (count > (text.size() - 1)):
-		global.dialog()
+		global.dialog("", "")
 
 #закрыть облако при нажатии ОК
 func _on_ctOK_pressed():

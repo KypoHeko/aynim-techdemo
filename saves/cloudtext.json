@@ -7,4 +7,10 @@
              "nostrud exercitation ullamco laboris nisi ut", 
              "aliquip ex ea commodo consequat.",
              "",],
+    "firstquest":["Buy me Sword8",
+                  "OK?",
+                  "",],
+    "firstquestm":["You buy?",
+                  "Sword8? Really?",
+                  "",],
 }
