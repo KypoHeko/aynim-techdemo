@@ -156,35 +156,13 @@ func _on_Text_pressed():
 		t4 = !t4
 
 
-var text
-var quest = "firstquest"
+var id_quest = ""
 var count = 0
-func _on_ChangeText_pressed():
-	quest = "Text1"
-	text = global.loadtext("text1")
-	get_node("CloudText/Text").set_text(text[count])
-	count += 1
-	if (count == (text.size() - 1)):
-		get_node("CloudText/ctOK").show()
-		get_node("CloudText/ctNo").show()
-	if (count > (text.size() - 1)):
-		global.close_dialog("", "")
-
-func _on_ChangeText1_pressed():
-	quest = "Text2"
-	text = global.loadtext("text2")
-	get_node("CloudText/Text").set_text(text[count])
-	count += 1
-	if (count == (text.size() - 1)):
-		get_node("CloudText/ctOK").show()
-		get_node("CloudText/ctNo").show()
-	if (count > (text.size() - 1)):
-		global.close_dialog("", "")
 
 #закрыть облако при нажатии ОК
 func _on_ctOK_pressed():
 	print("You say OK!")
-	global.close_dialog("OK", quest)
+	global.close_dialog("OK", id_quest)
 
 #закрыть облако при нажатии No
 func _on_ctNo_pressed():

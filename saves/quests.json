@@ -1,0 +1,5 @@
+{
+    "quest1":{"NPC":"", "name":"Quest1", "reward":"350", "EXP":"500", "description":"Lorem ipsum",},
+    "quest3":{"NPC":"", "name":"Quest2", "reward":"450", "EXP":"1000", "description":"Lorem ipsum",},
+    "quest3":{"NPC":"", "name":"Quest3", "reward":"700", "EXP":"1500", "description":"Lorem ipsum",},
+}

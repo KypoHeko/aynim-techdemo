@@ -1,15 +1,12 @@
 extends KinematicBody2D
 
-
 func _ready():
 	pass
-
 
 func _on_Area2D_body_enter( body ):
 	if (body.get_name() == "Player"):
 		get_node("Area2D/Talk").show()
 		get_node("Area2D/Quest").show()
-
 
 func _on_Area2D_body_exit( body ):
 	if (body.get_name() == "Player"):
@@ -21,9 +18,7 @@ var text
 var count = 0
 func _on_Talk_pressed():
 	var HUD = get_tree().get_nodes_in_group("hud")[0]
-	
-	if "firstquest" in global.player_quests:
-		print("Nice!")
+	HUD.id_quest = "quest1"
 	
 	text = global.loadtext("firstquest")
 	HUD.get_node("CloudText").show()

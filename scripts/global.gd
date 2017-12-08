@@ -14,6 +14,7 @@ var player_quests = []
 
 const CLOUD_TEXT = "res://saves/cloudtext.json"
 const SAVE_PATH = "res://saves/save.json"
+const QUEST_PATH = "res://saves/quests.json"
 
 #сброс передвижения при загрузке новой сцены
 func input_release():
@@ -100,7 +101,6 @@ func loadgame():
 		if i == "quests":
 			global.player_quests = data[i]
 
-
 #загружаем текст в облако
 func loadtext(txt):
 	var save_file = File.new()
@@ -115,9 +115,24 @@ func loadtext(txt):
 		if i == txt:
 			return data[i]
 
+#загружаем данные квеста в инвентарь
+func loadquest(id_quest):
+	var save_file = File.new()
+	if !save_file.file_exists(QUEST_PATH):
+		return
+	
+	var data = {}
+	save_file.open(QUEST_PATH, File.READ)
+	data.parse_json(save_file.get_as_text())
+	
+	for i in data.keys():
+		if i == id_quest:
+			return data[i]
+
+
 
 #скрывание облака после завершения диалога
-func close_dialog(sol, quest):
+func close_dialog(sol, id_quest):
 	var HUD = get_tree().get_nodes_in_group("hud")[0]
 	HUD.get_node("CloudText").hide()
 	HUD.get_node("CloudText/ctOK").hide()
@@ -125,20 +140,18 @@ func close_dialog(sol, quest):
 	HUD.t4 != HUD.t4
 	HUD.count = 0
 	
+	#добавляем квест при соглашении
 	if sol == "OK":
-		var inv = get_tree().get_nodes_in_group("inv")[0]
-		inv.get_node("Quests/ListOfQuests").newline()
-		inv.get_node("Quests/ListOfQuests").add_text(quest + " is active!")
-		player_quests.append(str(quest))
+		player_quests.append(id_quest)
+		get_tree().get_nodes_in_group('inv')[0].add_quest(loadquest(id_quest))
 
 
-#добавляем предмет в инвентарь
+#добавляем предмет из магазина в инвентарь
 func add_new_item(index):
 	player_inv.append(index)
 	get_tree().get_nodes_in_group('inv')[0].loaditems(index)
 
-#удаляем предмет из инвентаря
+#продаем предмет из инвентаря в магазин
 func delete_item(index):
 	get_tree().get_nodes_in_group('inv')[0].deleteitem(player_inv.find(index))
 	player_inv.erase(index)
-	

@@ -423,36 +423,6 @@ shortcut = null
 text = "Drop"
 flat = false
 
-[node name="Quests" type="Tabs" parent="."]
-
-visibility/visible = false
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 4.0
-margin/top = 32.0
-margin/right = 4.0
-margin/bottom = 4.0
-
-[node name="ListOfQuests" type="RichTextLabel" parent="Quests"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 15.0
-margin/top = 15.0
-margin/right = 715.0
-margin/bottom = 390.0
-custom_fonts/normal_font = ExtResource( 2 )
-bbcode/enabled = false
-bbcode/bbcode = "This some quests..."
-visible_characters = -1
-percent_visible = 1.0
-
 [node name="QuestsList" type="Tabs" parent="."]
 
 anchor/right = 1

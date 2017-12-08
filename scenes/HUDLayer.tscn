@@ -901,38 +901,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="ChangeText" type="Button" parent="CloudText"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 110.0
-margin/right = 89.0
-margin/bottom = 130.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "ChangeText"
-flat = false
-
-[node name="ChangeText1" type="Button" parent="CloudText"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 110.0
-margin/right = 193.0
-margin/bottom = 130.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "ChangeText1"
-flat = false
-
 [node name="ctOK" type="TextureButton" parent="CloudText"]
 
 visibility/visible = false
@@ -1068,10 +1036,6 @@ max_lines_visible = -1
 [connection signal="pressed" from="Panel/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 
 [connection signal="pressed" from="Panel 2/OK" to="." method="_on_OK_pressed"]
-
-[connection signal="pressed" from="CloudText/ChangeText" to="." method="_on_ChangeText_pressed"]
-
-[connection signal="pressed" from="CloudText/ChangeText1" to="." method="_on_ChangeText1_pressed"]
 
 [connection signal="pressed" from="CloudText/ctOK" to="." method="_on_ctOK_pressed"]
 
