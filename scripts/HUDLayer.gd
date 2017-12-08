@@ -168,7 +168,7 @@ func _on_ChangeText_pressed():
 		get_node("CloudText/ctOK").show()
 		get_node("CloudText/ctNo").show()
 	if (count > (text.size() - 1)):
-		global.dialog("", "")
+		global.close_dialog("", "")
 
 func _on_ChangeText1_pressed():
 	quest = "Text2"
@@ -179,17 +179,17 @@ func _on_ChangeText1_pressed():
 		get_node("CloudText/ctOK").show()
 		get_node("CloudText/ctNo").show()
 	if (count > (text.size() - 1)):
-		global.dialog("", "")
+		global.close_dialog("", "")
 
 #закрыть облако при нажатии ОК
 func _on_ctOK_pressed():
 	print("You say OK!")
-	global.dialog("OK", quest)
+	global.close_dialog("OK", quest)
 
 #закрыть облако при нажатии No
 func _on_ctNo_pressed():
 	print("You say no. :(")
-	global.dialog("NO", "")
+	global.close_dialog("NO", "")
 
 #дать опыт
 func _on_GiveEXP_pressed():

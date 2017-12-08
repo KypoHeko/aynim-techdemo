@@ -34,4 +34,4 @@ func _on_Talk_pressed():
 		HUD.get_node("CloudText/ctNo").show()
 	if (count > (text.size() - 1)):
 		count = 0
-		global.dialog("", "")
+		global.close_dialog("", "")

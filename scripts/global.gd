@@ -55,10 +55,9 @@ func BattleEnd():
 func savegame():
 	var save_file = File.new()
 	save_file.open(SAVE_PATH, File.WRITE)
-	var savenodes = get_tree().get_nodes_in_group('persistent')
-	for i in savenodes:
-		var save_dict = i.save()
-		save_file.store_line(save_dict.to_json())
+	var savenodes = get_tree().get_nodes_in_group('persistent')[0]
+	var save_dict = savenodes.save()
+	save_file.store_line(save_dict.to_json())
 	save_file.close()
 
 #загружаем игру
@@ -118,7 +117,7 @@ func loadtext(txt):
 
 
 #скрывание облака после завершения диалога
-func dialog(sol, quest):
+func close_dialog(sol, quest):
 	var HUD = get_tree().get_nodes_in_group("hud")[0]
 	HUD.get_node("CloudText").hide()
 	HUD.get_node("CloudText/ctOK").hide()

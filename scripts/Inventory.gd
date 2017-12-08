@@ -2,15 +2,12 @@ extends TabContainer
 
 const ITEMS_TEXT = "res://saves/items.json"
 
-var itemlist
-var skilllist
+onready var itemlist = get_node("Equip/ItemList")
+onready var questlist = get_node("QuestList/Tree")
 
 func _ready():
-	itemlist = get_node("Equip/ItemList")
 	itemlist.set_max_columns(7)
 	itemlist.set_fixed_icon_size(Vector2(64,64))
-	
-	skilllist = get_node("Skills/Tree")
 	
 	for i in global.player_inv:
 		loaditems(i)
