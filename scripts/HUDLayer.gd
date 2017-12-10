@@ -146,28 +146,64 @@ func _on_Load_pressed():
 	global.loadgame()
 
 
+
 var t4 = false
-func _on_Text_pressed():
-	if t4 == false:
-		get_node("CloudText").show()
-		t4 = !t4
-	else:
-		get_node("CloudText").hide()
-		t4 = !t4
-
-
 var id_quest = ""
 var count = 0
+var text
+
+func just_talk(string):
+	pass
+
+#болтаем с NPC выдающими квест
+func quest_talk(string):
+	id_quest = string
+	
+	#проверяем на каком моменте наш квест
+	#он выполняется?
+	if id_quest in global.player_quests:
+		text = global.loadtext(id_quest + "p")
+		global.quest_completed()
+	#он завершен?
+	elif id_quest in global.player_c_quests:
+		text = global.loadtext(id_quest + "e")
+	#или мы его только принимаем?
+	else:
+		text = global.loadtext(id_quest + "s")
+		
+		if (count == (text.size() - 2)):
+			get_node("CloudText/ctOK").show()
+			get_node("CloudText/ctNo").show()
+	
+	get_node("CloudText").show()
+	get_node("CloudText/Text").set_text(text[count])
+	count += 1
+	if (count == text.size()):
+		count = 0
+		close_dialog("", "")
 
 #закрыть облако при нажатии ОК
 func _on_ctOK_pressed():
-	print("You say OK!")
-	global.close_dialog("OK", id_quest)
+	close_dialog("OK", id_quest)
 
 #закрыть облако при нажатии No
 func _on_ctNo_pressed():
-	print("You say no. :(")
-	global.close_dialog("NO", "")
+	close_dialog("", "")
+
+#скрывание облака после завершения диалога
+func close_dialog(sol, id_quest):
+	get_node("CloudText").hide()
+	get_node("CloudText/ctOK").hide()
+	get_node("CloudText/ctNo").hide()
+	t4 != t4
+	count = 0
+	
+	#добавляем квест при соглашении
+	if sol == "OK":
+		global.player_quests.append(id_quest)
+		get_tree().get_nodes_in_group('inv')[0].add_quest(global.loadquest(id_quest))
+
+
 
 #дать опыт
 func _on_GiveEXP_pressed():

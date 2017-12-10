@@ -6,6 +6,7 @@
 [ext_resource path="res://img/AUN.png" type="Texture" id=4]
 [ext_resource path="res://fonts/Nanami.fnt" type="BitmapFont" id=5]
 
+
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -16,7 +17,7 @@ radius = 10.0
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="NPCQ" type="KinematicBody2D"]
+[node name="NPC" type="KinematicBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )

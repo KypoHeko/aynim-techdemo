@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://fonts/Nanami.fnt" type="BitmapFont" id=7]
 [ext_resource path="res://scenes/Merchant.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/NPC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/NPCQ.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -123,9 +123,17 @@ transform/pos = Vector2( 446.174, 559.225 )
 
 transform/pos = Vector2( 1220.95, 604.445 )
 
-[node name="NPC" parent="." instance=ExtResource( 9 )]
+[node name="NPCQ1" parent="." instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 760.605, 917.908 )
+transform/pos = Vector2( 95.8715, -100.904 )
+
+[node name="NPCQ2" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 307.985, -201.116 )
+
+[node name="NPCQ3" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 515.629, -284.218 )
 
 [node name="ToCityMap" type="Area2D" parent="."]
 

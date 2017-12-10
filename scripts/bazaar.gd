@@ -59,16 +59,16 @@ func loaditems(index, string):
 	if typeof(index) == TYPE_ARRAY:
 		if string == "Buy":
 			for j in index:
-				buyitemlist.add_icon_item(load(data["id" + str(j)]["icon"]))
+				buyitemlist.add_icon_item(load(data[str(j)]["icon"]))
 		if string == "Sell":
 			for j in index:
-				sellitemlist.add_icon_item(load(data["id" + str(j)]["icon"]))
+				sellitemlist.add_icon_item(load(data[str(j)]["icon"]))
 	#если передается переменная в функцию то загружаем данные о предмете
 	else:
 		if string == "Buy":
-			temp = "id" + str(merch[index])
+			temp = str(merch[index])
 		if string == "Sell":
-			temp = "id" + str(global.player_inv[index])
+			temp = str(global.player_inv[index])
 		get_node(string + "/Name").set_text(data[temp]["name"])
 		get_node(string + "/Cost").set_text("Cost: " + data[temp]["cost"])
 		cost = int(data[temp]["cost"])

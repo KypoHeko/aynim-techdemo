@@ -1,5 +1,5 @@
 {
-    "quest1":{"NPC":"", "name":"Quest1", "reward":"350", "EXP":"500", "description":"Lorem ipsum",},
-    "quest3":{"NPC":"", "name":"Quest2", "reward":"450", "EXP":"1000", "description":"Lorem ipsum",},
-    "quest3":{"NPC":"", "name":"Quest3", "reward":"700", "EXP":"1500", "description":"Lorem ipsum",},
+    "NPCQ1":{"name":"Quest1", "money":"350", "EXP":"500", "description":"Bring Sword8 to NPCQ1", "need":"Sword8", "need_id":"8",},
+    "NPCQ2":{"name":"Quest2", "money":"450", "EXP":"1000", "description":"Bring Axe1 to NPCQ2", "need":"Axe1", "need_id":"1",},
+    "NPCQ3":{"name":"Quest3", "money":"700", "EXP":"1500", "description":"Bring Axe2 to NPCQ3", "need":"Axe2", "need_id":"2",},
 }

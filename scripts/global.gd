@@ -1,5 +1,8 @@
 extends Node
 
+onready var HUD = get_tree().get_nodes_in_group("hud")[0]
+onready var INV = get_tree().get_nodes_in_group('inv')[0]
+
 var entry_point = 0
 
 var money = 250
@@ -9,8 +12,9 @@ var exp_points = 1
 var fib_a = 1
 var fib_b = 2
 
-var player_inv = [9,9,9,10]
+var player_inv = [1, 1, 1]
 var player_quests = []
+var player_c_quests = []
 
 const CLOUD_TEXT = "res://saves/cloudtext.json"
 const SAVE_PATH = "res://saves/save.json"
@@ -35,7 +39,6 @@ func add_stat(i):
 #функция для начала битвы
 func BattleStart():
 	input_release()
-	var HUD = get_tree().get_nodes_in_group("hud")[0]
 	HUD.get_node("JoystickPanel").hide()
 	HUD.get_node("JoystickPanel1").show()
 	HUD.get_node("BarPanel").show()
@@ -44,7 +47,6 @@ func BattleStart():
 #функция для конца битвы
 func BattleEnd():
 	input_release()
-	var HUD = get_tree().get_nodes_in_group("hud")[0]
 	HUD.get_node("JoystickPanel").show()
 	HUD.get_node("JoystickPanel1").hide()
 	HUD.get_node("BarPanel").hide()
@@ -130,28 +132,29 @@ func loadquest(id_quest):
 			return data[i]
 
 
+#завершаем квест
+func quest_completed():
+	var quest_data = loadquest(HUD.id_quest)
+	if int(quest_data['need_id']) in player_inv:
+		#удаляем из активных квестов и добавляем в выполненные
+		player_quests.erase(HUD.id_quest)
+		player_c_quests.append(HUD.id_quest)
+		INV.complete_quest(quest_data)
+		#удаляем предмет
+		delete_item(int(quest_data['need_id']))
+		#добавляем денег
+		money += int(quest_data['money'])
+		#добавляем опыта
+		exp_points += int(quest_data['EXP'])
 
-#скрывание облака после завершения диалога
-func close_dialog(sol, id_quest):
-	var HUD = get_tree().get_nodes_in_group("hud")[0]
-	HUD.get_node("CloudText").hide()
-	HUD.get_node("CloudText/ctOK").hide()
-	HUD.get_node("CloudText/ctNo").hide()
-	HUD.t4 != HUD.t4
-	HUD.count = 0
-	
-	#добавляем квест при соглашении
-	if sol == "OK":
-		player_quests.append(id_quest)
-		get_tree().get_nodes_in_group('inv')[0].add_quest(loadquest(id_quest))
 
 
 #добавляем предмет из магазина в инвентарь
 func add_new_item(index):
 	player_inv.append(index)
-	get_tree().get_nodes_in_group('inv')[0].loaditems(index)
+	INV.loaditems(index)
 
 #продаем предмет из инвентаря в магазин
 func delete_item(index):
-	get_tree().get_nodes_in_group('inv')[0].deleteitem(player_inv.find(index))
+	INV.deleteitem(player_inv.find(index))
 	player_inv.erase(index)
