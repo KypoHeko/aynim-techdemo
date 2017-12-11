@@ -139,7 +139,7 @@ func quest_completed():
 		#удаляем из активных квестов и добавляем в выполненные
 		player_quests.erase(HUD.id_quest)
 		player_c_quests.append(HUD.id_quest)
-		INV.complete_quest(quest_data)
+		INV.renew_quests()
 		#удаляем предмет
 		delete_item(int(quest_data['need_id']))
 		#добавляем денег

@@ -7,11 +7,24 @@ onready var questlist = get_node("QuestsList/Tree")
 var active_quests
 var completed_quests
 
-
-
 func _ready():
+	#настройки для инвентаря
 	itemlist.set_max_columns(7)
 	itemlist.set_fixed_icon_size(Vector2(64,64))
+	
+	
+	#обновить список квестов
+	renew_quests()
+	
+	#загрузить спискок предметов
+	for i in global.player_inv:
+		loaditems(i)
+	
+	set_process(true)
+
+#выполняем изменения при изменении квестов
+func renew_quests():
+	questlist.clear()
 	
 	#настройки для меню квестов
 	var root = questlist.create_item()
@@ -22,9 +35,33 @@ func _ready():
 	completed_quests = questlist.create_item(root)
 	completed_quests.set_text(0, "Completed")
 	
-	for i in global.player_inv:
-		loaditems(i)
-	set_process(true)
+	var quest_data
+	#изменения в активные квесты
+	for i in global.player_quests:
+		quest_data = global.loadquest(i)
+		
+		#имя квеста
+		var sect = questlist.create_item(active_quests)
+		sect.set_text(0, quest_data['name'])
+		#описание
+		var descr = questlist.create_item(sect)
+		descr.set_text(0, quest_data['description'])
+		#награда
+		var reward = questlist.create_item(sect)
+		var temp = "Reward: " + quest_data['money'] + ". EXP: " + quest_data['EXP']
+		reward.set_text(0, temp)
+	
+	#изменения в выполненные квесты
+	for i in global.player_c_quests:
+		quest_data = global.loadquest(i)
+		
+		var sect = questlist.create_item(completed_quests)
+		sect.set_text(0, quest_data['name'])
+		var descr = questlist.create_item(sect)
+		descr.set_text(0, quest_data['description'])
+	
+	#скрыть древо выполненных квестов
+	completed_quests.set_collapsed(true)
 
 #добавляем в журнал новый квест
 func add_quest(data):
@@ -38,16 +75,6 @@ func add_quest(data):
 	var reward = questlist.create_item(sect)
 	var temp = "Reward: " + data['money'] + ". EXP: " + data['EXP']
 	reward.set_text(0, temp)
-
-#выполняем изменения при выполнении квеста
-func complete_quest(data):
-	var del = questlist.get_next_selected(active_quests)
-	
-	var sect = questlist.create_item(completed_quests)
-	sect.set_text(0, data['name'])
-	var descr = questlist.create_item(sect)
-	descr.set_text(0, data['description'])
-	print("del")
 
 
 func loaditems(index):

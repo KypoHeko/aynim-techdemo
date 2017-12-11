@@ -447,7 +447,6 @@ margin/top = 15.0
 margin/right = 715.0
 margin/bottom = 390.0
 custom_fonts/font = ExtResource( 2 )
-custom_colors/title_button_color = Color( 0.372314, 0, 0.476563, 1 )
 
 [connection signal="pre_popup_pressed" from="." to="." method="_on_Inventory_pre_popup_pressed"]
 
