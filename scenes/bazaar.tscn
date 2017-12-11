@@ -3,7 +3,9 @@
 [ext_resource path="res://scripts/bazaar.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Nanami.fnt" type="BitmapFont" id=2]
 
-[node name="bazaar" type="TabContainer"]
+[node name="bazaar" type="TabContainer" groups=[
+"buysell",
+]]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -29,7 +31,7 @@ size_flags/vertical = 2
 margin/left = 4.0
 margin/top = 32.0
 margin/right = 4.0
-margin/bottom = 5.0
+margin/bottom = 4.0
 
 [node name="ItemList" type="ItemList" parent="Buy"]
 

@@ -12,7 +12,6 @@ func _ready():
 	itemlist.set_max_columns(7)
 	itemlist.set_fixed_icon_size(Vector2(64,64))
 	
-	
 	#обновить список квестов
 	renew_quests()
 	
@@ -77,6 +76,8 @@ func add_quest(data):
 	reward.set_text(0, temp)
 
 
+
+#загружаем предметы в инвентарь
 func loaditems(index):
 	var save_file = File.new()
 	if !save_file.file_exists(ITEMS_TEXT):
@@ -88,11 +89,13 @@ func loaditems(index):
 	
 	itemlist.add_icon_item(load(data[str(index)]["icon"]))
 
+#удаляем предметы из инвентаря
 func deleteitem(index):
 	itemlist.remove_item(index)
 
 
 
+#постоянное обновление статов
 func _process(delta):
 	get_node("Status/Panel/LevelVal").set_text(str(global.battle_level))
 	get_node("Status/Panel/ExpVal").set_text(str(global.exp_points))

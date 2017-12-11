@@ -2,6 +2,9 @@ extends Node
 
 onready var HUD = get_tree().get_nodes_in_group("hud")[0]
 onready var INV = get_tree().get_nodes_in_group('inv')[0]
+onready var BS = get_tree().get_nodes_in_group('buysell')[0]
+
+
 
 var entry_point = 0
 
@@ -100,8 +103,11 @@ func loadgame():
 		if i == "inventory":
 			global.player_inv = data[i]
 		
-		if i == "quests":
+		if i == "active_quests":
 			global.player_quests = data[i]
+			
+		if i == "complete_quests":
+			global.player_c_quests = data[i]
 
 #загружаем текст в облако
 func loadtext(txt):

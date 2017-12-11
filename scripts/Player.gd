@@ -95,7 +95,8 @@ func save():
 			y = get_pos().y
 		},
 		scene = get_parent().get_name(),
-		quests = global.player_quests,
+		active_quests = global.player_quests,
+		complete_quests = global.player_c_quests,
 		inventory = global.player_inv,
 		money = global.money,
 	}

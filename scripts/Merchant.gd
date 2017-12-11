@@ -15,4 +15,5 @@ func _on_Area2D_body_exit( body ):
 		get_node("CanvasLayer/TradeWindow").hide()
 
 func _on_Trading_pressed():
+	get_node("CanvasLayer/TradeWindow").renew_items()
 	get_node("CanvasLayer/TradeWindow").show()

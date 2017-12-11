@@ -3,7 +3,7 @@ extends TabContainer
 #путь до файла с данными по предметам
 const ITEMS_TEXT = "res://saves/items.json"
 
-#подгружаю таблицы для магазина и инвентаря
+#подгружаем таблицы для магазина и инвентаря
 onready var buyitemlist = get_node("Buy/ItemList")
 onready var sellitemlist = get_node("Sell/ItemList1")
 
@@ -23,12 +23,23 @@ func _ready():
 	buyitemlist.set_fixed_icon_size(Vector2(64,64))
 	sellitemlist.set_max_columns(4)
 	sellitemlist.set_fixed_icon_size(Vector2(64,64))
-	#загрузка кол-ва денег
-	get_node("Buy/YourMoney").set_text("Your money: " + str(global.money))
-	get_node("Sell/YourMoney").set_text("Your money: " + str(global.money))
 	#загрузка в таблицы предметов
 	loaditems(merch, "Buy")
 	loaditems(global.player_inv, "Sell")
+	
+	renew_items()
+	
+	set_process(true)
+
+
+
+func renew_items():
+	buyitemlist.clear()
+	sellitemlist.clear()
+	loaditems(global.player_inv, "Sell")
+	loaditems(merch, "Buy")
+
+
 
 #если выбран предмет для купли
 func _on_ItemList_item_selected( index ):
@@ -45,8 +56,8 @@ func _on_ItemList1_item_selected( index ):
 	loaditems(index, "Sell")
 
 
+#Слишком тяжелая функция! Необходимо переделать в будущем!
 func loaditems(index, string):
-	#загрузка и парсинг файла json
 	var save_file = File.new()
 	if !save_file.file_exists(ITEMS_TEXT):
 		return
@@ -74,31 +85,41 @@ func loaditems(index, string):
 		cost = int(data[temp]["cost"])
 		get_node(string + "/Description").set_text(data[temp]["description"])
 
+#функция купли
+func _on_Buy_pressed():
+	if str(buy_item) != "":
+		#добавляем индекс предмета персонажу
+		global.add_new_item(merch[buy_item])
+		#обновляем таблицу купли
+		renew_items()
+		#вычитаем из глобальной переменной стоимость
+		global.money -= cost
+	
+	#необходимая мера
+	buy_item = ""
+	cost = 0
+
+#функция продажи
+func _on_Sell_pressed():
+	if str(sell_item) != "":
+		#удаляем индекс предмета у персонажа
+		global.delete_item(global.player_inv[sell_item])
+		#обновляем таблицу продажи
+		renew_items()
+		#добавляем в глобальную переменную стоимость
+		global.money += cost
+	
+	#необходимая мера чтобы все не продать и не выйти за границы массива
+	sell_item = ""
+	cost = 0
+
+
+
 #закрыть окно магазина
 func _on_Exit_pressed():
 	hide()
 
-#функция купли
-func _on_Buy_pressed():
-	#добавляем индекс предмета персонажу
-	global.add_new_item(merch[buy_item])
-	#обновляем предметы в таблице продажи
-	sellitemlist.clear()
-	loaditems(global.player_inv, "Sell")
-	
-	#вычитаем из глобальной переменной стоимость и обновляем данные
-	global.money -= cost
-	get_node("Buy/YourMoney").set_text("Your money: " + str(global.money))
-	get_node("Sell/YourMoney").set_text("Your money: " + str(global.money))
-
-#функция продажи
-func _on_Sell_pressed():
-	#удаляем индекс предмета у персонажа
-	global.delete_item(global.player_inv[sell_item])
-	#удаляем предмет из таблицы продажи
-	sellitemlist.remove_item(sell_item)
-	
-	#добавляем в глобальную переменную стоимость и обновляем данные
-	global.money += cost
+#загрузка кол-ва денег
+func _process(delta):
 	get_node("Buy/YourMoney").set_text("Your money: " + str(global.money))
 	get_node("Sell/YourMoney").set_text("Your money: " + str(global.money))
