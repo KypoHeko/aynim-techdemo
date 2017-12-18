@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=1]
+[gd_scene load_steps=28 format=1]
 
 [ext_resource path="res://scripts/HUDLayer.gd" type="Script" id=1]
 [ext_resource path="res://img/hudredbar.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://img/Greenb.png" type="Texture" id=23]
 [ext_resource path="res://img/Yellow.png" type="Texture" id=24]
 [ext_resource path="res://img/Yellowb.png" type="Texture" id=25]
+[ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=26]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -970,6 +971,10 @@ text = "No"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Joystick" parent="." instance=ExtResource( 26 )]
+
+transform/pos = Vector2( 350, 580 )
 
 [connection signal="pressed" from="MainMenuPanel/Menu" to="." method="_on_Menu_pressed"]
 
