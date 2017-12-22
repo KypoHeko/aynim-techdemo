@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=1]
+[gd_scene load_steps=30 format=1]
 
 [ext_resource path="res://scripts/HUDLayer.gd" type="Script" id=1]
 [ext_resource path="res://img/hudredbar.png" type="Texture" id=2]
@@ -23,9 +23,11 @@
 [ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=21]
 [ext_resource path="res://img/Green.png" type="Texture" id=22]
 [ext_resource path="res://img/Greenb.png" type="Texture" id=23]
-[ext_resource path="res://img/Yellow.png" type="Texture" id=24]
-[ext_resource path="res://img/Yellowb.png" type="Texture" id=25]
-[ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=26]
+[ext_resource path="res://img/Red.png" type="Texture" id=24]
+[ext_resource path="res://img/Redb.png" type="Texture" id=25]
+[ext_resource path="res://img/Yellow.png" type="Texture" id=26]
+[ext_resource path="res://img/Yellowb.png" type="Texture" id=27]
+[ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=28]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -247,9 +249,26 @@ shortcut = null
 text = "Camera2"
 flat = false
 
+[node name="Camera3" type="Button" parent="MainMenuPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 110.0
+margin/top = 70.0
+margin/right = 178.0
+margin/bottom = 90.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Camera3"
+flat = false
+
 [node name="BarPanel" type="Panel" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 visibility/self_opacity = 0.3
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -472,6 +491,7 @@ texture = ExtResource( 9 )
 [node name="JoystickPanel" type="Panel" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 visibility/self_opacity = 0.3
 anchor/top = 1
 anchor/bottom = 1
@@ -935,14 +955,15 @@ max_lines_visible = -1
 
 [node name="ctOK" type="TextureButton" parent="CloudText"]
 
+editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 750.0
+margin/left = 600.0
 margin/top = 70.0
-margin/right = 814.0
+margin/right = 664.0
 margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -970,14 +991,15 @@ max_lines_visible = -1
 
 [node name="ctNo" type="TextureButton" parent="CloudText"]
 
+editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 900.0
+margin/left = 750.0
 margin/top = 70.0
-margin/right = 964.0
+margin/right = 814.0
 margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -1003,9 +1025,44 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Joystick" parent="." instance=ExtResource( 26 )]
+[node name="ctNext" type="TextureButton" parent="CloudText"]
 
-transform/pos = Vector2( 340, 590 )
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 900.0
+margin/top = 70.0
+margin/right = 964.0
+margin/bottom = 134.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 26 )
+textures/pressed = ExtResource( 27 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Label" type="Label" parent="CloudText/ctNext"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 9.0
+margin/top = 20.0
+margin/right = 55.0
+margin/bottom = 46.0
+custom_fonts/font = ExtResource( 3 )
+text = "Next"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Joystick" parent="." instance=ExtResource( 28 )]
+
+transform/pos = Vector2( 120, 600 )
 
 [connection signal="pressed" from="MainMenuPanel/Menu" to="." method="_on_Menu_pressed"]
 
@@ -1030,6 +1087,8 @@ transform/pos = Vector2( 340, 590 )
 [connection signal="pressed" from="MainMenuPanel/Camera1" to="." method="_on_Camera1_pressed"]
 
 [connection signal="pressed" from="MainMenuPanel/Camera2" to="." method="_on_Camera2_pressed"]
+
+[connection signal="pressed" from="MainMenuPanel/Camera3" to="." method="_on_Camera3_pressed"]
 
 [connection signal="button_down" from="JoystickPanel/ButtonUp" to="." method="_on_ButtonUp_button_down"]
 
@@ -1080,5 +1139,7 @@ transform/pos = Vector2( 340, 590 )
 [connection signal="pressed" from="CloudText/ctOK" to="." method="_on_ctOK_pressed"]
 
 [connection signal="pressed" from="CloudText/ctNo" to="." method="_on_ctNo_pressed"]
+
+[connection signal="pressed" from="CloudText/ctNext" to="." method="_on_ctNext_pressed"]
 
 

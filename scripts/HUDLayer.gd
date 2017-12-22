@@ -3,7 +3,7 @@ extends CanvasLayer
 #подгружаем сцену с персонажем для передвижения по кнопкам
 onready var player = get_tree().get_nodes_in_group('persistent')[0].get_node("AnimatedSprite")
 #позиция камеры
-var camera_pos = Vector2()
+var camera_pos = Vector2(0, 0)
 
 func _ready():
 	global.input_release()
@@ -156,13 +156,22 @@ var id_quest = ""
 var count = 0
 var text
 
+#просто разговариваем с NPC
 func just_talk(string):
-	pass
+	if string != "":
+		id_quest = string
+		text = global.loadtext(id_quest)
+	
+	get_node("CloudText").show()
+	get_node("CloudText/Text").set_text(text[count])
+	count += 1
+	if (count == text.size()):
+		count = 0
+		close_dialog("", "")
 
 #болтаем с NPC выдающими квест
 func quest_talk(string):
 	id_quest = string
-	
 	#проверяем на каком моменте наш квест
 	#он выполняется?
 	if id_quest in global.player_quests:
@@ -178,13 +187,9 @@ func quest_talk(string):
 		if (count == (text.size() - 2)):
 			get_node("CloudText/ctOK").show()
 			get_node("CloudText/ctNo").show()
+			get_node("CloudText/ctNext").hide()
 	
-	get_node("CloudText").show()
-	get_node("CloudText/Text").set_text(text[count])
-	count += 1
-	if (count == text.size()):
-		count = 0
-		close_dialog("", "")
+	just_talk("")
 
 #закрыть облако при нажатии ОК
 func _on_ctOK_pressed():
@@ -194,11 +199,17 @@ func _on_ctOK_pressed():
 func _on_ctNo_pressed():
 	close_dialog("", "")
 
+#следующая фраза в диалоге
+func _on_ctNext_pressed():
+	just_talk("")
+
 #скрывание облака после завершения диалога
 func close_dialog(sol, id_quest):
 	get_node("CloudText").hide()
 	get_node("CloudText/ctOK").hide()
 	get_node("CloudText/ctNo").hide()
+	get_node("CloudText/ctNext").show()
+	get_tree().get_nodes_in_group("hud")[0].camera_pos = Vector2(0, 0)
 	t4 != t4
 	count = 0
 	
@@ -220,7 +231,5 @@ func _on_Camera1_pressed():
 func _on_Camera2_pressed():
 	camera_pos = Vector2(0, 0)
 
-#реализация передвижения камеры
-func _fixed_process(delta):
-	var spotlight = get_tree().get_nodes_in_group('persistent')[0].get_node("Camera2D")
-	spotlight.set_pos(spotlight.get_pos().linear_interpolate(camera_pos, 0.1))
+func _on_Camera3_pressed():
+	camera_pos = Vector2(0, 800)

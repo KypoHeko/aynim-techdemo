@@ -2,7 +2,6 @@ extends Node
 
 onready var HUD = get_tree().get_nodes_in_group("hud")[0]
 onready var INV = get_tree().get_nodes_in_group('inv')[0]
-onready var BS = get_tree().get_nodes_in_group('buysell')[0]
 
 
 
@@ -42,18 +41,16 @@ func add_stat(i):
 #функция для начала битвы
 func BattleStart():
 	input_release()
-	HUD.get_node("JoystickPanel").hide()
+	HUD.get_node("Joystick").hide()
 	HUD.get_node("JoystickPanel1").show()
 	HUD.get_node("BarPanel").show()
-	print("BattleStart!")
 
 #функция для конца битвы
 func BattleEnd():
 	input_release()
-	HUD.get_node("JoystickPanel").show()
+	HUD.get_node("Joystick").show()
 	HUD.get_node("JoystickPanel1").hide()
 	HUD.get_node("BarPanel").hide()
-	print("BattleEnd!")
 
 
 

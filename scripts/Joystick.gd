@@ -13,6 +13,7 @@ var motion = Vector2(0,0)
 func _ready():
 	set_process(true)
 
+#передвижение
 func _process(delta):
 	if stick.get_pos() != Vector2(100,100):
 		player.move(motion)
@@ -36,11 +37,8 @@ func _on_Panel_input_event( ev ):
 			new_x = (val_x / sqrt(hypotenuse)) * 100
 			new_y = (val_y / sqrt(hypotenuse)) * 100
 			stick.set_pos(Vector2(new_x + 100, new_y + 100))
-		
-		#передвижение персонажа
-		motion = Vector2(val_x / 30, val_y / 30)
-		player.move(motion)
-		
+		#скорость передвижения персонажа
+		motion = Vector2(val_x / 25, val_y / 25)
 	#возвращаем в центр
 	else:
 		stick.set_pos(Vector2(100, 100))

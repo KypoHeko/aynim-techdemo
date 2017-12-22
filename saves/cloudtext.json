@@ -1,9 +1,9 @@
 {
-    "text1":["Lorem ipsum dolor sit amet", 
+    "NPC1":["Lorem ipsum dolor sit amet", 
              "consectetur adipiscing elit sed do eiusmod", 
              "tempor incididunt ut labore et dolore magna aliqua.",
              "",],
-    "text2":["Ut enim ad minim veniam quis", 
+    "NPC2":["Ut enim ad minim veniam quis", 
              "nostrud exercitation ullamco laboris nisi ut", 
              "aliquip ex ea commodo consequat.",
              "",],
@@ -16,4 +16,5 @@
     "NPCQ3s":["Axe2", "OK?", "",],
     "NPCQ3p":["Axe2", "",],
     "NPCQ3e":["Thank you for Axe2!", "",],
+    "watchout":["Hey!", "Watch out!", "",]
 }
