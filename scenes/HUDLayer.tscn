@@ -52,7 +52,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 100.0
+margin/right = 200.0
 margin/bottom = 310.0
 
 [node name="Menu" type="Button" parent="MainMenuPanel"]
@@ -215,18 +215,49 @@ shortcut = null
 text = "GiveEXP"
 flat = false
 
-[node name="BarPanel" type="Panel" parent="."]
+[node name="Camera1" type="Button" parent="MainMenuPanel"]
 
-editor/display_folded = true
-visibility/visible = false
-visibility/self_opacity = 0.3
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 110.0
+margin/top = 10.0
+margin/right = 178.0
+margin/bottom = 30.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Camera1"
+flat = false
+
+[node name="Camera2" type="Button" parent="MainMenuPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 110.0
+margin/top = 40.0
+margin/right = 178.0
+margin/bottom = 60.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Camera2"
+flat = false
+
+[node name="BarPanel" type="Panel" parent="."]
+
+editor/display_folded = true
+visibility/self_opacity = 0.3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 210.0
 margin/top = 0.0
-margin/right = 450.0
+margin/right = 550.0
 margin/bottom = 150.0
 
 [node name="TextureProgress" type="TextureProgress" parent="BarPanel"]
@@ -974,7 +1005,7 @@ max_lines_visible = -1
 
 [node name="Joystick" parent="." instance=ExtResource( 26 )]
 
-transform/pos = Vector2( 350, 580 )
+transform/pos = Vector2( 340, 590 )
 
 [connection signal="pressed" from="MainMenuPanel/Menu" to="." method="_on_Menu_pressed"]
 
@@ -995,6 +1026,10 @@ transform/pos = Vector2( 350, 580 )
 [connection signal="pressed" from="MainMenuPanel/Text" to="." method="_on_Text_pressed"]
 
 [connection signal="pressed" from="MainMenuPanel/GiveEXP" to="." method="_on_GiveEXP_pressed"]
+
+[connection signal="pressed" from="MainMenuPanel/Camera1" to="." method="_on_Camera1_pressed"]
+
+[connection signal="pressed" from="MainMenuPanel/Camera2" to="." method="_on_Camera2_pressed"]
 
 [connection signal="button_down" from="JoystickPanel/ButtonUp" to="." method="_on_ButtonUp_button_down"]
 

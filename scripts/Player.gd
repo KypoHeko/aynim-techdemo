@@ -6,7 +6,6 @@ const MOTION_SPEED = 250
 
 func _ready():
 	randomize()
-	#timer = get_node("Damage/Timer")
 	timer = get_node("Weapon/Timer")
 	set_fixed_process(true)
 
@@ -38,7 +37,7 @@ func _fixed_process(delta):
 			get_node("Damage").set_text(str(round(new_hit)))
 			get_node("Damage/Anim").play("hit")"""
 	
-	#animation
+	#анимация и передвижение
 	if move_up:
 		motion += Vector2(0, -1)
 		player.play("MoveUp")

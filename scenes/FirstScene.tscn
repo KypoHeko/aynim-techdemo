@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://img/first_scene.png" type="Texture" id=2]
@@ -6,9 +6,8 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/HUDLayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=6]
-[ext_resource path="res://fonts/Nanami.fnt" type="BitmapFont" id=7]
-[ext_resource path="res://scenes/Merchant.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/NPCQ.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Merchant.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/NPCQ.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -59,79 +58,31 @@ editor/display_folded = true
 
 visibility/visible = false
 
-[node name="Camera" type="Label" parent="HUDLayer"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 421.0
-margin/right = 90.0
-margin/bottom = 447.0
-custom_fonts/font = ExtResource( 7 )
-text = "Camera"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Camera1" type="Button" parent="HUDLayer"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 451.0
-margin/right = 78.0
-margin/bottom = 471.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Camera1"
-flat = false
-
-[node name="Camera2" type="Button" parent="HUDLayer"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 481.0
-margin/right = 78.0
-margin/bottom = 501.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Camera2"
-flat = false
-
-[node name="Merchant1" parent="." instance=ExtResource( 8 )]
+[node name="Merchant1" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 239.668, 146.212 )
 
-[node name="Merchant2" parent="." instance=ExtResource( 8 )]
+[node name="Merchant2" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 943.598, 218.565 )
 
-[node name="Merchant3" parent="." instance=ExtResource( 8 )]
+[node name="Merchant3" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 446.174, 559.225 )
 
-[node name="Merchant4" parent="." instance=ExtResource( 8 )]
+[node name="Merchant4" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1220.95, 604.445 )
 
-[node name="NPCQ1" parent="." instance=ExtResource( 9 )]
+[node name="NPCQ1" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 95.8715, -100.904 )
 
-[node name="NPCQ2" parent="." instance=ExtResource( 9 )]
+[node name="NPCQ2" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 307.985, -201.116 )
 
-[node name="NPCQ3" parent="." instance=ExtResource( 9 )]
+[node name="NPCQ3" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 515.629, -284.218 )
 
@@ -193,10 +144,6 @@ transform/scale = Vector2( 1, 1.65976 )
 shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
-
-[connection signal="pressed" from="HUDLayer/Camera1" to="." method="_on_Camera1_pressed"]
-
-[connection signal="pressed" from="HUDLayer/Camera2" to="." method="_on_Camera2_pressed"]
 
 [connection signal="body_enter" from="ToCityMap" to="." method="_on_ToCityMap_body_enter"]
 

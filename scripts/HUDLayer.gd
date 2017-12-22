@@ -2,9 +2,13 @@ extends CanvasLayer
 
 #подгружаем сцену с персонажем для передвижения по кнопкам
 onready var player = get_tree().get_nodes_in_group('persistent')[0].get_node("AnimatedSprite")
+#позиция камеры
+var camera_pos = Vector2()
 
 func _ready():
 	global.input_release()
+	set_process(true)
+	set_fixed_process(true)
 
 #передвижение, анимация и остановка (вверх)
 func _on_ButtonUp_button_down():
@@ -93,7 +97,7 @@ func _on_Map_pressed():
 		t3 = !t3
 
 
-
+#реализация таймеров (переделать)
 func _process(delta):
 	timer += delta*20
 	timer2 += delta*50
@@ -204,7 +208,19 @@ func close_dialog(sol, id_quest):
 		get_tree().get_nodes_in_group('inv')[0].add_quest(global.loadquest(id_quest))
 
 
-
 #дать опыт
 func _on_GiveEXP_pressed():
 	global.add_stat(1000)
+
+
+#передвижение камеры
+func _on_Camera1_pressed():
+	camera_pos = Vector2(800, 0)
+
+func _on_Camera2_pressed():
+	camera_pos = Vector2(0, 0)
+
+#реализация передвижения камеры
+func _fixed_process(delta):
+	var spotlight = get_tree().get_nodes_in_group('persistent')[0].get_node("Camera2D")
+	spotlight.set_pos(spotlight.get_pos().linear_interpolate(camera_pos, 0.1))

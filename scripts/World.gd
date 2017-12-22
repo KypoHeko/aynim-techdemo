@@ -62,14 +62,3 @@ func _on_Blue_body_enter( body ):
 	if (body.get_name() == "Player"):
 		global.colitems += 1
 		get_node("Blue1").queue_free()
-
-
-
-const CAMERA_SPEED = 500
-func _on_Camera1_pressed():
-	print(get_node("Player/Camera2D").get_pos())
-	get_node("Player/Camera2D").set_pos(Vector2(0,400))
-
-func _on_Camera2_pressed():
-	print(get_node("Player/Camera2D").get_pos())
-	get_node("Player/Camera2D").set_pos(Vector2(0,0))
