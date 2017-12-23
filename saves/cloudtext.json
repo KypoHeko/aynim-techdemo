@@ -7,6 +7,7 @@
              "nostrud exercitation ullamco laboris nisi ut", 
              "aliquip ex ea commodo consequat.",
              "",],
+    "watchout":["Hey!", "Watch out!", "",],
     "NPCQ1s":["Buy me Sword8", "OK?", "",],
     "NPCQ1p":["You buy? Sword8?", "",],
     "NPCQ1e":["Thank you for Sword8!", "",],
@@ -14,7 +15,8 @@
     "NPCQ2p":["Axe1?", "",],
     "NPCQ2e":["Thank you for Axe1!", "",],
     "NPCQ3s":["Axe2", "OK?", "",],
-    "NPCQ3p":["Axe2", "",],
+    "NPCQ3p":["Axe2?", "WOW", "",],
     "NPCQ3e":["Thank you for Axe2!", "",],
-    "watchout":["Hey!", "Watch out!", "",]
+    
+    "dialog":
 }

@@ -171,6 +171,7 @@ func just_talk(string):
 
 #болтаем с NPC выдающими квест
 func quest_talk(string):
+	get_node("CloudText/ctNextq").show()
 	id_quest = string
 	#проверяем на каком моменте наш квест
 	#он выполняется?
@@ -183,11 +184,11 @@ func quest_talk(string):
 	#или мы его только принимаем?
 	else:
 		text = global.loadtext(id_quest + "s")
-		
 		if (count == (text.size() - 2)):
 			get_node("CloudText/ctOK").show()
 			get_node("CloudText/ctNo").show()
 			get_node("CloudText/ctNext").hide()
+			get_node("CloudText/ctNextq").hide()
 	
 	just_talk("")
 
@@ -203,12 +204,16 @@ func _on_ctNo_pressed():
 func _on_ctNext_pressed():
 	just_talk("")
 
+func _on_ctNextq_pressed():
+	quest_talk(id_quest)
+
 #скрывание облака после завершения диалога
 func close_dialog(sol, id_quest):
 	get_node("CloudText").hide()
 	get_node("CloudText/ctOK").hide()
 	get_node("CloudText/ctNo").hide()
 	get_node("CloudText/ctNext").show()
+	get_node("CloudText/ctNextq").hide()
 	get_tree().get_nodes_in_group("hud")[0].camera_pos = Vector2(0, 0)
 	t4 != t4
 	count = 0

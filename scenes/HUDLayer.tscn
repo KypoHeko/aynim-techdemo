@@ -1060,6 +1060,42 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="ctNextq" type="TextureButton" parent="CloudText"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 900.0
+margin/top = 70.0
+margin/right = 964.0
+margin/bottom = 134.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 26 )
+textures/pressed = ExtResource( 27 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Label" type="Label" parent="CloudText/ctNextq"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 9.0
+margin/top = 20.0
+margin/right = 55.0
+margin/bottom = 46.0
+custom_fonts/font = ExtResource( 3 )
+text = "Next_"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Joystick" parent="." instance=ExtResource( 28 )]
 
 transform/pos = Vector2( 120, 600 )
@@ -1141,5 +1177,7 @@ transform/pos = Vector2( 120, 600 )
 [connection signal="pressed" from="CloudText/ctNo" to="." method="_on_ctNo_pressed"]
 
 [connection signal="pressed" from="CloudText/ctNext" to="." method="_on_ctNext_pressed"]
+
+[connection signal="pressed" from="CloudText/ctNextq" to="." method="_on_ctNextq_pressed"]
 
 
