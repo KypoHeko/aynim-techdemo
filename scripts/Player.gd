@@ -44,25 +44,30 @@ func _fixed_process(delta):
 	if (-1) * abs(move_x * 2) > move_y:
 		player.play("MoveUp")
 	#вправо
-	if abs(move_y / 2) < move_x:
+	if abs(move_y * 2) < move_x:
 		player.set_flip_h(true)
 		player.play("MoveRight")
-		#вправо вверх
-		if (-1) * move_y * 2 > move_x:
-			player.play("MoveRightUp")
-		#вправо вниз
-		if move_y * 2 > move_x:
-			player.play("MoveRightDown")
+	#вправо вверх
+	if (abs(move_y / 2) < move_x) and ((-1) * move_y * 2 > move_x):
+		player.set_flip_h(true)
+		player.play("MoveRightUp")
+	#вправо вниз
+	if (abs(move_y / 2) < move_x) and (move_y * 2 > move_x):
+		player.set_flip_h(true)
+		player.play("MoveRightDown")
 	#влево
-	if (-1) * abs(move_y / 2) > move_x:
+	if (-1) * abs(move_y * 2) > move_x:
 		player.set_flip_h(false)
 		player.play("MoveLeft")
-		#влево вверх
-		if move_y * 2 < move_x:
-			player.play("MoveLeftUp")
-		#влево вниз
-		if (-1) * move_y * 2 < move_x:
-			player.play("MoveLeftDown")
+	#влево вверх
+	if ((-1) * abs(move_y / 2) > move_x) and (move_y * 2 < move_x):
+		player.set_flip_h(false)
+		player.play("MoveLeftUp")
+	#влево вниз
+	if ((-1) * abs(move_y / 2) > move_x) and ((-1) * move_y * 2 < move_x):
+		player.set_flip_h(false)
+		player.play("MoveLeftDown")
+	#остановка анимации
 	#if move_x == 0 and move_y == 0:
 	#	player.play("STAY")
 	#print(move_x, " ", move_y)
