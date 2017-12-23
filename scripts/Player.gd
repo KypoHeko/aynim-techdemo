@@ -3,6 +3,8 @@ extends KinematicBody2D
 var new_hit = 0
 var timer
 const MOTION_SPEED = 250
+var move_x = 0
+var move_y = 0
 
 func _ready():
 	randomize()
@@ -10,11 +12,7 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	var motion = Vector2()
-	var move_up = Input.is_action_pressed("move_up")
-	var move_down = Input.is_action_pressed("move_down")
-	var move_left = Input.is_action_pressed("move_left")
-	var move_right = Input.is_action_pressed("move_right")
+	var motion = Vector2()	
 	var player = get_node("AnimatedSprite")
 	
 	if Input.is_action_pressed("ui_select"):
@@ -29,6 +27,7 @@ func _fixed_process(delta):
 	if (timer.get_time_left() <= 0.1):
 		get_node("Weapon").hide()
 		
+		#счетчик урона
 		"""if (timer.get_time_left() <= 0.7):
 			if (timer.get_time_left() == 0):
 				new_hit = 0
@@ -37,7 +36,42 @@ func _fixed_process(delta):
 			get_node("Damage").set_text(str(round(new_hit)))
 			get_node("Damage/Anim").play("hit")"""
 	
-	#анимация и передвижение
+	#анимация и передвижение для стика
+	#вниз
+	if abs(move_x * 2) < move_y:
+		player.play("MoveDown")
+	#вверх
+	if (-1) * abs(move_x * 2) > move_y:
+		player.play("MoveUp")
+	#вправо
+	if abs(move_y / 2) < move_x:
+		player.set_flip_h(true)
+		player.play("MoveRight")
+		#вправо вверх
+		if (-1) * move_y * 2 > move_x:
+			player.play("MoveRightUp")
+		#вправо вниз
+		if move_y * 2 > move_x:
+			player.play("MoveRightDown")
+	#влево
+	if (-1) * abs(move_y / 2) > move_x:
+		player.set_flip_h(false)
+		player.play("MoveLeft")
+		#влево вверх
+		if move_y * 2 < move_x:
+			player.play("MoveLeftUp")
+		#влево вниз
+		if (-1) * move_y * 2 < move_x:
+			player.play("MoveLeftDown")
+	#if move_x == 0 and move_y == 0:
+	#	player.play("STAY")
+	#print(move_x, " ", move_y)
+	
+	#анимация и передвижение для клавиатуры
+	var move_up = Input.is_action_pressed("move_up")
+	var move_down = Input.is_action_pressed("move_down")
+	var move_left = Input.is_action_pressed("move_left")
+	var move_right = Input.is_action_pressed("move_right")
 	if move_up:
 		motion += Vector2(0, -1)
 		player.play("MoveUp")
