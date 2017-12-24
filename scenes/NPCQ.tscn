@@ -6,7 +6,6 @@
 [ext_resource path="res://img/AUN.png" type="Texture" id=4]
 [ext_resource path="res://fonts/Nanami.fnt" type="BitmapFont" id=5]
 
-
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0

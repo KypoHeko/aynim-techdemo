@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=1]
+[gd_scene load_steps=32 format=1]
 
 [ext_resource path="res://scripts/HUDLayer.gd" type="Script" id=1]
 [ext_resource path="res://img/hudredbar.png" type="Texture" id=2]
@@ -28,6 +28,8 @@
 [ext_resource path="res://img/Yellow.png" type="Texture" id=26]
 [ext_resource path="res://img/Yellowb.png" type="Texture" id=27]
 [ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=28]
+[ext_resource path="res://img/BigGreen.png" type="Texture" id=29]
+[ext_resource path="res://img/BigGreenb.png" type="Texture" id=30]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -48,6 +50,7 @@ script/script = ExtResource( 1 )
 
 editor/display_folded = true
 visibility/self_opacity = 0.3
+rect/scale = Vector2( 1.5, 1.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -268,15 +271,14 @@ flat = false
 [node name="BarPanel" type="Panel" parent="."]
 
 editor/display_folded = true
-visibility/visible = false
 visibility/self_opacity = 0.3
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 210.0
+margin/left = 320.0
 margin/top = 0.0
-margin/right = 550.0
+margin/right = 660.0
 margin/bottom = 150.0
 
 [node name="TextureProgress" type="TextureProgress" parent="BarPanel"]
@@ -883,10 +885,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 393.0
-margin/right = 75.0
-margin/bottom = 419.0
+margin/left = 321.0
+margin/top = 165.0
+margin/right = 386.0
+margin/bottom = 191.0
 custom_fonts/font = ExtResource( 3 )
 text = "Timer: "
 percent_visible = 1.0
@@ -899,10 +901,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 70.0
-margin/top = 393.0
-margin/right = 110.0
-margin/bottom = 419.0
+margin/left = 381.0
+margin/top = 165.0
+margin/right = 421.0
+margin/bottom = 191.0
 custom_fonts/font = ExtResource( 3 )
 percent_visible = 1.0
 lines_skipped = 0
@@ -929,7 +931,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 400.0
 margin/top = 150.0
-margin/right = -600.0
+margin/right = -460.0
 margin/bottom = 50.0
 texture = ExtResource( 18 )
 patch_margin/left = 20
@@ -945,7 +947,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 15.0
 margin/top = 15.0
-margin/right = 985.0
+margin/right = 840.0
 margin/bottom = 85.0
 custom_fonts/font = ExtResource( 3 )
 autowrap = true
@@ -1032,9 +1034,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 900.0
+margin/left = 760.0
 margin/top = 70.0
-margin/right = 964.0
+margin/right = 824.0
 margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -1098,7 +1100,49 @@ max_lines_visible = -1
 
 [node name="Joystick" parent="." instance=ExtResource( 28 )]
 
-transform/pos = Vector2( 120, 600 )
+transform/pos = Vector2( 121.108, 600 )
+
+[node name="Action" type="TextureButton" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+anchor/left = 1
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 150.0
+margin/top = 150.0
+margin/right = 22.0
+margin/bottom = 22.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 29 )
+textures/pressed = ExtResource( 30 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Label" type="Label" parent="Action"]
+
+rect/scale = Vector2( 1.5, 1.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -3.0
+margin/top = -55.0
+margin/right = 87.0
+margin/bottom = -29.0
+custom_fonts/font = ExtResource( 3 )
+text = "Action!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [connection signal="pressed" from="MainMenuPanel/Menu" to="." method="_on_Menu_pressed"]
 
