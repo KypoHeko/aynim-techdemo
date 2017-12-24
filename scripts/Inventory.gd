@@ -11,13 +11,10 @@ func _ready():
 	#настройки для инвентаря
 	itemlist.set_max_columns(7)
 	itemlist.set_fixed_icon_size(Vector2(64,64))
-	
 	#обновить список квестов
 	renew_quests()
-	
-	#загрузить спискок предметов
-	for i in global.player_inv:
-		loaditems(i)
+	#загрузить список предметов
+	loaditems()
 	
 	set_process(true)
 
@@ -78,7 +75,9 @@ func add_quest(data):
 
 
 #загружаем предметы в инвентарь
-func loaditems(index):
+func loaditems():
+	itemlist.clear()
+	
 	var save_file = File.new()
 	if !save_file.file_exists(ITEMS_TEXT):
 		return
@@ -87,11 +86,8 @@ func loaditems(index):
 	save_file.open(ITEMS_TEXT, File.READ)
 	data.parse_json(save_file.get_as_text())
 	
-	itemlist.add_icon_item(load(data[str(index)]["icon"]))
-
-#удаляем предметы из инвентаря
-func deleteitem(index):
-	itemlist.remove_item(index)
+	for i in global.player_inv:
+		itemlist.add_icon_item(load(data[str(i)]["icon"]))
 
 
 

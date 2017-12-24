@@ -1,9 +1,6 @@
 extends Node
 
 onready var HUD = get_tree().get_nodes_in_group("hud")[0]
-onready var INV = get_tree().get_nodes_in_group('inv')[0]
-
-
 
 var entry_point = 0
 
@@ -138,6 +135,7 @@ func loadquest(id_quest):
 #завершаем квест
 func quest_completed():
 	var quest_data = loadquest(HUD.id_quest)
+	var INV = get_tree().get_nodes_in_group('inv')[0]
 	if int(quest_data['need_id']) in player_inv:
 		#удаляем из активных квестов и добавляем в выполненные
 		player_quests.erase(HUD.id_quest)
@@ -155,9 +153,7 @@ func quest_completed():
 #добавляем предмет из магазина в инвентарь
 func add_new_item(index):
 	player_inv.append(index)
-	INV.loaditems(index)
 
 #продаем предмет из инвентаря в магазин
 func delete_item(index):
-	INV.deleteitem(player_inv.find(index))
 	player_inv.erase(index)

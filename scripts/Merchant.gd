@@ -11,6 +11,7 @@ func _on_Area2D_body_enter( body ):
 		get_node("Area2D/Trade").show()
 		HUD.get_node("Action").show()
 		HUD.get_node("Action/Label").set_text("Trade!")
+		HUD.NPCname = get_name()
 
 func _on_Area2D_body_exit( body ):
 	if (body.get_name() == "Player"):

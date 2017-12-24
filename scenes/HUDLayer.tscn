@@ -21,13 +21,13 @@
 [ext_resource path="res://img/miniFS.png" type="Texture" id=19]
 [ext_resource path="res://img/minimapmask.png" type="Texture" id=20]
 [ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=21]
-[ext_resource path="res://img/Green.png" type="Texture" id=22]
-[ext_resource path="res://img/Greenb.png" type="Texture" id=23]
-[ext_resource path="res://img/Red.png" type="Texture" id=24]
-[ext_resource path="res://img/Redb.png" type="Texture" id=25]
-[ext_resource path="res://img/Yellow.png" type="Texture" id=26]
-[ext_resource path="res://img/Yellowb.png" type="Texture" id=27]
-[ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=22]
+[ext_resource path="res://img/Green.png" type="Texture" id=23]
+[ext_resource path="res://img/Greenb.png" type="Texture" id=24]
+[ext_resource path="res://img/Red.png" type="Texture" id=25]
+[ext_resource path="res://img/Redb.png" type="Texture" id=26]
+[ext_resource path="res://img/Yellow.png" type="Texture" id=27]
+[ext_resource path="res://img/Yellowb.png" type="Texture" id=28]
 [ext_resource path="res://img/BigGreen.png" type="Texture" id=29]
 [ext_resource path="res://img/BigGreenb.png" type="Texture" id=30]
 
@@ -50,7 +50,6 @@ script/script = ExtResource( 1 )
 
 editor/display_folded = true
 visibility/self_opacity = 0.3
-rect/scale = Vector2( 1.5, 1.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -270,15 +269,14 @@ flat = false
 
 [node name="BarPanel" type="Panel" parent="."]
 
-editor/display_folded = true
 visibility/self_opacity = 0.3
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 320.0
+margin/left = 210.0
 margin/top = 0.0
-margin/right = 660.0
+margin/right = 550.0
 margin/bottom = 150.0
 
 [node name="TextureProgress" type="TextureProgress" parent="BarPanel"]
@@ -879,43 +877,9 @@ margin/top = 116.0
 margin/right = 1020.0
 margin/bottom = 556.0
 
-[node name="TimerLabel" type="Label" parent="."]
+[node name="Joystick" parent="." instance=ExtResource( 22 )]
 
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 321.0
-margin/top = 165.0
-margin/right = 386.0
-margin/bottom = 191.0
-custom_fonts/font = ExtResource( 3 )
-text = "Timer: "
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="TimerValue" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 381.0
-margin/top = 165.0
-margin/right = 421.0
-margin/bottom = 191.0
-custom_fonts/font = ExtResource( 3 )
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Timer 2" type="Timer" parent="."]
-
-process_mode = 1
-wait_time = 5.0
-one_shot = true
-autostart = false
+transform/pos = Vector2( 121.108, 600 )
 
 [node name="CloudText" type="Patch9Frame" parent="."]
 
@@ -970,8 +934,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 22 )
-textures/pressed = ExtResource( 23 )
+textures/normal = ExtResource( 23 )
+textures/pressed = ExtResource( 24 )
 params/resize_mode = 1
 params/stretch_mode = 0
 
@@ -1006,8 +970,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 24 )
-textures/pressed = ExtResource( 25 )
+textures/normal = ExtResource( 25 )
+textures/pressed = ExtResource( 26 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1041,8 +1005,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 26 )
-textures/pressed = ExtResource( 27 )
+textures/normal = ExtResource( 27 )
+textures/pressed = ExtResource( 28 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1077,8 +1041,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 26 )
-textures/pressed = ExtResource( 27 )
+textures/normal = ExtResource( 27 )
+textures/pressed = ExtResource( 28 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1097,10 +1061,6 @@ text = "Next_"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-[node name="Joystick" parent="." instance=ExtResource( 28 )]
-
-transform/pos = Vector2( 121.108, 600 )
 
 [node name="Action" type="TextureButton" parent="."]
 
@@ -1143,6 +1103,44 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="TimerLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 210.0
+margin/top = 160.0
+margin/right = 275.0
+margin/bottom = 186.0
+custom_fonts/font = ExtResource( 3 )
+text = "Timer: "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="TimerValue" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 270.0
+margin/top = 160.0
+margin/right = 310.0
+margin/bottom = 186.0
+custom_fonts/font = ExtResource( 3 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Timer 2" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
 
 [connection signal="pressed" from="MainMenuPanel/Menu" to="." method="_on_Menu_pressed"]
 
@@ -1223,5 +1221,7 @@ max_lines_visible = -1
 [connection signal="pressed" from="CloudText/ctNext" to="." method="_on_ctNext_pressed"]
 
 [connection signal="pressed" from="CloudText/ctNextq" to="." method="_on_ctNextq_pressed"]
+
+[connection signal="pressed" from="Action" to="." method="_on_Action_pressed"]
 
 

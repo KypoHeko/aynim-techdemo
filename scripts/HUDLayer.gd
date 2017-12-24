@@ -4,6 +4,8 @@ extends CanvasLayer
 onready var player = get_tree().get_nodes_in_group('persistent')[0].get_node("AnimatedSprite")
 #позиция камеры
 var camera_pos = Vector2(0, 0)
+#переменная для активной кнопки
+var NPCname = ""
 
 func _ready():
 	global.input_release()
@@ -80,6 +82,7 @@ func _on_RunButton_pressed():
 
 var tt = false
 func _on_Inventory_pressed():
+	get_tree().get_nodes_in_group('inv')[0].loaditems()
 	if tt == false:
 		get_node("Inventory").show()
 		tt = !tt
@@ -238,3 +241,12 @@ func _on_Camera2_pressed():
 
 func _on_Camera3_pressed():
 	camera_pos = Vector2(0, 800)
+
+func _on_Action_pressed():
+	var temp = get_node("Action/Label").get_text()
+	if temp == "Talk!":
+		just_talk(NPCname)
+	if temp == "Quest!":
+		quest_talk(NPCname)
+	if temp == "Trade!":
+		print("3")

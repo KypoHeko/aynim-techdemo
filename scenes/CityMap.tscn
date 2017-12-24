@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scripts/CityMap.gd" type="Script" id=1]
 [ext_resource path="res://img/CityMap.jpg" type="Texture" id=2]
 [ext_resource path="res://img/icons/to1s.png" type="Texture" id=3]
 [ext_resource path="res://img/icons/to1sp.png" type="Texture" id=4]
-[ext_resource path="res://img/icons/to2s.png" type="Texture" id=5]
-[ext_resource path="res://img/icons/to3s.png" type="Texture" id=6]
-[ext_resource path="res://img/icons/to3sp.png" type="Texture" id=7]
-[ext_resource path="res://img/bazaar.png" type="Texture" id=8]
-[ext_resource path="res://img/bazaarb.png" type="Texture" id=9]
+[ext_resource path="res://img/bazaar.png" type="Texture" id=5]
+[ext_resource path="res://img/bazaarb.png" type="Texture" id=6]
+[ext_resource path="res://img/icons/to2s.png" type="Texture" id=7]
+[ext_resource path="res://img/icons/to3s.png" type="Texture" id=8]
+[ext_resource path="res://img/icons/to3sp.png" type="Texture" id=9]
+[ext_resource path="res://img/AUS.png" type="Texture" id=10]
+[ext_resource path="res://img/AUN.png" type="Texture" id=11]
+[ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=12]
 
 [node name="Node2D" type="Node2D"]
 
@@ -19,16 +22,17 @@ script/script = ExtResource( 1 )
 transform/pos = Vector2( 640, 360 )
 texture = ExtResource( 2 )
 
-[node name="Button" type="TextureButton" parent="Sprite"]
+[node name="Button" type="TextureButton" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -117.0
-margin/top = -91.0
-margin/right = -57.0
-margin/bottom = -31.0
+margin/left = 523.0
+margin/top = 269.0
+margin/right = 583.0
+margin/bottom = 329.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -37,52 +41,180 @@ textures/pressed = ExtResource( 4 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
-[node name="Button1" type="TextureButton" parent="Sprite"]
+[node name="Merchant" type="TextureButton" parent="Button"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -371.0
-margin/top = 30.0
-margin/right = -311.0
-margin/bottom = 90.0
+margin/left = 0.0
+margin/top = 65.0
+margin/right = 40.0
+margin/bottom = 105.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 textures/normal = ExtResource( 5 )
-textures/pressed = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
-[node name="Button2" type="TextureButton" parent="Sprite"]
+[node name="Merchant1" type="TextureButton" parent="Button"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 153.0
-margin/top = 53.0
-margin/right = 213.0
-margin/bottom = 113.0
+margin/left = 45.0
+margin/top = 65.0
+margin/right = 85.0
+margin/bottom = 105.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 6 )
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Merchant2" type="TextureButton" parent="Button"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 90.0
+margin/top = 65.0
+margin/right = 130.0
+margin/bottom = 105.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Merchant3" type="TextureButton" parent="Button"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 135.0
+margin/top = 65.0
+margin/right = 175.0
+margin/bottom = 105.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Button1" type="TextureButton" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 269.0
+margin/top = 390.0
+margin/right = 329.0
+margin/bottom = 450.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 7 )
 textures/pressed = ExtResource( 7 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
-[node name="Button3" type="TextureButton" parent="Sprite"]
+[node name="Merchant" type="TextureButton" parent="Button1"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -471.0
-margin/top = -102.0
-margin/right = -431.0
-margin/bottom = -62.0
+margin/left = 0.0
+margin/top = 65.0
+margin/right = 40.0
+margin/bottom = 105.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Merchant1" type="TextureButton" parent="Button1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 45.0
+margin/top = 65.0
+margin/right = 85.0
+margin/bottom = 105.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Merchant2" type="TextureButton" parent="Button1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 90.0
+margin/top = 65.0
+margin/right = 130.0
+margin/bottom = 105.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Merchant3" type="TextureButton" parent="Button1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 135.0
+margin/top = 65.0
+margin/right = 175.0
+margin/bottom = 105.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Button2" type="TextureButton" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 793.0
+margin/top = 413.0
+margin/right = 853.0
+margin/bottom = 473.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -91,12 +223,137 @@ textures/pressed = ExtResource( 9 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
-[connection signal="pressed" from="Sprite/Button" to="." method="_on_Button_pressed"]
+[node name="Merchant" type="TextureButton" parent="Button2"]
 
-[connection signal="pressed" from="Sprite/Button1" to="." method="_on_Button1_pressed"]
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 65.0
+margin/right = 40.0
+margin/bottom = 105.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+params/resize_mode = 0
+params/stretch_mode = 0
 
-[connection signal="pressed" from="Sprite/Button2" to="." method="_on_Button2_pressed"]
+[node name="Merchant1" type="TextureButton" parent="Button2"]
 
-[connection signal="pressed" from="Sprite/Button3" to="." method="_on_Button3_pressed"]
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 45.0
+margin/top = 65.0
+margin/right = 85.0
+margin/bottom = 105.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Merchant2" type="TextureButton" parent="Button2"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 90.0
+margin/top = 65.0
+margin/right = 130.0
+margin/bottom = 105.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Merchant3" type="TextureButton" parent="Button2"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 135.0
+margin/top = 65.0
+margin/right = 175.0
+margin/bottom = 105.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Button3" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 169.0
+margin/top = 258.0
+margin/right = 209.0
+margin/bottom = 298.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 10 )
+textures/pressed = ExtResource( 11 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="bazaar" parent="CanvasLayer" instance=ExtResource( 12 )]
+
+visibility/visible = false
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+[connection signal="pressed" from="Button/Merchant" to="." method="_on_Merchant_pressed"]
+
+[connection signal="pressed" from="Button/Merchant1" to="." method="_on_Merchant_pressed"]
+
+[connection signal="pressed" from="Button/Merchant2" to="." method="_on_Merchant_pressed"]
+
+[connection signal="pressed" from="Button/Merchant3" to="." method="_on_Merchant_pressed"]
+
+[connection signal="pressed" from="Button1" to="." method="_on_Button1_pressed"]
+
+[connection signal="pressed" from="Button1/Merchant" to="." method="_on_Merchant_pressed"]
+
+[connection signal="pressed" from="Button1/Merchant1" to="." method="_on_Merchant_pressed"]
+
+[connection signal="pressed" from="Button1/Merchant2" to="." method="_on_Merchant_pressed"]
+
+[connection signal="pressed" from="Button1/Merchant3" to="." method="_on_Merchant_pressed"]
+
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
+
+[connection signal="pressed" from="Button2/Merchant" to="." method="_on_Merchant_pressed"]
+
+[connection signal="pressed" from="Button2/Merchant1" to="." method="_on_Merchant_pressed"]
+
+[connection signal="pressed" from="Button2/Merchant2" to="." method="_on_Merchant_pressed"]
+
+[connection signal="pressed" from="Button2/Merchant3" to="." method="_on_Merchant_pressed"]
+
+[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
 
 
