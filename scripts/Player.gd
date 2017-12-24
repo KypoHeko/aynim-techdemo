@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
 var new_hit = 0
-var timer
-const MOTION_SPEED = 250
+var timer = 0
 var move_x = 0
 var move_y = 0
+var direction = "down"
+const MOTION_SPEED = 250
 
 func _ready():
 	randomize()
@@ -12,9 +13,10 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	var motion = Vector2()	
+	var motion = Vector2()
 	var player = get_node("AnimatedSprite")
 	
+	#анимация атаки
 	if Input.is_action_pressed("ui_select"):
 		if (timer.get_time_left() == 0):
 			get_node("Weapon").show()
@@ -36,41 +38,69 @@ func _fixed_process(delta):
 			get_node("Damage").set_text(str(round(new_hit)))
 			get_node("Damage/Anim").play("hit")"""
 	
+	
+	
 	#анимация и передвижение для стика
 	#вниз
 	if abs(move_x * 2) < move_y:
 		player.play("MoveDown")
+		direction = "down"
 	#вверх
 	if (-1) * abs(move_x * 2) > move_y:
 		player.play("MoveUp")
+		direction = "up"
 	#вправо
 	if abs(move_y * 2) < move_x:
 		player.set_flip_h(true)
 		player.play("MoveRight")
+		direction = "right"
 	#вправо вверх
 	if (abs(move_y / 2) < move_x) and ((-1) * move_y * 2 > move_x):
 		player.set_flip_h(true)
 		player.play("MoveRightUp")
+		direction = "rightup"
 	#вправо вниз
 	if (abs(move_y / 2) < move_x) and (move_y * 2 > move_x):
 		player.set_flip_h(true)
 		player.play("MoveRightDown")
+		direction = "rightdown"
 	#влево
 	if (-1) * abs(move_y * 2) > move_x:
 		player.set_flip_h(false)
 		player.play("MoveLeft")
+		direction = "left"
 	#влево вверх
 	if ((-1) * abs(move_y / 2) > move_x) and (move_y * 2 < move_x):
 		player.set_flip_h(false)
 		player.play("MoveLeftUp")
+		direction = "leftup"
 	#влево вниз
 	if ((-1) * abs(move_y / 2) > move_x) and ((-1) * move_y * 2 < move_x):
 		player.set_flip_h(false)
 		player.play("MoveLeftDown")
+		direction = "leftdown"
+	
 	#остановка анимации
-	#if move_x == 0 and move_y == 0:
-	#	player.play("STAY")
+	if move_x + move_y == 0:
+		player.play("STAY")
+		if direction == "down":
+			player.set_frame(0)
+		if direction == "leftdown":
+			player.set_frame(1)
+		if direction == "rightdown":
+			player.set_frame(1)
+		if direction == "left":
+			player.set_frame(2)
+		if direction == "right":
+			player.set_frame(2)
+		if direction == "leftup":
+			player.set_frame(3)
+		if direction == "rightup":
+			player.set_frame(3)
+		if direction == "up":
+			player.set_frame(4)
 	#print(move_x, " ", move_y)
+	#print(motion)
 	
 	#анимация и передвижение для клавиатуры
 	var move_up = Input.is_action_pressed("move_up")
