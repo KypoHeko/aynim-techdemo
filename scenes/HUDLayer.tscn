@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=1]
+[gd_scene load_steps=33 format=1]
 
 [ext_resource path="res://scripts/HUDLayer.gd" type="Script" id=1]
 [ext_resource path="res://img/hudredbar.png" type="Texture" id=2]
@@ -21,15 +21,16 @@
 [ext_resource path="res://img/miniFS.png" type="Texture" id=19]
 [ext_resource path="res://img/minimapmask.png" type="Texture" id=20]
 [ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=21]
-[ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=22]
-[ext_resource path="res://img/Green.png" type="Texture" id=23]
-[ext_resource path="res://img/Greenb.png" type="Texture" id=24]
-[ext_resource path="res://img/Red.png" type="Texture" id=25]
-[ext_resource path="res://img/Redb.png" type="Texture" id=26]
-[ext_resource path="res://img/Yellow.png" type="Texture" id=27]
-[ext_resource path="res://img/Yellowb.png" type="Texture" id=28]
-[ext_resource path="res://img/BigGreen.png" type="Texture" id=29]
-[ext_resource path="res://img/BigGreenb.png" type="Texture" id=30]
+[ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=23]
+[ext_resource path="res://img/Green.png" type="Texture" id=24]
+[ext_resource path="res://img/Greenb.png" type="Texture" id=25]
+[ext_resource path="res://img/Red.png" type="Texture" id=26]
+[ext_resource path="res://img/Redb.png" type="Texture" id=27]
+[ext_resource path="res://img/Yellow.png" type="Texture" id=28]
+[ext_resource path="res://img/Yellowb.png" type="Texture" id=29]
+[ext_resource path="res://img/BigGreen.png" type="Texture" id=30]
+[ext_resource path="res://img/BigGreenb.png" type="Texture" id=31]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -878,7 +879,11 @@ margin/top = 116.0
 margin/right = 1020.0
 margin/bottom = 556.0
 
-[node name="Joystick" parent="." instance=ExtResource( 22 )]
+[node name="bazaar" parent="." instance=ExtResource( 22 )]
+
+visibility/visible = false
+
+[node name="Joystick" parent="." instance=ExtResource( 23 )]
 
 transform/pos = Vector2( 121.108, 600 )
 
@@ -935,8 +940,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 23 )
-textures/pressed = ExtResource( 24 )
+textures/normal = ExtResource( 24 )
+textures/pressed = ExtResource( 25 )
 params/resize_mode = 1
 params/stretch_mode = 0
 
@@ -971,8 +976,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 25 )
-textures/pressed = ExtResource( 26 )
+textures/normal = ExtResource( 26 )
+textures/pressed = ExtResource( 27 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1006,8 +1011,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 27 )
-textures/pressed = ExtResource( 28 )
+textures/normal = ExtResource( 28 )
+textures/pressed = ExtResource( 29 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1042,8 +1047,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 27 )
-textures/pressed = ExtResource( 28 )
+textures/normal = ExtResource( 28 )
+textures/pressed = ExtResource( 29 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1082,8 +1087,8 @@ margin/bottom = 22.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 29 )
-textures/pressed = ExtResource( 30 )
+textures/normal = ExtResource( 30 )
+textures/pressed = ExtResource( 31 )
 params/resize_mode = 0
 params/stretch_mode = 0
 

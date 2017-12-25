@@ -226,11 +226,22 @@ func close_dialog(sol, id_quest):
 		global.player_quests.append(id_quest)
 		get_tree().get_nodes_in_group('inv')[0].add_quest(global.loadquest(id_quest))
 
+func trade(string):
+	get_node("bazaar").renew_items()
+	get_node("bazaar").show()
+	
+	if get_parent().get_name() == "FirstScene":
+		global.firstscene[int(string.substr(8, 1))] = 1
+	if get_parent().get_name() == "SecondScene":
+		global.secondscene[int(string.substr(8, 1))] = 1
+	if get_parent().get_name() == "ThirdScene":
+		global.thirdscene[int(string.substr(8, 1))] = 1
+
+
 
 #дать опыт
 func _on_GiveEXP_pressed():
 	global.add_stat(1000)
-
 
 #передвижение камеры
 func _on_Camera1_pressed():
@@ -249,4 +260,4 @@ func _on_Action_pressed():
 	if temp == "Quest!":
 		quest_talk(NPCname)
 	if temp == "Trade!":
-		print("3")
+		trade(NPCname)

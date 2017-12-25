@@ -13,9 +13,7 @@
 [ext_resource path="res://img/AUN.png" type="Texture" id=11]
 [ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=12]
 
-[node name="Node2D" type="Node2D" groups=[
-"citymap",
-]]
+[node name="Node2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
 
