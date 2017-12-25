@@ -59,6 +59,10 @@ editor/display_folded = true
 
 visibility/visible = false
 
+[node name="Merchant0" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1220.95, 604.445 )
+
 [node name="Merchant1" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 239.668, 146.212 )
@@ -70,10 +74,6 @@ transform/pos = Vector2( 943.598, 218.565 )
 [node name="Merchant3" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 446.174, 559.225 )
-
-[node name="Merchant4" parent="." instance=ExtResource( 7 )]
-
-transform/pos = Vector2( 1220.95, 604.445 )
 
 [node name="NPCQ1" parent="." instance=ExtResource( 8 )]
 

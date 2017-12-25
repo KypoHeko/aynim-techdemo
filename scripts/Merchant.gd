@@ -23,3 +23,10 @@ func _on_Area2D_body_exit( body ):
 func _on_Trading_pressed():
 	get_node("CanvasLayer/TradeWindow").renew_items()
 	get_node("CanvasLayer/TradeWindow").show()
+	
+	if get_parent().get_name() == "FirstScene":
+		global.firstscene[int(get_name().substr(8, 1))] = 1
+	if get_parent().get_name() == "SecondScene":
+		global.secondscene[int(get_name().substr(8, 1))] = 1
+	if get_parent().get_name() == "ThirdScene":
+		global.thirdscene[int(get_name().substr(8, 1))] = 1

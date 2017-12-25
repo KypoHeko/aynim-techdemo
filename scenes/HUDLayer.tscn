@@ -269,6 +269,7 @@ flat = false
 
 [node name="BarPanel" type="Panel" parent="."]
 
+editor/display_folded = true
 visibility/self_opacity = 0.3
 focus/ignore_mouse = false
 focus/stop_mouse = true

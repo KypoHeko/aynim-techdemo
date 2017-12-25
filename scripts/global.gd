@@ -15,6 +15,10 @@ var player_inv = [1, 1, 1]
 var player_quests = []
 var player_c_quests = []
 
+var firstscene = [0,0,0,0]
+var secondscene = [0,0,0,0]
+var thirdscene = [0,0,0,0]
+
 const CLOUD_TEXT = "res://saves/cloudtext.json"
 const SAVE_PATH = "res://saves/save.json"
 const QUEST_PATH = "res://saves/quests.json"
