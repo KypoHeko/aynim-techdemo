@@ -25,9 +25,12 @@ func _on_Area2D_area_enter( area ):
 
 func _on_Area2D1_body_enter( body ):
 	if (body.get_name() == "Player"):
-		#get_tree().set_pause(true)
+		get_tree().set_pause(true)
 		get_node("HP").show()
 		global.BattleStart()
+		
+		var HUD = get_tree().get_nodes_in_group("hud")[0]
+		HUD.get_node("Joystick/Panel/Stick").set_pos(Vector2(100, 100))
 
 func _on_Area2D1_body_exit( body ):
 	get_tree().set_pause(false)

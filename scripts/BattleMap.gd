@@ -1,9 +1,5 @@
 extends Node2D
 
-var new_hit = 0
-var hp = 100
-var timer
-
 func _ready():
 	pass
 
@@ -14,3 +10,6 @@ func _on_ToWorldMap_body_enter( body ):
 func _on_Cutscene_body_enter( body ):
 	get_tree().get_nodes_in_group("hud")[0].camera_pos = get_node("AnimatedSprite").get_pos() - get_tree().get_nodes_in_group('persistent')[0].get_pos()
 	get_tree().get_nodes_in_group("hud")[0].just_talk("watchout")
+
+func _on_Button_pressed():
+	get_node("StartBattle").play("BattleBegin")

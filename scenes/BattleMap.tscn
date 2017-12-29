@@ -139,7 +139,7 @@ texture = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( -352.072, 641.755 )
+transform/pos = Vector2( 697.039, 261.905 )
 
 [node name="HUDLayer" parent="." instance=ExtResource( 5 )]
 
@@ -181,6 +181,22 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Button" type="Button" parent="HUDLayer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 110.0
+margin/top = 100.0
+margin/right = 122.0
+margin/bottom = 120.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "StartBattle"
+flat = false
+
 [node name="Enemy1" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 760, 570 )
@@ -197,7 +213,7 @@ transform/pos = Vector2( 120, 420 )
 
 transform/pos = Vector2( 1090, 170 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="StartBattle" type="AnimationPlayer" parent="."]
 
 process/pause_mode = 2
 playback/process_mode = 1
@@ -253,6 +269,8 @@ angular_damp = 1.0
 shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
+
+[connection signal="pressed" from="HUDLayer/Button" to="." method="_on_Button_pressed"]
 
 [connection signal="body_enter" from="ToWorldMap" to="." method="_on_ToWorldMap_body_enter"]
 

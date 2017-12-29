@@ -5,11 +5,16 @@ var timer = 0
 var move_x = 0
 var move_y = 0
 var direction = "down"
+
+var weapon
+
 const MOTION_SPEED = 250
 
 func _ready():
+	#временно, для счетчика урона
 	randomize()
 	timer = get_node("Weapon/Timer")
+	weapon = get_node("Weapon")
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -20,10 +25,26 @@ func _fixed_process(delta):
 	if Input.is_action_pressed("ui_select"):
 		if (timer.get_time_left() == 0):
 			get_node("Weapon").show()
-			if (get_node("Weapon").get_rot() > 3):
+			if direction == "left":
 				get_node("Weapon/Anim").play("suburileft")
-			else: 
+			if direction == "right":
 				get_node("Weapon/Anim").play("suburiright")
+			if direction == "down":
+				get_node("Weapon/Anim").play("suburidown")
+			if direction == "up":
+				get_node("Weapon/Anim").play("suburiup")
+			
+			if direction == "leftup":
+				get_node("Weapon/Anim").play("suburileftup")
+			if direction == "leftdown":
+				get_node("Weapon/Anim").play("suburileftdown")
+			if direction == "rightup":
+				get_node("Weapon/Anim").play("suburirightup")
+			if direction == "rightdown":
+				get_node("Weapon/Anim").play("suburirightdown")
+				
+			#if direction == "rightup":
+			#	get_node("Weapon/Anim").play("suburiright")
 			timer.start()
 	
 	if (timer.get_time_left() <= 0.1):

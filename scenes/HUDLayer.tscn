@@ -885,7 +885,7 @@ visibility/visible = false
 
 [node name="Joystick" parent="." instance=ExtResource( 23 )]
 
-transform/pos = Vector2( 121.108, 600 )
+transform/pos = Vector2( 120, 600 )
 
 [node name="CloudText" type="Patch9Frame" parent="."]
 
