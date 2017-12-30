@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=1]
+[gd_scene load_steps=34 format=1]
 
 [ext_resource path="res://scripts/HUDLayer.gd" type="Script" id=1]
 [ext_resource path="res://img/hudredbar.png" type="Texture" id=2]
@@ -17,20 +17,21 @@
 [ext_resource path="res://joystick/AD2.png" type="Texture" id=15]
 [ext_resource path="res://joystick/AL.png" type="Texture" id=16]
 [ext_resource path="res://joystick/AL2.png" type="Texture" id=17]
-[ext_resource path="res://img/Blue.png" type="Texture" id=18]
-[ext_resource path="res://img/miniFS.png" type="Texture" id=19]
-[ext_resource path="res://img/minimapmask.png" type="Texture" id=20]
-[ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=21]
-[ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=22]
+[ext_resource path="res://img/miniFS.png" type="Texture" id=18]
+[ext_resource path="res://img/minimapmask.png" type="Texture" id=19]
+[ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/Loot.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=23]
-[ext_resource path="res://img/Green.png" type="Texture" id=24]
-[ext_resource path="res://img/Greenb.png" type="Texture" id=25]
-[ext_resource path="res://img/Red.png" type="Texture" id=26]
-[ext_resource path="res://img/Redb.png" type="Texture" id=27]
-[ext_resource path="res://img/Yellow.png" type="Texture" id=28]
-[ext_resource path="res://img/Yellowb.png" type="Texture" id=29]
-[ext_resource path="res://img/BigGreen.png" type="Texture" id=30]
-[ext_resource path="res://img/BigGreenb.png" type="Texture" id=31]
+[ext_resource path="res://img/Blue.png" type="Texture" id=24]
+[ext_resource path="res://img/Green.png" type="Texture" id=25]
+[ext_resource path="res://img/Greenb.png" type="Texture" id=26]
+[ext_resource path="res://img/Red.png" type="Texture" id=27]
+[ext_resource path="res://img/Redb.png" type="Texture" id=28]
+[ext_resource path="res://img/Yellow.png" type="Texture" id=29]
+[ext_resource path="res://img/Yellowb.png" type="Texture" id=30]
+[ext_resource path="res://img/BigGreen.png" type="Texture" id=31]
+[ext_resource path="res://img/BigGreenb.png" type="Texture" id=32]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -579,112 +580,6 @@ textures/pressed = ExtResource( 17 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
-[node name="JoystickPanel1" type="Panel" parent="."]
-
-editor/display_folded = true
-visibility/visible = false
-visibility/self_opacity = 0.3
-anchor/top = 1
-anchor/bottom = 1
-rect/scale = Vector2( 1.5, 1.5 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 50.0
-margin/top = 260.0
-margin/right = 190.0
-margin/bottom = 120.0
-
-[node name="ButtonUp" type="TextureButton" parent="JoystickPanel1"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 45.0
-margin/top = 0.0
-margin/right = 100.0
-margin/bottom = 28.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="ButtonRight" type="TextureButton" parent="JoystickPanel1"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 115.0
-margin/top = 40.0
-margin/right = 143.0
-margin/bottom = 95.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 12 )
-textures/pressed = ExtResource( 13 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="ButtonDown" type="TextureButton" parent="JoystickPanel1"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 45.0
-margin/top = 110.0
-margin/right = 100.0
-margin/bottom = 138.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 14 )
-textures/pressed = ExtResource( 15 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="ButtonLeft" type="TextureButton" parent="JoystickPanel1"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 40.0
-margin/right = 28.0
-margin/bottom = 95.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 16 )
-textures/pressed = ExtResource( 17 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Attack" type="TextureButton" parent="JoystickPanel1"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 40.0
-margin/top = 35.0
-margin/right = 104.0
-margin/bottom = 99.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 18 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
 [node name="MinimapPanel" type="Panel" parent="."]
 
 editor/display_folded = true
@@ -711,7 +606,7 @@ margin/left = -226.0
 margin/top = -25.0
 margin/right = 254.0
 margin/bottom = 245.0
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 stretch_mode = 0
 
 [node name="Light2D" type="Light2D" parent="MinimapPanel"]
@@ -720,7 +615,7 @@ transform/pos = Vector2( 110, 110 )
 z/z = 1
 enabled = true
 editor_only = false
-texture = ExtResource( 20 )
+texture = ExtResource( 19 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -871,7 +766,7 @@ shortcut = null
 text = "OK"
 flat = false
 
-[node name="Inventory" parent="." instance=ExtResource( 21 )]
+[node name="Inventory" parent="." instance=ExtResource( 20 )]
 
 visibility/visible = false
 margin/left = 280.0
@@ -879,7 +774,11 @@ margin/top = 116.0
 margin/right = 1020.0
 margin/bottom = 556.0
 
-[node name="bazaar" parent="." instance=ExtResource( 22 )]
+[node name="bazaar" parent="." instance=ExtResource( 21 )]
+
+visibility/visible = false
+
+[node name="Loot" parent="." instance=ExtResource( 22 )]
 
 visibility/visible = false
 
@@ -903,7 +802,7 @@ margin/left = 400.0
 margin/top = 150.0
 margin/right = -460.0
 margin/bottom = 50.0
-texture = ExtResource( 18 )
+texture = ExtResource( 24 )
 patch_margin/left = 20
 patch_margin/top = 20
 patch_margin/right = 20
@@ -940,8 +839,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 24 )
-textures/pressed = ExtResource( 25 )
+textures/normal = ExtResource( 25 )
+textures/pressed = ExtResource( 26 )
 params/resize_mode = 1
 params/stretch_mode = 0
 
@@ -976,8 +875,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 26 )
-textures/pressed = ExtResource( 27 )
+textures/normal = ExtResource( 27 )
+textures/pressed = ExtResource( 28 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1011,8 +910,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 28 )
-textures/pressed = ExtResource( 29 )
+textures/normal = ExtResource( 29 )
+textures/pressed = ExtResource( 30 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1047,8 +946,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 28 )
-textures/pressed = ExtResource( 29 )
+textures/normal = ExtResource( 29 )
+textures/pressed = ExtResource( 30 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1087,8 +986,8 @@ margin/bottom = 22.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 30 )
-textures/pressed = ExtResource( 31 )
+textures/normal = ExtResource( 31 )
+textures/pressed = ExtResource( 32 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1190,26 +1089,6 @@ autostart = false
 
 [connection signal="button_up" from="JoystickPanel/ButtonLeft" to="." method="_on_ButtonLeft_button_up"]
 
-[connection signal="button_down" from="JoystickPanel1/ButtonUp" to="." method="_on_ButtonUp_button_down"]
-
-[connection signal="button_up" from="JoystickPanel1/ButtonUp" to="." method="_on_ButtonUp_button_up"]
-
-[connection signal="button_down" from="JoystickPanel1/ButtonRight" to="." method="_on_ButtonRight_button_down"]
-
-[connection signal="button_up" from="JoystickPanel1/ButtonRight" to="." method="_on_ButtonRight_button_up"]
-
-[connection signal="button_down" from="JoystickPanel1/ButtonDown" to="." method="_on_ButtonDown_button_down"]
-
-[connection signal="button_up" from="JoystickPanel1/ButtonDown" to="." method="_on_ButtonDown_button_up"]
-
-[connection signal="button_down" from="JoystickPanel1/ButtonLeft" to="." method="_on_ButtonLeft_button_down"]
-
-[connection signal="button_up" from="JoystickPanel1/ButtonLeft" to="." method="_on_ButtonLeft_button_up"]
-
-[connection signal="button_down" from="JoystickPanel1/Attack" to="." method="_on_Attack_button_down"]
-
-[connection signal="button_up" from="JoystickPanel1/Attack" to="." method="_on_Attack_button_up"]
-
 [connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 
 [connection signal="pressed" from="Panel/VBoxContainer/Options" to="." method="_on_Options_pressed"]
@@ -1227,6 +1106,10 @@ autostart = false
 [connection signal="pressed" from="CloudText/ctNext" to="." method="_on_ctNext_pressed"]
 
 [connection signal="pressed" from="CloudText/ctNextq" to="." method="_on_ctNextq_pressed"]
+
+[connection signal="button_down" from="Action" to="." method="_on_Action_button_down"]
+
+[connection signal="button_up" from="Action" to="." method="_on_Action_button_up"]
 
 [connection signal="pressed" from="Action" to="." method="_on_Action_pressed"]
 

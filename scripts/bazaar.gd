@@ -40,7 +40,7 @@ func renew_items():
 	loaditems(merch, "Buy")
 
 
-
+#загружаем информацию о предметах
 #если выбран предмет для купли
 func _on_ItemList_item_selected( index ):
 	#индекс покупаемого предмета

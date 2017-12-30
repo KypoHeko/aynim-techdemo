@@ -1,8 +1,1 @@
-{
-    "complete_quests":["NPCQ2"], 
-    "inventory":[1, 1, 3], 
-    "scene":"FirstScene", 
-    "money":350, 
-    "active_quests":[], 
-    "pos":{"x":519.406494, "y":257.026367}
-}
+{"complete_quests":[], "inventory":[1, 1], "scene":"FirstScene", "money":1500, "active_quests":[], "pos":{"x":692.197449, "y":190.549423}}

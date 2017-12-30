@@ -261,3 +261,14 @@ func _on_Action_pressed():
 		quest_talk(NPCname)
 	if temp == "Trade!":
 		trade(NPCname)
+	if temp == "Loot!":
+		get_node("Loot").show()
+		get_node("Loot").renew_items()
+
+func _on_Action_button_down():
+	var temp = get_node("Action/Label").get_text()
+	if temp == "Attack!":
+		Input.action_press("ui_select")
+
+func _on_Action_button_up():
+	Input.action_release("ui_select")

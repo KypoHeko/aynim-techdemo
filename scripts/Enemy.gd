@@ -1,7 +1,11 @@
 extends KinematicBody2D
 
+onready var HUD = get_tree().get_nodes_in_group("hud")[0]
+
 var new_hit = 0
 var hp = 100
+var dead = false
+var inv = [1, 2]
 var timer
 
 func _on_Area2D_area_enter( area ):
@@ -18,21 +22,40 @@ func _on_Area2D_area_enter( area ):
 			get_node("Damage/Anim").play("hit")
 	
 	get_node("HP").set_value(hp)
+	
+	#условия при смерти врага
 	if hp <= 0:
+		dead = true
 		global.add_stat(1)
-		queue_free()
+		get_node("Area2D").queue_free()
+		get_node("HP").hide()
+		
+		var LOOT = get_tree().get_nodes_in_group('loot')[0]
+		LOOT.loot = inv
+		print(LOOT.loot)
+		
+		#удаляем со сцены труп
+		#queue_free()
 
 
 func _on_Area2D1_body_enter( body ):
 	if (body.get_name() == "Player"):
-		get_tree().set_pause(true)
-		get_node("HP").show()
-		global.BattleStart()
-		
-		var HUD = get_tree().get_nodes_in_group("hud")[0]
-		HUD.get_node("Joystick/Panel/Stick").set_pos(Vector2(100, 100))
+		#если враг жив
+		if dead == false:
+			HUD.get_node("Action").show()
+			HUD.get_node("Action/Label").set_text("Attack!")
+			HUD.get_node("Joystick/Panel/Stick").set_pos(Vector2(100, 100))
+			#get_tree().set_pause(true)
+			get_node("HP").show()
+			global.BattleStart()
+		#если враг мертв
+		if dead == true:
+			HUD.get_node("Action/Label").set_text("Loot!")
+			HUD.get_node("Action").show()
 
 func _on_Area2D1_body_exit( body ):
+	HUD.get_node("Action").hide()
+	HUD.get_node("bazaar").hide()
 	get_tree().set_pause(false)
 	get_node("HP").hide()
 	global.BattleEnd()

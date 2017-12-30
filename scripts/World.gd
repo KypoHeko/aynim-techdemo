@@ -55,7 +55,6 @@ func _on_ToThirdScene_body_enter( body ):
 func _on_Green_body_enter( body ):
 	if (body.get_name() == "Player"):
 		global.colitems += 1
-		print(get_name())
 		get_node("Green1").queue_free()
 
 func _on_Blue_body_enter( body ):

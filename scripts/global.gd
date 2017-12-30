@@ -1,7 +1,5 @@
 extends Node
 
-onready var HUD = get_tree().get_nodes_in_group("hud")[0]
-
 var entry_point = 0
 
 var money = 250
@@ -11,7 +9,7 @@ var exp_points = 1
 var fib_a = 1
 var fib_b = 2
 
-var player_inv = [1, 1, 1]
+var player_inv = [3, 4, 5]
 var player_quests = []
 var player_c_quests = []
 
@@ -41,16 +39,12 @@ func add_stat(i):
 
 #функция для начала битвы
 func BattleStart():
-	input_release()
-	HUD.get_node("Joystick").hide()
-	HUD.get_node("JoystickPanel1").show()
+	var HUD = get_tree().get_nodes_in_group("hud")[0]
 	HUD.get_node("BarPanel").show()
 
 #функция для конца битвы
 func BattleEnd():
-	input_release()
-	HUD.get_node("Joystick").show()
-	HUD.get_node("JoystickPanel1").hide()
+	var HUD = get_tree().get_nodes_in_group("hud")[0]
 	HUD.get_node("BarPanel").hide()
 
 
@@ -138,6 +132,7 @@ func loadquest(id_quest):
 
 #завершаем квест
 func quest_completed():
+	var HUD = get_tree().get_nodes_in_group("hud")[0]
 	var quest_data = loadquest(HUD.id_quest)
 	var INV = get_tree().get_nodes_in_group('inv')[0]
 	if int(quest_data['need_id']) in player_inv:

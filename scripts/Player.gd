@@ -120,8 +120,6 @@ func _fixed_process(delta):
 			player.set_frame(3)
 		if direction == "up":
 			player.set_frame(4)
-	#print(move_x, " ", move_y)
-	#print(motion)
 	
 	#анимация и передвижение для клавиатуры
 	var move_up = Input.is_action_pressed("move_up")
