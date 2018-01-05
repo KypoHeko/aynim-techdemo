@@ -33,7 +33,8 @@ script/script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 
 visibility/opacity = 0.5
-transform/pos = Vector2( 809.972, 486.704 )
+transform/pos = Vector2( 810, 486 )
+z/z = -4096
 texture = ExtResource( 2 )
 
 [node name="Noise" type="StreamPlayer" parent="."]
@@ -98,7 +99,7 @@ transform/pos = Vector2( 1173.72, 45.4264 )
 [node name="ToCityMap" type="Area2D" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( 775.107, -98.4263 )
+transform/pos = Vector2( 770.196, -261.716 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )

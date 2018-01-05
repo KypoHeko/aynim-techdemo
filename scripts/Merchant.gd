@@ -3,7 +3,7 @@ extends KinematicBody2D
 onready var HUD = get_tree().get_nodes_in_group("hud")[0]
 
 func _ready():
-	pass
+	set_z(get_pos().y - 20)
 
 func _on_Area2D_body_enter( body ):
 	if (body.get_name() == "Player"):

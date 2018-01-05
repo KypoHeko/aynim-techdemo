@@ -161,6 +161,8 @@ func _fixed_process(delta):
 	if (is_colliding()):
 		get_collider().move(get_collision_normal() * (-1))
 	
+	set_z(get_pos().y)
+	
 	#иконка на карте
 	var icon = get_tree().get_nodes_in_group("hud")[0].get_node("MapPanel/Map/PlayerIcon")
 	icon.set_pos(get_pos() / 5)

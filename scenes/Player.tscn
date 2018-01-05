@@ -134,7 +134,7 @@ tracks/1/keys = {
 "persistent",
 ]]
 
-z/z = 1
+z/z = -3
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1.5, 0, 0, 1.5, 0, 0 )

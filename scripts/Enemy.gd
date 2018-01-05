@@ -9,6 +9,9 @@ var dead = false
 var inv = [1, 2]
 var timer
 
+func _ready():
+	set_z(get_pos().y)
+
 func _on_Area2D_area_enter( area ):
 	timer = get_node("Damage/Timer")
 	

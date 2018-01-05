@@ -78,7 +78,6 @@ texture = ExtResource( 4 )
 [node name="Area2D" type="Area2D" parent="."]
 
 editor/display_folded = true
-visibility/visible = false
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 2.5, 0, 0, 2.5, 0, 0 )
@@ -98,7 +97,6 @@ _update_shape_index = 0
 [node name="Area2D1" type="Area2D" parent="."]
 
 editor/display_folded = true
-visibility/visible = false
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 20, 0, 0, 20, 0, 0 )
