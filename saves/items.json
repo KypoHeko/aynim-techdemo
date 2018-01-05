@@ -1,4 +1,5 @@
 {
+    "0":{"name":"icon", "cost":"0", "weight":"0",  "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/icon.png"},
     "1":{"name":"Axe1", "cost":"150", "weight":"5", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Axe_01.png"},
     "2":{"name":"Axe2", "cost":"250", "weight":"3", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Axe_02.png"},
     "3":{"name":"Axe3", "cost":"350", "weight":"10", "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Axe_03.png"},
@@ -9,5 +10,4 @@
     "8":{"name":"Sword8", "cost":"350", "weight":"4",  "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/INV_Sword_05.png"},
     "9":{"name":"gem1", "cost":"10", "weight":"0",  "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/gem1.png"},
     "10":{"name":"gem3", "cost":"10", "weight":"0",  "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/gem3.png"},
-    "11":{"name":"icon", "cost":"10", "weight":"0",  "description":"Lorem ipsum dolor sit amet", "icon":"res://img/icons/icon.png"},
 }

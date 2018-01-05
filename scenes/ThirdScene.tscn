@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://sounds/noiseofbazaar2.ogg" type="AudioStream" id=2]
@@ -6,9 +6,7 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/HUDLayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Merchant.tscn" type="PackedScene" id=6]
-[ext_resource path="res://img/Green.png" type="Texture" id=7]
-[ext_resource path="res://img/Blue.png" type="Texture" id=8]
-[ext_resource path="res://scenes/Loot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Drop.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -19,11 +17,6 @@ extents = Vector2( 10, 110.851 )
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 100.472 )
-
-[sub_resource type="CircleShape2D" id=3]
-
-custom_solver_bias = 0.0
-radius = 10.0
 
 [node name="ThirdScene" type="Node2D"]
 
@@ -107,64 +100,16 @@ transform/pos = Vector2( 405.153, 477.59 )
 
 transform/pos = Vector2( 907.298, 488.64 )
 
-[node name="Green1" type="Area2D" parent="."]
+[node name="Drop" parent="." instance=ExtResource( 7 )]
 
-editor/display_folded = true
-transform/pos = Vector2( 1000, 300 )
-transform/scale = Vector2( 0.5, 0.5 )
-input/pickable = true
-shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+transform/pos = Vector2( 1118.47, 386.739 )
 
-[node name="Sprite" type="Sprite" parent="Green1"]
+[node name="Drop1" parent="." instance=ExtResource( 7 )]
 
-texture = ExtResource( 7 )
-
-[node name="Collision" type="CollisionShape2D" parent="Green1"]
-
-shape = SubResource( 3 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Blue1" type="Area2D" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 1200, 300 )
-transform/scale = Vector2( 0.5, 0.5 )
-input/pickable = true
-shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="Sprite" type="Sprite" parent="Blue1"]
-
-texture = ExtResource( 8 )
-
-[node name="Collision" type="CollisionShape2D" parent="Blue1"]
-
-shape = SubResource( 3 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Loot" parent="." instance=ExtResource( 9 )]
-
-transform/pos = Vector2( 1194.09, 456.581 )
+transform/pos = Vector2( 1182.82, 299.831 )
 
 [connection signal="body_enter" from="ToSecondScene" to="." method="_on_ToSecondScene_body_enter"]
 
 [connection signal="body_enter" from="ToFirstScene" to="." method="_on_ToFirstScene_body_enter"]
-
-[connection signal="body_enter" from="Green1" to="." method="_on_Green_body_enter"]
-
-[connection signal="body_enter" from="Blue1" to="." method="_on_Blue_body_enter"]
 
 

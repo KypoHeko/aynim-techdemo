@@ -134,6 +134,7 @@ tracks/1/keys = {
 "persistent",
 ]]
 
+z/z = 1
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 2, 0, 0, 2, 0, 40 )
@@ -201,6 +202,7 @@ _update_shape_index = 0
 
 [node name="Damage" type="Label" parent="."]
 
+editor/display_folded = true
 visibility/opacity = 0.0
 focus/ignore_mouse = true
 focus/stop_mouse = true

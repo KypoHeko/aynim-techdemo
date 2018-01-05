@@ -69,7 +69,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 10.0
 margin/top = 10.0
-margin/right = 58.0
+margin/right = 90.0
 margin/bottom = 30.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -85,7 +85,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 10.0
 margin/top = 40.0
-margin/right = 60.0
+margin/right = 90.0
 margin/bottom = 60.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -101,7 +101,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 10.0
 margin/top = 70.0
-margin/right = 78.0
+margin/right = 90.0
 margin/bottom = 90.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -117,7 +117,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 10.0
 margin/top = 100.0
-margin/right = 89.0
+margin/right = 90.0
 margin/bottom = 120.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -133,7 +133,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 10.0
 margin/top = 130.0
-margin/right = 83.0
+margin/right = 90.0
 margin/bottom = 150.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -149,7 +149,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 10.0
 margin/top = 160.0
-margin/right = 49.0
+margin/right = 90.0
 margin/bottom = 180.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -165,7 +165,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 10.0
 margin/top = 190.0
-margin/right = 51.0
+margin/right = 90.0
 margin/bottom = 210.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -181,7 +181,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 10.0
 margin/top = 220.0
-margin/right = 52.0
+margin/right = 90.0
 margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -197,7 +197,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 10.0
 margin/top = 250.0
-margin/right = 49.0
+margin/right = 90.0
 margin/bottom = 270.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -213,7 +213,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 10.0
 margin/top = 280.0
-margin/right = 74.0
+margin/right = 90.0
 margin/bottom = 300.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -229,7 +229,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 110.0
 margin/top = 10.0
-margin/right = 178.0
+margin/right = 190.0
 margin/bottom = 30.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -245,7 +245,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 110.0
 margin/top = 40.0
-margin/right = 178.0
+margin/right = 190.0
 margin/bottom = 60.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -261,12 +261,44 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 110.0
 margin/top = 70.0
-margin/right = 178.0
+margin/right = 190.0
 margin/bottom = 90.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Camera3"
+flat = false
+
+[node name="Drop" type="Button" parent="MainMenuPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 110.0
+margin/top = 130.0
+margin/right = 190.0
+margin/bottom = 150.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Drop"
+flat = false
+
+[node name="LootInArea" type="Button" parent="MainMenuPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 110.0
+margin/top = 160.0
+margin/right = 192.0
+margin/bottom = 180.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "LootInArea"
 flat = false
 
 [node name="BarPanel" type="Panel" parent="."]
@@ -1072,6 +1104,10 @@ autostart = false
 [connection signal="pressed" from="MainMenuPanel/Camera2" to="." method="_on_Camera2_pressed"]
 
 [connection signal="pressed" from="MainMenuPanel/Camera3" to="." method="_on_Camera3_pressed"]
+
+[connection signal="pressed" from="MainMenuPanel/Drop" to="." method="_on_Drop_pressed"]
+
+[connection signal="pressed" from="MainMenuPanel/LootInArea" to="." method="_on_LootInArea_pressed"]
 
 [connection signal="button_down" from="JoystickPanel/ButtonUp" to="." method="_on_ButtonUp_button_down"]
 

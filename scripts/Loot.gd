@@ -20,8 +20,8 @@ func _ready():
 func renew_items():
 	lootitemlist.clear()
 	invitemlist.clear()
-	loaditems(global.player_inv, "Drop")
 	loaditems(loot, "Pick")
+	loaditems(global.player_inv, "Drop")
 
 
 #Слишком тяжелая функция! Необходимо переделать в будущем!
@@ -38,6 +38,7 @@ func loaditems(index, string):
 	if typeof(index) == TYPE_ARRAY:
 		if string == "Pick":
 			for j in index:
+				#lootitemlist.add_icon_item(load(data[str(j[0])]["icon"]))
 				lootitemlist.add_icon_item(load(data[str(j)]["icon"]))
 		if string == "Drop":
 			for j in index:
@@ -46,6 +47,9 @@ func loaditems(index, string):
 
 #забираем все предметы
 func _on_Butto_pressed():
+	#for j in loot:
+	#	print(j[0])
+	#	global.player_inv += j
 	global.player_inv += loot
 	loot.clear()
 	renew_items()

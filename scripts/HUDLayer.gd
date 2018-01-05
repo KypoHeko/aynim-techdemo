@@ -10,7 +10,6 @@ var NPCname = ""
 func _ready():
 	global.input_release()
 	set_process(true)
-	set_fixed_process(true)
 
 #передвижение, анимация и остановка (вверх)
 func _on_ButtonUp_button_down():
@@ -253,6 +252,18 @@ func _on_Camera2_pressed():
 func _on_Camera3_pressed():
 	camera_pos = Vector2(0, 800)
 
+func _on_Drop_pressed():
+	var add_drop = preload("res://scenes/Drop.tscn")
+	var drop = add_drop.instance()
+	drop.set_pos(Vector2(0, 0))
+	#drop.id[0] = 5
+	get_parent().add_child(drop)
+
+func _on_LootInArea_pressed():
+	print(global.dictforloot.values())
+
+
+
 func _on_Action_pressed():
 	var temp = get_node("Action/Label").get_text()
 	if temp == "Talk!":
@@ -264,6 +275,7 @@ func _on_Action_pressed():
 	if temp == "Loot!":
 		get_node("Loot").show()
 		get_node("Loot").renew_items()
+
 
 func _on_Action_button_down():
 	var temp = get_node("Action/Label").get_text()

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var HUD = get_tree().get_nodes_in_group("hud")[0]
+onready var LOOT = get_tree().get_nodes_in_group('loot')[0]
 
 var new_hit = 0
 var hp = 100
@@ -30,12 +31,15 @@ func _on_Area2D_area_enter( area ):
 		get_node("Area2D").queue_free()
 		get_node("HP").hide()
 		
-		var LOOT = get_tree().get_nodes_in_group('loot')[0]
-		LOOT.loot = inv
-		print(LOOT.loot)
 		
-		#удаляем со сцены труп
-		#queue_free()
+		#реализация "выпадения" вещей
+		"""
+		for i in inv:
+			var add_drop = preload("res://scenes/Drop.tscn")
+			var drop = add_drop.instance()
+			drop.set_pos(get_pos())
+			drop.id[0] = i
+			get_parent().add_child(drop)"""
 
 
 func _on_Area2D1_body_enter( body ):
@@ -50,10 +54,13 @@ func _on_Area2D1_body_enter( body ):
 			global.BattleStart()
 		#если враг мертв
 		if dead == true:
+			#загружаем список предметов в окно Loot
+			LOOT.loot = inv
 			HUD.get_node("Action/Label").set_text("Loot!")
 			HUD.get_node("Action").show()
 
 func _on_Area2D1_body_exit( body ):
+	print(get_name(), " ", inv)
 	HUD.get_node("Action").hide()
 	HUD.get_node("bazaar").hide()
 	get_tree().set_pause(false)

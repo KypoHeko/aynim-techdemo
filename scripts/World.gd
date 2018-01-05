@@ -49,15 +49,3 @@ func _on_ToSecondScene_body_enter( body ):
 func _on_ToThirdScene_body_enter( body ):
 	if (body.get_name() == "Player"):
 		Transition.fade_to("res://scenes/ThirdScene.tscn")
-
-
-
-func _on_Green_body_enter( body ):
-	if (body.get_name() == "Player"):
-		global.colitems += 1
-		get_node("Green1").queue_free()
-
-func _on_Blue_body_enter( body ):
-	if (body.get_name() == "Player"):
-		global.colitems += 1
-		get_node("Blue1").queue_free()
