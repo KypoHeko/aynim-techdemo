@@ -13,10 +13,10 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 250.0
-margin/top = 121.0
-margin/right = 1002.0
-margin/bottom = 573.0
-tab_align = 1
+margin/top = 120.0
+margin/right = 990.0
+margin/bottom = 570.0
+tab_align = 2
 tabs_visible = true
 script/script = ExtResource( 1 )
 
@@ -37,7 +37,7 @@ custom_fonts/font = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Status"]
 
-transform/pos = Vector2( 125.332, 194.363 )
+transform/pos = Vector2( 125, 205 )
 transform/scale = Vector2( 3.40539, 3.40539 )
 texture = ExtResource( 3 )
 
@@ -301,11 +301,11 @@ margin/bottom = 4.0
 
 [node name="Sprite" type="Sprite" parent="Equip"]
 
-transform/pos = Vector2( 125.332, 194.363 )
+transform/pos = Vector2( 125, 205 )
 transform/scale = Vector2( 3.40539, 3.40539 )
 texture = ExtResource( 3 )
 
-[node name="ItemList" type="ItemList" parent="Equip"]
+[node name="Inventory" type="ItemList" parent="Equip"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -313,25 +313,48 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 258.0
-margin/top = 11.0
-margin/right = 14.0
-margin/bottom = 13.0
+margin/left = 255.0
+margin/top = 10.0
+margin/right = 114.0
+margin/bottom = 11.0
 
-[node name="Panel" type="Panel" parent="Equip"]
+[node name="Use" type="Button" parent="Equip"]
 
-visibility/visible = false
+rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 250.0
-margin/top = 10.0
-margin/right = 698.0
-margin/bottom = 394.0
+margin/left = 640.0
+margin/top = 340.0
+margin/right = 677.0
+margin/bottom = 360.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Use"
+flat = false
+
+[node name="Drop" type="Button" parent="Equip"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 635.0
+margin/top = 255.0
+margin/right = 678.0
+margin/bottom = 275.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Drop"
+flat = false
 
 [node name="QuestsList" type="Tabs" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
@@ -355,5 +378,11 @@ margin/top = 15.0
 margin/right = 715.0
 margin/bottom = 390.0
 custom_fonts/font = ExtResource( 2 )
+
+[connection signal="item_selected" from="Equip/Inventory" to="." method="_on_Inventory_item_selected"]
+
+[connection signal="pressed" from="Equip/Use" to="." method="_on_Use_pressed"]
+
+[connection signal="pressed" from="Equip/Drop" to="." method="_on_Drop_pressed"]
 
 

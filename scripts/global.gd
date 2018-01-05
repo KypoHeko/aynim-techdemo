@@ -91,15 +91,21 @@ func loadgame():
 		
 		if i == "money":
 			global.money = data[i]
-			
+		
 		if i == "inventory":
 			global.player_inv = data[i]
 		
 		if i == "active_quests":
 			global.player_quests = data[i]
-			
+		
 		if i == "complete_quests":
 			global.player_c_quests = data[i]
+		
+		if i == "battle_level":
+			global.battle_level = data[i]
+		
+		if i == "exp_points":
+			global.exp_points = data[i]
 
 #загружаем текст в облако
 func loadtext(txt):

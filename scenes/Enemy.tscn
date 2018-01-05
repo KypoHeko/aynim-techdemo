@@ -78,9 +78,10 @@ texture = ExtResource( 4 )
 [node name="Area2D" type="Area2D" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 2.5, 0, 0, 2.5, 0, 50 )
+shapes/0/transform = Matrix32( 2.5, 0, 0, 2.5, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -89,7 +90,6 @@ angular_damp = 1.0
 
 [node name="PBody" type="CollisionShape2D" parent="Area2D"]
 
-transform/pos = Vector2( 0, 50 )
 transform/scale = Vector2( 2.5, 2.5 )
 shape = SubResource( 1 )
 trigger = false

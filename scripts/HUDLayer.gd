@@ -253,10 +253,10 @@ func _on_Camera3_pressed():
 	camera_pos = Vector2(0, 800)
 
 func _on_Drop_pressed():
+	var player = get_tree().get_nodes_in_group('persistent')[0]
 	var add_drop = preload("res://scenes/Drop.tscn")
 	var drop = add_drop.instance()
-	drop.set_pos(Vector2(0, 0))
-	#drop.id[0] = 5
+	drop.set_pos(player.get_pos())
 	get_parent().add_child(drop)
 
 func _on_LootInArea_pressed():

@@ -2,8 +2,9 @@ extends TabContainer
 
 const ITEMS_TEXT = "res://saves/items.json"
 
-onready var itemlist = get_node("Equip/ItemList")
+onready var itemlist = get_node("Equip/Inventory")
 onready var questlist = get_node("QuestsList/Tree")
+var item = ""
 var active_quests
 var completed_quests
 
@@ -96,3 +97,28 @@ func _process(delta):
 	get_node("Status/Panel/LevelVal").set_text(str(global.battle_level))
 	get_node("Status/Panel/ExpVal").set_text(str(global.exp_points))
 	get_node("Status/Panel/MoneyVal").set_text(str(global.money))
+
+
+
+#выбросить предмет
+func _on_Drop_pressed():
+	if str(item) != "":
+		var player = get_tree().get_nodes_in_group('persistent')[0]
+		var add_drop = preload("res://scenes/Drop.tscn")
+		var drop = add_drop.instance()
+		#выбросить в координатах персонажа
+		drop.set_pos(player.get_pos())
+		#выбросить предмет
+		drop.id[0] = global.player_inv[item]
+		#удалить из инвентаря
+		global.delete_item(global.player_inv[item])
+		#обновить список
+		loaditems()
+		item = ""
+		get_parent().get_parent().add_child(drop)
+
+func _on_Use_pressed():
+	pass
+
+func _on_Inventory_item_selected( index ):
+	item = index

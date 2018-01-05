@@ -50,6 +50,7 @@ func _on_Butto_pressed():
 	#for j in loot:
 	#	print(j[0])
 	#	global.player_inv += j
+	
 	global.player_inv += loot
 	loot.clear()
 	renew_items()

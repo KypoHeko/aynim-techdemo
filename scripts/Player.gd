@@ -192,5 +192,7 @@ func save():
 		complete_quests = global.player_c_quests,
 		inventory = global.player_inv,
 		money = global.money,
+		battle_level = global.battle_level,
+		exp_points = global.exp_points,
 	}
 	return save_dict
