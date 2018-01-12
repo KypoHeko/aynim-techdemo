@@ -1,26 +1,36 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://img/first_scene.png" type="Texture" id=2]
 [ext_resource path="res://sounds/noiseofbazaar1.ogg" type="AudioStream" id=3]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/HUDLayer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Merchant.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/NPCQ.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/NPC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://sounds/fountain.wav" type="Sample" id=4]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/HUDLayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Merchant.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/NPCQ.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/NPC.tscn" type="PackedScene" id=10]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="SampleLibrary" id=1]
 
-custom_solver_bias = 0.0
-extents = Vector2( 114.418, 10 )
+samples/fountain = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 4 )
+}
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 133.026 )
+extents = Vector2( 114.418, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 133.026 )
+
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 70.3577 )
@@ -48,51 +58,63 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="FountainSound" type="SamplePlayer2D" parent="."]
+
+transform/pos = Vector2( 760, 500 )
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 1000.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 1 )
+config/pitch_random = 0.0
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 768.745, 381.358 )
 
-[node name="HUDLayer" parent="." instance=ExtResource( 5 )]
+[node name="HUDLayer" parent="." instance=ExtResource( 6 )]
 
 editor/display_folded = true
 
-[node name="TabContainer" parent="HUDLayer" instance=ExtResource( 6 )]
+[node name="TabContainer" parent="HUDLayer" instance=ExtResource( 7 )]
 
 visibility/visible = false
 
-[node name="Merchant0" parent="." instance=ExtResource( 7 )]
+[node name="Merchant0" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1220.95, 604.445 )
 
-[node name="Merchant1" parent="." instance=ExtResource( 7 )]
+[node name="Merchant1" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 239.668, 146.212 )
 
-[node name="Merchant2" parent="." instance=ExtResource( 7 )]
+[node name="Merchant2" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 943.598, 218.565 )
 
-[node name="Merchant3" parent="." instance=ExtResource( 7 )]
+[node name="Merchant3" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 446.174, 559.225 )
 
-[node name="NPCQ1" parent="." instance=ExtResource( 8 )]
+[node name="NPCQ1" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 110.945, -123.514 )
 
-[node name="NPCQ2" parent="." instance=ExtResource( 8 )]
+[node name="NPCQ2" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 309.492, -125.749 )
 
-[node name="NPCQ3" parent="." instance=ExtResource( 8 )]
+[node name="NPCQ3" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 503.57, -124.44 )
 
-[node name="NPC1" parent="." instance=ExtResource( 9 )]
+[node name="NPC1" parent="." instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 1041.12, -103.13 )
 
-[node name="NPC2" parent="." instance=ExtResource( 9 )]
+[node name="NPC2" parent="." instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 1173.72, 45.4264 )
 
@@ -100,25 +122,6 @@ transform/pos = Vector2( 1173.72, 45.4264 )
 
 editor/display_folded = true
 transform/pos = Vector2( 770.196, -261.716 )
-input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ToCityMap"]
-
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
-[node name="ToSecondScene" type="Area2D" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( -45.1121, 375.25 )
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -128,9 +131,28 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ToSecondScene"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToCityMap"]
 
 shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="ToSecondScene" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -45.1121, 375.25 )
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToSecondScene"]
+
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
@@ -139,7 +161,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 1550, 360 )
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1.65976, -5.0105, 9.79507 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -151,7 +173,7 @@ angular_damp = 1.0
 
 transform/pos = Vector2( -5.0105, 9.79507 )
 transform/scale = Vector2( 1, 1.65976 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 

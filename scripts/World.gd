@@ -6,6 +6,13 @@ func _ready():
 	set_process(true)
 	
 	if get_name() == "FirstScene":
+		var fountain = get_node("FountainSound").get_sample_library().get_sample("fountain")
+		fountain.set_loop_format(fountain.LOOP_FORWARD)
+		fountain.set_loop_begin(0)
+		fountain.set_loop_end(fountain.get_length())
+		
+		get_node("FountainSound").play("fountain")
+		
 		if global.entry_point == 0:
 			pos_of_player = Vector2(770, 0)
 		if global.entry_point == 2:

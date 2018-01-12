@@ -16,6 +16,7 @@ func _on_Area2D_area_enter( area ):
 	timer = get_node("Damage/Timer")
 	
 	if (area.get_name() == "Weapon"):
+		get_node("StreamPlayer").play()
 		if (timer.get_time_left() <= 0.7):
 			if (timer.get_time_left() == 0):
 				new_hit = 0
@@ -66,6 +67,7 @@ func _on_Area2D1_body_exit( body ):
 	print(get_name(), " ", inv)
 	HUD.get_node("Action").hide()
 	HUD.get_node("bazaar").hide()
+	HUD.get_node("Loot").hide()
 	get_tree().set_pause(false)
 	get_node("HP").hide()
 	global.BattleEnd()
