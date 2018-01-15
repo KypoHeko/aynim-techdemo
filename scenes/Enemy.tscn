@@ -4,7 +4,7 @@
 [ext_resource path="res://img/hudredbar.png" type="Texture" id=2]
 [ext_resource path="res://img/hudgreenbar.png" type="Texture" id=3]
 [ext_resource path="res://img/foe_pink.png" type="Texture" id=4]
-[ext_resource path="res://sounds/punch.opus" type="AudioStream" id=5]
+[ext_resource path="res://sounds/punch.ogg" type="AudioStream" id=5]
 [ext_resource path="res://fonts/Nanami.fnt" type="BitmapFont" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -76,7 +76,7 @@ radial_fill/center_offset = Vector2( 0, 0 )
 
 texture = ExtResource( 4 )
 
-[node name="StreamPlayer" type="StreamPlayer" parent="."]
+[node name="Hit" type="StreamPlayer" parent="."]
 
 stream/stream = ExtResource( 5 )
 stream/play = false

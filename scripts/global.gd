@@ -146,6 +146,7 @@ func quest_completed():
 		player_quests.erase(HUD.id_quest)
 		player_c_quests.append(HUD.id_quest)
 		INV.renew_quests()
+		INV.get_node("QuestsList/Quest").play()
 		#удаляем предмет
 		delete_item(int(quest_data['need_id']))
 		#добавляем денег

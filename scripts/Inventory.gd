@@ -62,6 +62,7 @@ func renew_quests():
 
 #добавляем в журнал новый квест
 func add_quest(data):
+	get_node("QuestsList/Quest").play()
 	#имя квеста
 	var sect = questlist.create_item(active_quests)
 	sect.set_text(0, data['name'])

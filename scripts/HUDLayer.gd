@@ -164,6 +164,9 @@ func just_talk(string):
 		id_quest = string
 		text = global.loadtext(id_quest)
 	
+	if count == 0:
+		get_node("Action/Talk").play()
+	
 	get_node("CloudText").show()
 	get_node("CloudText/Text").set_text(text[count])
 	count += 1
@@ -272,6 +275,7 @@ func _on_Action_pressed():
 		quest_talk(NPCname)
 	if temp == "Trade!":
 		trade(NPCname)
+		get_node("Action/Trade").play()
 	if temp == "Loot!":
 		get_node("Loot").show()
 		get_node("Loot").renew_items()
