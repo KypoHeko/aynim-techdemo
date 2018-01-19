@@ -118,7 +118,39 @@ func _on_Drop_pressed():
 		item = ""
 		get_parent().get_parent().add_child(drop)
 
+#экипируем шмоты
 func _on_Use_pressed():
+	if str(item) != "":
+		var inventory = global.player_inv[item]
+		var lefthand = get_node("Equip/LeftHand/LeftHand")
+		var equip = global.player_equip
+		
+		#если что-то экипировано, то вернуть вещь в инвентарь
+		if str(equip["LeftHand"]) != "":
+			global.player_inv.append(equip["LeftHand"])
+		#экипируем вещь
+		equip[lefthand.get_name()] = inventory
+		lefthand.set_texture(load(loadin(inventory)))
+		
+		#удалить из инвентаря
+		global.delete_item(inventory)
+		#обновить список
+		loaditems()
+		item = ""
+
+#Слишком тяжелая функция! Необходимо переделать в будущем!
+func loadin(id):
+	var save_file = File.new()
+	if !save_file.file_exists(ITEMS_TEXT):
+		return
+	
+	var data = {}
+	save_file.open(ITEMS_TEXT, File.READ)
+	data.parse_json(save_file.get_as_text())
+	
+	return data[str(id)]["icon"]
+
+func _on_Uneq_pressed():
 	pass
 
 func _on_Inventory_item_selected( index ):
