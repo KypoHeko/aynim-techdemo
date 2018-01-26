@@ -11,7 +11,7 @@ var fib_b = 2
 var player_inv = [3, 4, 5]
 var player_quests = []
 var player_c_quests = []
-var player_equip = {"LeftHand":"", "RightHand":"", "Legs":"", "Body":"", "Head":"", }
+var player_equip = {"LeftHand":"", "RightHand":"", "Legs":"", "Feets":"", "Body":"", "Head":"",}
 var dictforloot = {}
 
 var firstscene = [0,0,0,0]

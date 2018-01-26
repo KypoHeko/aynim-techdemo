@@ -7,6 +7,7 @@ onready var questlist = get_node("QuestsList/Tree")
 var item = ""
 var active_quests
 var completed_quests
+var forunequip = ""
 
 func _ready():
 	#настройки для инвентаря
@@ -122,7 +123,7 @@ func _on_Drop_pressed():
 func _on_Use_pressed():
 	if str(item) != "":
 		var inventory = global.player_inv[item]
-		var lefthand = get_node("Equip/LeftHand/LeftHand")
+		var lefthand = get_node("Equip/LeftHand")
 		var equip = global.player_equip
 		
 		#если что-то экипировано, то вернуть вещь в инвентарь
@@ -130,13 +131,29 @@ func _on_Use_pressed():
 			global.player_inv.append(equip["LeftHand"])
 		#экипируем вещь
 		equip[lefthand.get_name()] = inventory
-		lefthand.set_texture(load(loadin(inventory)))
+		
+		lefthand.clear()
+		lefthand.add_icon_item(load(loadin(inventory)))
 		
 		#удалить из инвентаря
 		global.delete_item(inventory)
 		#обновить список
 		loaditems()
 		item = ""
+
+#снимаем вещи
+func _on_Uneq_pressed():
+	#если мы выбрали какую-либо часть тела
+	if forunequip != "":
+		var unequip = get_node("Equip/" + forunequip)
+		#добавляем в инвентарь вещь
+		global.player_inv.append(global.player_equip[forunequip])
+		#очищаем все данные чтобы избежать клонирования
+		unequip.clear()
+		global.player_equip[forunequip] = ""
+		forunequip = ""
+		#обновляем инвентарь
+		loaditems()
 
 #Слишком тяжелая функция! Необходимо переделать в будущем!
 func loadin(id):
@@ -150,8 +167,20 @@ func loadin(id):
 	
 	return data[str(id)]["icon"]
 
-func _on_Uneq_pressed():
-	pass
-
 func _on_Inventory_item_selected( index ):
 	item = index
+	forunequip = ""
+
+
+func _on_LeftHand_item_selected( index ):
+	forunequip = "LeftHand"
+func _on_RightHand_item_selected( index ):
+	forunequip = "RightHand"
+func _on_Legs_item_selected( index ):
+	forunequip = "Legs"
+func _on_Feets_item_selected( index ):
+	forunequip = "Feets"
+func _on_Body_item_selected( index ):
+	forunequip = "Body"
+func _on_Head_item_selected( index ):
+	forunequip = "Head"
