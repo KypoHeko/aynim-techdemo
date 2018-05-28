@@ -62,10 +62,14 @@ func _on_Menu_pressed():
 
 func _on_Pause_pressed():
 	get_tree().set_pause(true)
+	get_node("Pause").show()
+	get_node("Pause/Fade").play("Fade")
 	print("Pause")
 
 func _on_Unpause_pressed():
 	get_tree().set_pause(false)
+	get_node("Pause").hide()
+	get_node("Pause/Fade").play("Stop")
 	print("Unpause")
 
 
