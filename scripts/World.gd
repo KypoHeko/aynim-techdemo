@@ -4,6 +4,7 @@ var pos_of_player = Vector2()
 
 func _ready():
 	set_process(true)
+	MusicInCity.change("citymusic")
 	
 	if get_name() == "FirstScene":
 		var fountain = get_node("FountainSound").get_sample_library().get_sample("fountain")

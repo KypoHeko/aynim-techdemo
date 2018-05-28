@@ -229,9 +229,11 @@ func close_dialog(sol, id_quest):
 		get_tree().get_nodes_in_group('inv')[0].add_quest(global.loadquest(id_quest))
 
 func trade(string):
+	get_node("bazaar").merch = global.merchitems[string]
 	get_node("bazaar").renew_items()
 	get_node("bazaar").show()
 	
+	#вырезать номер продавца и использовать его как индекс в массиве
 	if get_parent().get_name() == "FirstScene":
 		global.firstscene[int(string.substr(8, 1))] = 1
 	if get_parent().get_name() == "SecondScene":
@@ -280,11 +282,17 @@ func _on_Action_pressed():
 		get_node("Loot").show()
 		get_node("Loot").renew_items()
 
-
+#если зажата кнопка атаки, то
 func _on_Action_button_down():
 	var temp = get_node("Action/Label").get_text()
 	if temp == "Attack!":
+		#применить стандартное действие
 		Input.action_press("ui_select")
+		#вычесть значение выносливости
+		var value = get_node("BarPanel/TextureProgress2").get_value()
+		value -= 1
+		get_node("BarPanel/TextureProgress2").set_value(value)
+		get_node("BarPanel/TextureProgress2/GBarValue").set_text(str(value))
 
 func _on_Action_button_up():
 	Input.action_release("ui_select")

@@ -196,5 +196,10 @@ func save():
 		money = global.money,
 		battle_level = global.battle_level,
 		exp_points = global.exp_points,
+		merchants = {
+			firstscene = global.firstscene,
+			secondscene = global.secondscene,
+			thirdscene = global.thirdscene,
+		},
 	}
 	return save_dict

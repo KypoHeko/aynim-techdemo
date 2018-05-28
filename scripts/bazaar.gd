@@ -10,7 +10,7 @@ onready var sellitemlist = get_node("Sell/ItemList1")
 #временная переменная в которой хранится индекс нужного предмета для подгрузки
 var temp
 #массив предметов у продавца
-var merch = [1,2,3,6,7,8]
+var merch = [1,1,]
 #переменные для выбора нужного предемта в таблицах
 var buy_item = ""
 var sell_item = ""

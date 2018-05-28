@@ -1,1 +1,1 @@
-{"battle_level":17, "complete_quests":[], "inventory":[3, 4, 5], "scene":"FirstScene", "money":250, "active_quests":[], "exp_points":4001, "pos":{"x":770, "y":0}}
+{"battle_level":1, "merchants":{"firstscene":[0, 0, 0, 0], "thirdscene":[0, 0, 0, 0], "secondscene":[0, 0, 0, 0]}, "complete_quests":[], "inventory":[3, 4, 5], "scene":"FirstScene", "money":250, "active_quests":[], "exp_points":1, "pos":{"x":1142.308716, "y":200.232254}}

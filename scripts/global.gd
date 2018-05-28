@@ -8,10 +8,13 @@ var exp_points = 1
 var fib_a = 1
 var fib_b = 2
 
-var player_inv = [3, 4, 5]
+var stats = [1,1,1,1,1,]
+var other_stats = [0,0,0,0,0,]
+var player_inv = [3, 4, 5, 9, 10,]
 var player_quests = []
 var player_c_quests = []
-var player_equip = {"LeftHand":"", "RightHand":"", "Legs":"", "Feets":"", "Body":"", "Head":"",}
+var player_equip = {"LeftHand":"", "RightHand":"", "BothHands":"", "Legs":"", "Feets":"", "Body":"", "Head":"",}
+var merchitems = {"Merchant0":[1,2,3,6,7,8], "Merchant1":[4,4,5], "Merchant2":[1,2,7,8,10,10], "Merchant3":[1,2,3,4,5,6,7,8,9,10],}
 var dictforloot = {}
 
 var firstscene = [0,0,0,0]
@@ -30,13 +33,17 @@ func input_release():
 	Input.action_release("move_right")
 
 
-#добавляем опыт и повышаем опыт, наблюдается в инвентаре
+#добавляем и повышаем опыт, наблюдается в инвентаре
 func add_stat(i):
 	exp_points += i
 	while (exp_points >= fib_b):
 		battle_level += 1
 		fib_b += fib_a
 		fib_a = fib_b - fib_a
+		#добавление статов
+		var temp = round(rand_range(0,4))
+		stats[temp] += 1
+		print(battle_level, " ", temp, " ", stats)
 
 #функция для начала битвы
 func BattleStart():

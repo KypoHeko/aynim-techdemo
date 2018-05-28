@@ -44,6 +44,8 @@ texture = ExtResource( 3 )
 
 [node name="HUDLayer" parent="." instance=ExtResource( 5 )]
 
+editor/display_folded = true
+
 [node name="TabContainer" parent="HUDLayer" instance=ExtResource( 6 )]
 
 visibility/visible = false
@@ -98,7 +100,7 @@ transform/pos = Vector2( 726.508, 78.9778 )
 
 transform/pos = Vector2( 433.078, 469.4 )
 
-[node name="Merchant4" parent="." instance=ExtResource( 7 )]
+[node name="Merchant0" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 918.036, 468.172 )
 

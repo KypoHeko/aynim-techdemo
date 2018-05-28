@@ -99,9 +99,20 @@ func _process(delta):
 	get_node("Status/Panel/LevelVal").set_text(str(global.battle_level))
 	get_node("Status/Panel/ExpVal").set_text(str(global.exp_points))
 	get_node("Status/Panel/MoneyVal").set_text(str(global.money))
+	
+	get_node("Status/Panel/StrenghVal").set_text(str(global.stats[0]))
+	get_node("Status/Panel/AgilityVal").set_text(str(global.stats[1]))
+	get_node("Status/Panel/EnduranceVal").set_text(str(global.stats[2]))
+	get_node("Status/Panel/LuckVal").set_text(str(global.stats[3]))
+	get_node("Status/Panel/SpeedVal").set_text(str(global.stats[4]))
 
 
 
+#выбираем предмет в инвентаре
+func _on_Inventory_item_selected( index ):
+	item = index
+	forunequip = ""
+	
 #выбросить предмет
 func _on_Drop_pressed():
 	if str(item) != "":
@@ -123,17 +134,38 @@ func _on_Drop_pressed():
 func _on_Use_pressed():
 	if str(item) != "":
 		var inventory = global.player_inv[item]
-		var lefthand = get_node("Equip/LeftHand")
 		var equip = global.player_equip
+		#temp
+		var ttt = loadin(inventory, "pos")
+		var pos = get_node("Equip/" + ttt)
 		
+		#костыль для двуручного оружия
+		if ttt == "BothHands":
+			pos = get_node("Equip/LeftHand")
+		
+		#костыль для двуручного оружия
+		if ttt != "BothHands":
 		#если что-то экипировано, то вернуть вещь в инвентарь
-		if str(equip["LeftHand"]) != "":
-			global.player_inv.append(equip["LeftHand"])
+			if str(equip[pos.get_name()]) != "":
+				global.player_inv.append(equip[pos.get_name()])
+		#костыль для двуручного оружия
+		else:
+			if str(equip["LeftHand"]) != "":
+				global.player_inv.append(equip["LeftHand"])
+			if str(equip["RightHand"]) != "":
+				global.player_inv.append(equip["RightHand"])
+				
 		#экипируем вещь
-		equip[lefthand.get_name()] = inventory
+		equip[pos.get_name()] = inventory
+		pos.clear()
+		pos.add_icon_item(load(loadin(inventory, "icon")))
 		
-		lefthand.clear()
-		lefthand.add_icon_item(load(loadin(inventory)))
+		#костыль для двуручного оружия
+		if ttt == "BothHands":
+			pos = get_node("Equip/RightHand")
+			equip[pos.get_name()] = inventory
+			pos.clear()
+			pos.add_icon_item(load(loadin(inventory, "icon")))
 		
 		#удалить из инвентаря
 		global.delete_item(inventory)
@@ -156,7 +188,7 @@ func _on_Uneq_pressed():
 		loaditems()
 
 #Слишком тяжелая функция! Необходимо переделать в будущем!
-func loadin(id):
+func loadin(id, key):
 	var save_file = File.new()
 	if !save_file.file_exists(ITEMS_TEXT):
 		return
@@ -165,11 +197,9 @@ func loadin(id):
 	save_file.open(ITEMS_TEXT, File.READ)
 	data.parse_json(save_file.get_as_text())
 	
-	return data[str(id)]["icon"]
+	#print(data[str(id)][key])
+	return data[str(id)][key]
 
-func _on_Inventory_item_selected( index ):
-	item = index
-	forunequip = ""
 
 
 func _on_LeftHand_item_selected( index ):

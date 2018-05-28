@@ -1,5 +1,7 @@
 extends StreamPlayer
 
+var musicname
+
 func _ready():
 	pass
 	
@@ -10,5 +12,7 @@ func fade_in():
 	get_node("AnimationPlayer").play("fade_in")
 	
 func change(music):
-	MusicInCity.set_stream(load("res://music/" + music + ".ogg"))
-	MusicInCity.play()
+	musicname = "res://music/" + music + ".ogg"
+	if (get_stream().get_path() != musicname):
+		MusicInCity.set_stream(load(musicname))
+		MusicInCity.play()

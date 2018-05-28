@@ -96,7 +96,7 @@ transform/pos = Vector2( 688.761, 98.219 )
 
 transform/pos = Vector2( 405.153, 477.59 )
 
-[node name="Merchant4" parent="." instance=ExtResource( 6 )]
+[node name="Merchant0" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 907.298, 488.64 )
 

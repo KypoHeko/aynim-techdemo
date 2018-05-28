@@ -32,6 +32,7 @@ func _on_Area2D_area_enter( area ):
 	if hp <= 0:
 		dead = true
 		global.add_stat(1)
+		get_node("Area2D1/BArea").set_scale(Vector2(0,0))
 		get_node("Area2D").queue_free()
 		get_node("HP").hide()
 		
@@ -54,6 +55,7 @@ func _on_Area2D1_body_enter( body ):
 			HUD.get_node("Action/Label").set_text("Attack!")
 			HUD.get_node("Joystick/Panel/Stick").set_pos(Vector2(100, 100))
 			#get_tree().set_pause(true)
+			get_node("Area2D1/BArea").set_scale(Vector2(30,30))
 			get_node("HP").show()
 			global.BattleStart()
 		#если враг мертв
@@ -68,6 +70,7 @@ func _on_Area2D1_body_exit( body ):
 	HUD.get_node("Action").hide()
 	HUD.get_node("bazaar").hide()
 	HUD.get_node("Loot").hide()
+	get_node("Area2D1/BArea").set_scale(Vector2(20,20))
 	get_tree().set_pause(false)
 	get_node("HP").hide()
 	global.BattleEnd()
