@@ -48,13 +48,32 @@ size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 420.0
-margin/bottom = 107.0
+margin/bottom = 79.0
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 0
 shortcut = null
 text = "Start"
+flat = true
+items = [  ]
+
+[node name="Load" type="MenuButton" parent="Panel/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 83.0
+margin/right = 420.0
+margin/bottom = 162.0
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Load"
 flat = true
 items = [  ]
 
@@ -65,9 +84,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
 margin/left = 0.0
-margin/top = 111.0
+margin/top = 166.0
 margin/right = 420.0
-margin/bottom = 218.0
+margin/bottom = 245.0
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
 click_on_press = true
@@ -84,7 +103,7 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
 margin/left = 0.0
-margin/top = 222.0
+margin/top = 249.0
 margin/right = 420.0
 margin/bottom = 330.0
 custom_fonts/font = ExtResource( 2 )
@@ -106,6 +125,8 @@ transform/pos = Vector2( 613.733, 182.357 )
 texture = ExtResource( 3 )
 
 [connection signal="pressed" from="Panel/VBoxContainer/Start" to="Panel/VBoxContainer" method="_on_Start_pressed"]
+
+[connection signal="pressed" from="Panel/VBoxContainer/Load" to="Panel/VBoxContainer" method="_on_Load_pressed"]
 
 [connection signal="pressed" from="Panel/VBoxContainer/Options" to="Panel/VBoxContainer" method="_on_Options_pressed"]
 

@@ -12,6 +12,7 @@ var move_y = 0
 var move
 
 func _ready():
+	#случайное число на которое отлетает предмет
 	randomize()
 	move_x = rand_range(-100, 100)
 	move_y = rand_range(-100, 100)

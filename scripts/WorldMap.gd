@@ -8,4 +8,3 @@ func _on_TextureButton_pressed():
 
 func _on_TextureButton_2_pressed():
 	Transition.fade_to("res://scenes/BattleMap.tscn")
-	MusicInCity.stop()

@@ -4,6 +4,10 @@ func _on_Start_pressed():
 	print("Start")
 	get_tree().change_scene("res://scenes/FirstScene.tscn")
 
+func _on_Load_pressed():
+	print("Load Game")
+	global.loadgame()
+	
 func _on_Options_pressed():
 	print("Options")
 

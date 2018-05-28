@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	pass
+	MusicInCity.change("battlemap")
 
 func _on_ToWorldMap_body_enter( body ):
 	if (body.get_name() == "Player"):
