@@ -10,6 +10,9 @@ var NPCname = ""
 func _ready():
 	global.input_release()
 	set_process(true)
+	
+	#выводит время
+	get_node("Time").set_text(str(OS.get_time()['hour'], ":", OS.get_time()['minute']))
 
 #передвижение, анимация и остановка (вверх)
 func _on_ButtonUp_button_down():

@@ -47,7 +47,7 @@ func loaditems(id):
 	
 	return data[str(id[0])]["icon"]
 
-
+#включается возможность подбора предметов
 func _on_Drop_body_enter( body ):
 	if (body.get_name() == "Player"):
 		global.dictforloot[get_name()] = id
@@ -59,15 +59,15 @@ func _on_Drop_body_enter( body ):
 		HUD.get_node("Action").show()
 		HUD.get_node("Action/Label").set_text("Loot!")
 
+#выключается возможность подбора предметов
 func _on_Drop_body_exit( body ):
 	if (body.get_name() == "Player"):
-		
 		global.dictforloot.erase(get_name())
+		
 		#LOOT.loot = global.dictforloot.values()
 		#LOOT.renew_items()
 		
-		#if global.dictforloot.empty():
-		#	print("Clear!")
-		
-		HUD.get_node("Action").hide()
-		HUD.get_node("Loot").hide()
+		if global.dictforloot.empty():
+			#print("Clear!")
+			HUD.get_node("Action").hide()
+			HUD.get_node("Loot").hide()
