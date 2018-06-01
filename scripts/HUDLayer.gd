@@ -296,10 +296,12 @@ func _on_Action_button_down():
 		#применить стандартное действие
 		Input.action_press("ui_select")
 		#вычесть значение выносливости
+		"""
 		var value = get_node("BarPanel/TextureProgress2").get_value()
 		value -= 1
 		get_node("BarPanel/TextureProgress2").set_value(value)
 		get_node("BarPanel/TextureProgress2/GBarValue").set_text(str(value))
+		"""
 
 func _on_Action_button_up():
 	Input.action_release("ui_select")

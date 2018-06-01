@@ -5,13 +5,13 @@ func _ready():
 	
 	for i in range(global.firstscene.size()):
 		if global.firstscene[i] == 1:
-			get_node("Button/Merchant" + str(i)).show()
+			get_node("FSMarket/Merchant" + str(i)).show()
 	for i in range(global.secondscene.size()):
 		if global.secondscene[i] == 1:
-			get_node("Button1/Merchant" + str(i)).show()
+			get_node("SSMarket/Merchant" + str(i)).show()
 	for i in range(global.thirdscene.size()):
 		if global.thirdscene[i] == 1:
-			get_node("Button2/Merchant" + str(i)).show()
+			get_node("TSMarket/Merchant" + str(i)).show()
 
 func _on_Button_pressed():
 	Transition.fade_to("res://scenes/FirstScene.tscn")

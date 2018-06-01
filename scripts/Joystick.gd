@@ -18,7 +18,10 @@ func _process(delta):
 	if stick.get_pos() != Vector2(100,100):
 		player.move_x = new_x
 		player.move_y = new_y
-		player.move(motion)
+		#передаем значение передвижения Player
+		player.motion = motion
+		#передвижение непосредственно отсюда
+		#player.move(motion)
 	else:
 		player.move_x = 0
 		player.move_y = 0

@@ -1,39 +1,40 @@
-[gd_scene load_steps=37 format=1]
+[gd_scene load_steps=38 format=1]
 
 [ext_resource path="res://scripts/HUDLayer.gd" type="Script" id=1]
-[ext_resource path="res://img/hudredbar.png" type="Texture" id=2]
-[ext_resource path="res://fonts/Nanami.fnt" type="BitmapFont" id=3]
-[ext_resource path="res://img/hudbluebar.png" type="Texture" id=4]
-[ext_resource path="res://img/hudgreenbar.png" type="Texture" id=5]
-[ext_resource path="res://img/hudgreybar.png" type="Texture" id=6]
-[ext_resource path="res://img/hudyellowbar.png" type="Texture" id=7]
-[ext_resource path="res://img/FirstSceneMini.png" type="Texture" id=8]
-[ext_resource path="res://img/head.png" type="Texture" id=9]
-[ext_resource path="res://joystick/AU.png" type="Texture" id=10]
-[ext_resource path="res://joystick/AU2.png" type="Texture" id=11]
-[ext_resource path="res://joystick/AR.png" type="Texture" id=12]
-[ext_resource path="res://joystick/AR2.png" type="Texture" id=13]
-[ext_resource path="res://joystick/AD.png" type="Texture" id=14]
-[ext_resource path="res://joystick/AD2.png" type="Texture" id=15]
-[ext_resource path="res://joystick/AL.png" type="Texture" id=16]
-[ext_resource path="res://joystick/AL2.png" type="Texture" id=17]
-[ext_resource path="res://img/miniFS.png" type="Texture" id=18]
-[ext_resource path="res://img/minimapmask.png" type="Texture" id=19]
-[ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=20]
-[ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=21]
-[ext_resource path="res://scenes/Loot.tscn" type="PackedScene" id=22]
-[ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=23]
-[ext_resource path="res://img/Blue.png" type="Texture" id=24]
-[ext_resource path="res://img/Green.png" type="Texture" id=25]
-[ext_resource path="res://img/Greenb.png" type="Texture" id=26]
-[ext_resource path="res://img/Red.png" type="Texture" id=27]
-[ext_resource path="res://img/Redb.png" type="Texture" id=28]
-[ext_resource path="res://img/Yellow.png" type="Texture" id=29]
-[ext_resource path="res://img/Yellowb.png" type="Texture" id=30]
-[ext_resource path="res://img/BigGreen.png" type="Texture" id=31]
-[ext_resource path="res://img/BigGreenb.png" type="Texture" id=32]
-[ext_resource path="res://sounds/talk.ogg" type="AudioStream" id=33]
-[ext_resource path="res://sounds/trade.ogg" type="AudioStream" id=34]
+[ext_resource path="res://img/greenbar1.png" type="Texture" id=2]
+[ext_resource path="res://img/greenbar2.png" type="Texture" id=3]
+[ext_resource path="res://fonts/Nanami.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://img/yellowbar1.png" type="Texture" id=5]
+[ext_resource path="res://img/yellowbar2.png" type="Texture" id=6]
+[ext_resource path="res://img/hudgreybar.png" type="Texture" id=7]
+[ext_resource path="res://img/hudyellowbar.png" type="Texture" id=8]
+[ext_resource path="res://img/FirstSceneMini.png" type="Texture" id=9]
+[ext_resource path="res://img/head.png" type="Texture" id=10]
+[ext_resource path="res://joystick/AU.png" type="Texture" id=11]
+[ext_resource path="res://joystick/AU2.png" type="Texture" id=12]
+[ext_resource path="res://joystick/AR.png" type="Texture" id=13]
+[ext_resource path="res://joystick/AR2.png" type="Texture" id=14]
+[ext_resource path="res://joystick/AD.png" type="Texture" id=15]
+[ext_resource path="res://joystick/AD2.png" type="Texture" id=16]
+[ext_resource path="res://joystick/AL.png" type="Texture" id=17]
+[ext_resource path="res://joystick/AL2.png" type="Texture" id=18]
+[ext_resource path="res://img/miniFS.png" type="Texture" id=19]
+[ext_resource path="res://img/minimapmask.png" type="Texture" id=20]
+[ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/bazaar.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/Loot.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=24]
+[ext_resource path="res://img/Blue.png" type="Texture" id=25]
+[ext_resource path="res://img/Green.png" type="Texture" id=26]
+[ext_resource path="res://img/Greenb.png" type="Texture" id=27]
+[ext_resource path="res://img/Red.png" type="Texture" id=28]
+[ext_resource path="res://img/Redb.png" type="Texture" id=29]
+[ext_resource path="res://img/Yellow.png" type="Texture" id=30]
+[ext_resource path="res://img/Yellowb.png" type="Texture" id=31]
+[ext_resource path="res://img/BigGreen.png" type="Texture" id=32]
+[ext_resource path="res://img/BigGreenb.png" type="Texture" id=33]
+[ext_resource path="res://sounds/talk.ogg" type="AudioStream" id=34]
+[ext_resource path="res://sounds/trade.ogg" type="AudioStream" id=35]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -322,7 +323,6 @@ flat = false
 
 [node name="BarPanel" type="Panel" parent="."]
 
-editor/display_folded = true
 visibility/self_opacity = 0.3
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -330,126 +330,98 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 210.0
 margin/top = 0.0
-margin/right = 550.0
+margin/right = 633.0
 margin/bottom = 150.0
 
-[node name="TextureProgress" type="TextureProgress" parent="BarPanel"]
+[node name="Bars" type="VBoxContainer" parent="BarPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 8.0
+margin/top = 9.0
+margin/right = 404.0
+margin/bottom = 106.0
+alignment = 0
+
+[node name="TextureProgress" type="TextureProgress" parent="BarPanel/Bars"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 5.0
-margin/right = 320.0
-margin/bottom = 37.0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 396.0
+margin/bottom = 53.0
 range/min = 0.0
 range/max = 100.0
 range/step = 1.0
 range/page = 0.0
-range/value = 100.0
+range/value = 50.0
 range/exp_edit = false
 range/rounded = false
-texture/under = null
+texture/under = ExtResource( 2 )
 texture/over = null
-texture/progress = ExtResource( 2 )
+texture/progress = ExtResource( 3 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
-[node name="RBarValue" type="Label" parent="BarPanel/TextureProgress"]
+[node name="GBarValue" type="Label" parent="BarPanel/Bars/TextureProgress"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 280.0
+margin/left = 369.0
 margin/top = -5.0
-margin/right = 319.0
+margin/right = 408.0
 margin/bottom = 21.0
-custom_fonts/font = ExtResource( 3 )
-text = "100"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="TextureProgress1" type="TextureProgress" parent="BarPanel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 35.0
-margin/right = 320.0
-margin/bottom = 67.0
-range/min = 0.0
-range/max = 100.0
-range/step = 1.0
-range/page = 0.0
-range/value = 100.0
-range/exp_edit = false
-range/rounded = false
-texture/under = null
-texture/over = null
-texture/progress = ExtResource( 4 )
-radial_fill/fill_degrees = 360.0
-radial_fill/center_offset = Vector2( 0, 0 )
-
-[node name="BBarValue" type="Label" parent="BarPanel/TextureProgress1"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 280.0
-margin/top = -5.0
-margin/right = 319.0
-margin/bottom = 21.0
-custom_fonts/font = ExtResource( 3 )
-text = "100"
+custom_fonts/font = ExtResource( 4 )
+text = "50"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="TextureProgress2" type="TextureProgress" parent="BarPanel"]
+[node name="TextureProgress 2" type="TextureProgress" parent="BarPanel/Bars"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 65.0
-margin/right = 320.0
+margin/left = 0.0
+margin/top = 57.0
+margin/right = 396.0
 margin/bottom = 97.0
 range/min = 0.0
 range/max = 100.0
 range/step = 1.0
 range/page = 0.0
-range/value = 100.0
+range/value = 25.0
 range/exp_edit = false
 range/rounded = false
-texture/under = null
+texture/under = ExtResource( 5 )
 texture/over = null
-texture/progress = ExtResource( 5 )
+texture/progress = ExtResource( 6 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
-[node name="GBarValue" type="Label" parent="BarPanel/TextureProgress2"]
+[node name="YBarValue" type="Label" parent="BarPanel/Bars/TextureProgress 2"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 280.0
-margin/top = -5.0
-margin/right = 319.0
-margin/bottom = 21.0
-custom_fonts/font = ExtResource( 3 )
-text = "100"
+margin/left = 221.0
+margin/top = -6.0
+margin/right = 260.0
+margin/bottom = 20.0
+custom_fonts/font = ExtResource( 4 )
+text = "25"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
@@ -474,7 +446,7 @@ range/exp_edit = false
 range/rounded = false
 texture/under = null
 texture/over = null
-texture/progress = ExtResource( 6 )
+texture/progress = ExtResource( 7 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
@@ -498,7 +470,7 @@ range/exp_edit = false
 range/rounded = false
 texture/under = null
 texture/over = null
-texture/progress = ExtResource( 7 )
+texture/progress = ExtResource( 8 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
@@ -512,7 +484,7 @@ margin/left = 235.0
 margin/top = -5.0
 margin/right = 320.0
 margin/bottom = 21.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "0/0"
 align = 2
 percent_visible = 1.0
@@ -536,11 +508,11 @@ margin/bottom = 674.0
 [node name="Map" type="Sprite" parent="MapPanel"]
 
 transform/pos = Vector2( 500, 300 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="PlayerIcon" type="Sprite" parent="MapPanel/Map"]
 
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="JoystickPanel" type="Panel" parent="."]
 
@@ -572,8 +544,8 @@ margin/bottom = 28.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
+textures/normal = ExtResource( 11 )
+textures/pressed = ExtResource( 12 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -590,8 +562,8 @@ margin/bottom = 95.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 12 )
-textures/pressed = ExtResource( 13 )
+textures/normal = ExtResource( 13 )
+textures/pressed = ExtResource( 14 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -608,8 +580,8 @@ margin/bottom = 138.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 14 )
-textures/pressed = ExtResource( 15 )
+textures/normal = ExtResource( 15 )
+textures/pressed = ExtResource( 16 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -626,14 +598,13 @@ margin/bottom = 95.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 16 )
-textures/pressed = ExtResource( 17 )
+textures/normal = ExtResource( 17 )
+textures/pressed = ExtResource( 18 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
 [node name="MinimapPanel" type="Panel" parent="."]
 
-editor/display_folded = true
 visibility/self_opacity = 0.3
 anchor/left = 1
 anchor/right = 1
@@ -657,7 +628,7 @@ margin/left = -226.0
 margin/top = -25.0
 margin/right = 254.0
 margin/bottom = 245.0
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 stretch_mode = 0
 
 [node name="Light2D" type="Light2D" parent="MinimapPanel"]
@@ -666,7 +637,7 @@ transform/pos = Vector2( 110, 110 )
 z/z = 1
 enabled = true
 editor_only = false
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -817,7 +788,7 @@ shortcut = null
 text = "OK"
 flat = false
 
-[node name="Inventory" parent="." instance=ExtResource( 20 )]
+[node name="Inventory" parent="." instance=ExtResource( 21 )]
 
 visibility/visible = false
 margin/left = 280.0
@@ -825,15 +796,15 @@ margin/top = 116.0
 margin/right = 1020.0
 margin/bottom = 556.0
 
-[node name="bazaar" parent="." instance=ExtResource( 21 )]
+[node name="bazaar" parent="." instance=ExtResource( 22 )]
 
 visibility/visible = false
 
-[node name="Loot" parent="." instance=ExtResource( 22 )]
+[node name="Loot" parent="." instance=ExtResource( 23 )]
 
 visibility/visible = false
 
-[node name="Joystick" parent="." instance=ExtResource( 23 )]
+[node name="Joystick" parent="." instance=ExtResource( 24 )]
 
 transform/pos = Vector2( 120, 600 )
 
@@ -853,7 +824,7 @@ margin/left = 400.0
 margin/top = 150.0
 margin/right = -460.0
 margin/bottom = 50.0
-texture = ExtResource( 24 )
+texture = ExtResource( 25 )
 patch_margin/left = 20
 patch_margin/top = 20
 patch_margin/right = 20
@@ -869,7 +840,7 @@ margin/left = 15.0
 margin/top = 15.0
 margin/right = 840.0
 margin/bottom = 85.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
@@ -890,8 +861,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 25 )
-textures/pressed = ExtResource( 26 )
+textures/normal = ExtResource( 26 )
+textures/pressed = ExtResource( 27 )
 params/resize_mode = 1
 params/stretch_mode = 0
 
@@ -905,7 +876,7 @@ margin/left = 15.0
 margin/top = 20.0
 margin/right = 46.0
 margin/bottom = 46.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "OK"
 percent_visible = 1.0
 lines_skipped = 0
@@ -926,8 +897,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 27 )
-textures/pressed = ExtResource( 28 )
+textures/normal = ExtResource( 28 )
+textures/pressed = ExtResource( 29 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -941,7 +912,7 @@ margin/left = 18.0
 margin/top = 20.0
 margin/right = 46.0
 margin/bottom = 46.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "No"
 percent_visible = 1.0
 lines_skipped = 0
@@ -961,8 +932,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 29 )
-textures/pressed = ExtResource( 30 )
+textures/normal = ExtResource( 30 )
+textures/pressed = ExtResource( 31 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -976,7 +947,7 @@ margin/left = 9.0
 margin/top = 20.0
 margin/right = 55.0
 margin/bottom = 46.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Next"
 percent_visible = 1.0
 lines_skipped = 0
@@ -997,8 +968,8 @@ margin/bottom = 134.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 29 )
-textures/pressed = ExtResource( 30 )
+textures/normal = ExtResource( 30 )
+textures/pressed = ExtResource( 31 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1012,7 +983,7 @@ margin/left = 9.0
 margin/top = 20.0
 margin/right = 55.0
 margin/bottom = 46.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Next_"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1037,8 +1008,8 @@ margin/bottom = 37.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 31 )
-textures/pressed = ExtResource( 32 )
+textures/normal = ExtResource( 32 )
+textures/pressed = ExtResource( 33 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1053,7 +1024,7 @@ margin/left = -3.0
 margin/top = -55.0
 margin/right = 87.0
 margin/bottom = -29.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Action!"
 align = 1
 percent_visible = 1.0
@@ -1062,7 +1033,7 @@ max_lines_visible = -1
 
 [node name="Talk" type="StreamPlayer" parent="Action"]
 
-stream/stream = ExtResource( 33 )
+stream/stream = ExtResource( 34 )
 stream/play = false
 stream/loop = false
 stream/volume_db = 0.0
@@ -1073,7 +1044,7 @@ stream/buffering_ms = 500
 
 [node name="Trade" type="StreamPlayer" parent="Action"]
 
-stream/stream = ExtResource( 34 )
+stream/stream = ExtResource( 35 )
 stream/play = false
 stream/loop = false
 stream/volume_db = 0.0
@@ -1095,7 +1066,7 @@ margin/left = 459.0
 margin/top = 326.0
 margin/right = 639.0
 margin/bottom = 352.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Pause"
 align = 1
 percent_visible = 1.0
@@ -1115,15 +1086,17 @@ autoplay = ""
 
 [node name="Time" type="Label" parent="."]
 
+anchor/left = 1
+anchor/right = 1
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 976.0
+margin/left = 304.0
 margin/top = 10.0
-margin/right = 1016.0
+margin/right = 264.0
 margin/bottom = 36.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -1138,7 +1111,7 @@ margin/left = 210.0
 margin/top = 160.0
 margin/right = 275.0
 margin/bottom = 186.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Timer: "
 percent_visible = 1.0
 lines_skipped = 0
@@ -1154,7 +1127,7 @@ margin/left = 270.0
 margin/top = 160.0
 margin/right = 310.0
 margin/bottom = 186.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

@@ -5,10 +5,11 @@ var timer = 0
 var move_x = 0
 var move_y = 0
 var direction = "down"
-
 var weapon
 
-const MOTION_SPEED = 250
+var motion = Vector2()
+
+const MOTION_SPEED = 200
 
 func _ready():
 	#временно, для счетчика урона
@@ -18,7 +19,6 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	var motion = Vector2()
 	var player = get_node("AnimatedSprite")
 	
 	#анимация атаки
@@ -153,13 +153,21 @@ func _fixed_process(delta):
 		else:
 			player.play("MoveRight")
 	
-	
+	#print(motion)
 	
 	motion = motion.normalized()*MOTION_SPEED*delta
 	motion = move(motion)
 	
-	if (is_colliding()):
-		get_collider().move(get_collision_normal() * (-1))
+	#скольжение по поверхностям
+	var slide_attempts = 4
+	while(is_colliding() and slide_attempts > 0):
+		motion = get_collision_normal().slide(motion)
+		motion = move(motion)
+		slide_attempts -= 1
+
+	#толкает тела при столкновении с KinematicBody, вылетает при столкновении со StaticBody
+	#if (is_colliding()):
+	#	get_collider().move(get_collision_normal() * (-1))
 	
 	set_z(get_pos().y)
 	
@@ -174,12 +182,6 @@ func _fixed_process(delta):
 	#реализация передвижения камеры
 	var camera_pos = get_tree().get_nodes_in_group("hud")[0].camera_pos
 	get_node("Camera2D").set_pos(get_node("Camera2D").get_pos().linear_interpolate(camera_pos, 0.1))
-	
-#	var slide_attempts = 4
-#	while(is_colliding() and slide_attempts > 0):
-#		motion = get_collision_normal().slide(motion)
-#		motion = move(motion)
-#		slide_attempts -= 1
 
 
 

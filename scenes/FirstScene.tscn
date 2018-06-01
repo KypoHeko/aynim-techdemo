@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://img/first_scene.png" type="Texture" id=2]
@@ -35,6 +35,16 @@ extents = Vector2( 10, 133.026 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 70.3577 )
 
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 431.875, 8.80716 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 432.202, 10 )
+
 [node name="FirstScene" type="Node2D"]
 
 z/z = 1
@@ -43,7 +53,7 @@ script/script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 
 visibility/opacity = 0.5
-transform/pos = Vector2( 810, 486 )
+transform/pos = Vector2( 808.892, 486 )
 z/z = -4096
 texture = ExtResource( 2 )
 
@@ -176,6 +186,51 @@ transform/scale = Vector2( 1, 1.65976 )
 shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
+
+[node name="Borders" type="StaticBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 619.267, 838.676 )
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 0.894934, 0.446198, -0.446198, 0.894934, -366, -186 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 6 )
+shapes/1/transform = Matrix32( 0.894934, -0.446198, 0.446198, 0.894934, 652.286, -186 )
+shapes/1/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CS2D" type="CollisionShape2D" parent="Borders"]
+
+transform/pos = Vector2( -366, -186 )
+transform/rot = -26.5
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CS2D 2" type="CollisionShape2D" parent="Borders"]
+
+transform/pos = Vector2( 652.286, -186 )
+transform/rot = 26.5
+shape = SubResource( 6 )
+trigger = false
+_update_shape_index = 1
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 604.862, -139.721 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 
 [connection signal="body_enter" from="ToCityMap" to="." method="_on_ToCityMap_body_enter"]
 
