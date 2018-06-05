@@ -25,6 +25,9 @@ func _on_Button2_pressed():
 func _on_Button3_pressed():
 	Transition.fade_to("res://scenes/WorldMap.tscn")
 
+func _on_Button4_pressed():
+	Transition.fade_to("res://scenes/FourthScene.tscn")
+
 func _on_Merchant_pressed():
 	get_node("CanvasLayer/bazaar").renew_items()
 	get_node("CanvasLayer/bazaar").show()

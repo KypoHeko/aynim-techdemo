@@ -345,9 +345,8 @@ margin/right = 404.0
 margin/bottom = 106.0
 alignment = 0
 
-[node name="TextureProgress" type="TextureProgress" parent="BarPanel/Bars"]
+[node name="GreenBar" type="TextureProgress" parent="BarPanel/Bars"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -369,7 +368,7 @@ texture/progress = ExtResource( 3 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
-[node name="GBarValue" type="Label" parent="BarPanel/Bars/TextureProgress"]
+[node name="GBarValue" type="Label" parent="BarPanel/Bars/GreenBar"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -386,9 +385,8 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="TextureProgress 2" type="TextureProgress" parent="BarPanel/Bars"]
+[node name="YellowBar" type="TextureProgress" parent="BarPanel/Bars"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -410,7 +408,7 @@ texture/progress = ExtResource( 6 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
-[node name="YBarValue" type="Label" parent="BarPanel/Bars/TextureProgress 2"]
+[node name="YBarValue" type="Label" parent="BarPanel/Bars/YellowBar"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -453,6 +451,7 @@ radial_fill/center_offset = Vector2( 0, 0 )
 [node name="TextureProgress3" type="TextureProgress" parent="BarPanel"]
 
 editor/display_folded = true
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -490,6 +489,106 @@ align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="VBC" type="VBoxContainer" parent="BarPanel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 429.0
+margin/top = 11.0
+margin/right = 530.0
+margin/bottom = 111.0
+alignment = 1
+
+[node name="HBC" type="HBoxContainer" parent="BarPanel/VBC"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 101.0
+margin/bottom = 48.0
+alignment = 0
+
+[node name="Plus5" type="Button" parent="BarPanel/VBC/HBC"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 48.0
+margin/bottom = 48.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "+5"
+flat = false
+
+[node name="Minus5" type="Button" parent="BarPanel/VBC/HBC"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 52.0
+margin/top = 0.0
+margin/right = 101.0
+margin/bottom = 48.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "-5"
+flat = false
+
+[node name="HBC1" type="HBoxContainer" parent="BarPanel/VBC"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 52.0
+margin/right = 101.0
+margin/bottom = 100.0
+alignment = 0
+
+[node name="Plus5" type="Button" parent="BarPanel/VBC/HBC1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 48.0
+margin/bottom = 48.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "+5"
+flat = false
+
+[node name="Minus5" type="Button" parent="BarPanel/VBC/HBC1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 52.0
+margin/top = 0.0
+margin/right = 101.0
+margin/bottom = 48.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "-5"
+flat = false
 
 [node name="MapPanel" type="Panel" parent="."]
 
@@ -1168,6 +1267,14 @@ autostart = false
 [connection signal="pressed" from="MainMenuPanel/Drop" to="." method="_on_Drop_pressed"]
 
 [connection signal="pressed" from="MainMenuPanel/LootInArea" to="." method="_on_LootInArea_pressed"]
+
+[connection signal="pressed" from="BarPanel/VBC/HBC/Plus5" to="." method="_on_Plus5_pressed"]
+
+[connection signal="pressed" from="BarPanel/VBC/HBC/Minus5" to="." method="_on_Minus5_pressed"]
+
+[connection signal="pressed" from="BarPanel/VBC/HBC1/Plus5" to="." method="_on_2Plus5_pressed"]
+
+[connection signal="pressed" from="BarPanel/VBC/HBC1/Minus5" to="." method="_on_2Minus5_pressed"]
 
 [connection signal="button_down" from="JoystickPanel/ButtonUp" to="." method="_on_ButtonUp_button_down"]
 

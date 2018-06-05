@@ -9,7 +9,7 @@ var weapon
 
 var motion = Vector2()
 
-const MOTION_SPEED = 200
+const MOTION_SPEED = 250
 
 func _ready():
 	#временно, для счетчика урона

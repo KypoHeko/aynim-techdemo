@@ -28,10 +28,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 523.0
-margin/top = 269.0
-margin/right = 583.0
-margin/bottom = 329.0
+margin/left = 323.0
+margin/top = 272.0
+margin/right = 383.0
+margin/bottom = 332.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -47,10 +47,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 523.0
-margin/top = 333.0
-margin/right = 703.0
-margin/bottom = 373.0
+margin/left = 323.0
+margin/top = 336.0
+margin/right = 503.0
+margin/bottom = 376.0
 alignment = 0
 
 [node name="Merchant0" type="TextureButton" parent="FSMarket"]
@@ -135,10 +135,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 269.0
-margin/top = 390.0
-margin/right = 329.0
-margin/bottom = 450.0
+margin/left = 379.0
+margin/top = 434.0
+margin/right = 439.0
+margin/bottom = 494.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -242,10 +242,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 793.0
-margin/top = 413.0
-margin/right = 853.0
-margin/bottom = 473.0
+margin/left = 576.0
+margin/top = 234.0
+margin/right = 636.0
+margin/bottom = 294.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -261,10 +261,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 795.0
-margin/top = 477.0
-margin/right = 968.0
-margin/bottom = 517.0
+margin/left = 578.0
+margin/top = 298.0
+margin/right = 751.0
+margin/bottom = 338.0
 alignment = 0
 
 [node name="Merchant0" type="TextureButton" parent="TSMarket"]
@@ -349,10 +349,28 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 169.0
-margin/top = 258.0
-margin/right = 209.0
-margin/bottom = 298.0
+margin/left = 43.0
+margin/top = 196.0
+margin/right = 83.0
+margin/bottom = 236.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 10 )
+textures/pressed = ExtResource( 11 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Button4" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 571.0
+margin/top = 367.0
+margin/right = 611.0
+margin/bottom = 407.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -404,5 +422,7 @@ visibility/visible = false
 [connection signal="pressed" from="TSMarket/Merchant3" to="." method="_on_Merchant_pressed"]
 
 [connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
+
+[connection signal="pressed" from="Button4" to="." method="_on_Button4_pressed"]
 
 

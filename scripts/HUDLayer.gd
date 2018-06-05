@@ -6,10 +6,13 @@ onready var player = get_tree().get_nodes_in_group('persistent')[0].get_node("An
 var camera_pos = Vector2(0, 0)
 #переменная для активной кнопки
 var NPCname = ""
+var hp = 60
+var en = 30
 
 func _ready():
 	global.input_release()
 	set_process(true)
+	set_fixed_process(true)
 	
 	#выводит время
 	get_node("Time").set_text(str(OS.get_time()['hour'], ":", OS.get_time()['minute']))
@@ -82,7 +85,7 @@ var timer2 = 0.0
 var border = 0
 func _on_RunButton_pressed():
 	border += 20
-	get_node("BarPanel/TextureProgress4").set_value(border)
+	#get_node("BarPanel/TextureProgress4").set_value(border)
 	get_node("Timer 2").start()
 	set_process(true)
 
@@ -305,3 +308,19 @@ func _on_Action_button_down():
 
 func _on_Action_button_up():
 	Input.action_release("ui_select")
+
+
+func _on_Plus5_pressed():
+	hp += 5
+func _on_Minus5_pressed():
+	hp -= 5
+func _on_2Plus5_pressed():
+	en += 5
+func _on_2Minus5_pressed():
+	en -= 5
+func _fixed_process(delta):
+	#актуальные данные статус бара
+	get_node("BarPanel/Bars/GreenBar").set_value(hp)
+	get_node("BarPanel/Bars/YellowBar").set_value(en)
+	get_node("BarPanel/Bars/GreenBar/GBarValue").set_text(str(hp))
+	get_node("BarPanel/Bars/YellowBar/YBarValue").set_text(str(en))
