@@ -9,7 +9,7 @@ var fib_a = 1
 var fib_b = 2
 
 var stats = [1,1,1,1,1,]
-var other_stats = [0,0,0,0,0,]
+var skills = [10,10,10,10,10,10,10,10,10,]
 var player_inv = [3, 4, 5, 9, 10,]
 var player_quests = []
 var player_c_quests = []

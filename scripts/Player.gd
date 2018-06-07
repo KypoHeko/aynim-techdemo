@@ -195,6 +195,8 @@ func save():
 		active_quests = global.player_quests,
 		complete_quests = global.player_c_quests,
 		inventory = global.player_inv,
+		stats = global.stats,
+		skills = global.skills,
 		money = global.money,
 		battle_level = global.battle_level,
 		exp_points = global.exp_points,
